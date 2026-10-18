@@ -1,8 +1,8 @@
-# HVM-GraphRAG
+# GCo-RAG
 
-**HVM-GraphRAG: Holistic-View Multimodal Graph Retrieval-Augmented Generation on Complex Document**
+**GCo-RAG: Global Consistency for Graph Retrieval-Augmented Generation on Complex Multimodal Documents**
 
-![HVM-GraphRAG framework](framework.png)
+![GCo-RAG framework](framework.png)
 
 This directory is a cleaned release copy of the current HVM-GraphRAG method code.
 The relative layout is preserved, so existing launch commands can still be used
