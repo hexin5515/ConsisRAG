@@ -4,10 +4,6 @@
 
 ![GCo-RAG framework](framework.png)
 
-This directory is a cleaned release copy of the current HVM-GraphRAG method code.
-The relative layout is preserved, so existing launch commands can still be used
-after changing into this directory.
-
 ## Main Entry Points
 
 Graph construction from MinerU outputs:
