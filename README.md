@@ -1,6 +1,6 @@
-# GCo-RAG
+# ConsisRAG
 
-**GCo-RAG: Global Consistency for Graph Retrieval-Augmented Generation on Complex Multimodal Documents**
+**ConsisRAG:  Global Consistency-Oriented Graph Retrieval-Augmented Generation on Multimodal Documents**
 
 ![GCo-RAG framework](framework.png)
 
