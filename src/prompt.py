@@ -81,7 +81,7 @@ Only include high-confidence, non-duplicate relations.
 Return at most 20 distinct relations.
 Return your answer as a JSON object with a "relations" array following the specified format."""
 
-# Conflict detection prompt: detect conflicts between triples
+
 PROMPT['conflict_detection'] = {
     "system": """You are an expert fact checker. Given one candidate conflict group of triples, determine whether any triples in the group truly conflict with each other.
 
@@ -166,9 +166,15 @@ JSON payload:
 """
 }
 
-# Conflict resolution prompt: resolve conflicts between triples using source passages
+
 PROMPT['conflict_resolution'] = {
     "system": """You are an expert knowledge graph curator. Given a set of conflicting triples and their source passages, your task is to resolve the conflicts and produce corrected triples.
+
+A triple ID identifies one shared fact that may have multiple supporting chunks.
+Return one decision per original conflicting fact; the decision applies to all of
+that fact's occurrences, not just one source chunk. Consider all supplied sources,
+including additional entity-level evidence. Additional evidence is context only;
+do not resolve unrelated facts merely because they appear in a supporting chunk.
 
 Conflict Resolution Strategies:
 

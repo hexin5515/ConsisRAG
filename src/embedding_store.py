@@ -12,22 +12,8 @@ logger = logging.getLogger(__name__)
 
 class EmbeddingStore:
     def __init__(self, embedding_model, db_filename, batch_size, namespace):
-        """
-        Initializes the class with necessary configurations and sets up the working directory.
 
-        Parameters:
-        embedding_model: The model used for embeddings.
-        db_filename: The directory path where data will be stored or retrieved.
-        batch_size: The batch size used for processing.
-        namespace: A unique identifier for data segregation.
 
-        Functionality:
-        - Assigns the provided parameters to instance variables.
-        - Checks if the directory specified by `db_filename` exists.
-          - If not, creates the directory and logs the operation.
-        - Constructs the filename for storing data in a parquet file format.
-        - Calls the method `_load_data()` to initialize the data loading process.
-        """
         self.embedding_model = embedding_model
         self.batch_size = batch_size
         self.namespace = namespace
@@ -47,14 +33,14 @@ class EmbeddingStore:
         for text in texts:
             nodes_dict[compute_mdhash_id(text, prefix=self.namespace + "-")] = {'content': text}
 
-        # Get all hash_ids from the input dictionary.
+
         all_hash_ids = list(nodes_dict.keys())
         if not all_hash_ids:
             return  {}
 
         existing = self.hash_id_to_row.keys()
 
-        # Filter out the missing hash_ids.
+
         missing_ids = [hash_id for hash_id in all_hash_ids if hash_id not in existing]
         texts_to_encode = [nodes_dict[hash_id]["content"] for hash_id in missing_ids]
 
@@ -66,23 +52,23 @@ class EmbeddingStore:
         for text in texts:
             nodes_dict[compute_mdhash_id(text, prefix=self.namespace + "-")] = {'content': text}
 
-        # Get all hash_ids from the input dictionary.
+
         all_hash_ids = list(nodes_dict.keys())
         if not all_hash_ids:
-            return  # Nothing to insert.
+            return
 
         existing = self.hash_id_to_row.keys()
 
-        # Filter out the missing hash_ids.
+
         missing_ids = [hash_id for hash_id in all_hash_ids if hash_id not in existing]
 
         logger.info(
             f"Inserting {len(missing_ids)} new records, {len(all_hash_ids) - len(missing_ids)} records already exist.")
 
         if not missing_ids:
-            return  {}# All records already exist.
+            return  {}
 
-        # Prepare the texts to encode from the "content" field.
+
         texts_to_encode = [nodes_dict[hash_id]["content"] for hash_id in missing_ids]
 
         missing_embeddings = self.embedding_model.batch_encode(texts_to_encode)
@@ -129,7 +115,7 @@ class EmbeddingStore:
 
     def get_row(self, hash_id):
         return self.hash_id_to_row[hash_id]
-    
+
     def get_rows(self, hash_ids, dtype=np.float32):
         if not hash_ids:
             return {}
@@ -146,7 +132,7 @@ class EmbeddingStore:
 
     def get_embedding(self, hash_id, dtype=np.float32) -> np.ndarray:
         return self.embeddings[self.hash_id_to_idx[hash_id]].astype(dtype)
-    
+
     def get_embeddings(self, hash_ids, dtype=np.float32) -> List[np.ndarray]:
         if not hash_ids:
             return []

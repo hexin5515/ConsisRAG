@@ -26,12 +26,8 @@ def _node_kind(node: Dict[str, Any]) -> str:
 
 
 def _block_type(node: Dict[str, Any]) -> str:
-    """
-    Return MinerU block_type, preferring pdf_para_block.type when available.
 
-    对 MinerU 来说，真正决定块语义的往往是 pdf_para_block.type，
-    比如某些列表块在 node.type 上仍然可能表现成 TEXT。
-    """
+
     meta = node.get("meta_info") or {}
     pdf_para_block = meta.get("pdf_para_block") or {}
     block_type = pdf_para_block.get("type")
@@ -41,13 +37,8 @@ def _block_type(node: Dict[str, Any]) -> str:
 
 
 def _collect_span_text(obj: Any) -> List[str]:
-    """
-    Recursively collect textual content from MinerU pdf_para_block structures.
 
-    这一步主要是为了兼容 list 节点：
-    它们经常没有 meta_info.content，
-    但真实文本会藏在 pdf_para_block -> blocks -> lines -> spans 里面。
-    """
+
     texts: List[str] = []
 
     if isinstance(obj, dict):
@@ -71,7 +62,7 @@ def _collect_span_text(obj: Any) -> List[str]:
 
 
 def _pdf_para_block_text(meta: Dict[str, Any]) -> str:
-    """Extract fallback text from meta_info.pdf_para_block."""
+
     pdf_para_block = meta.get("pdf_para_block") or {}
     texts = _collect_span_text(pdf_para_block)
     return _clean_text("\n".join(texts))
@@ -201,15 +192,8 @@ def _format_chunk_text(
     text: str,
     title_path: List[str],
 ) -> str:
-    """
-    Build the final chunk text used by step1.
 
-    当前我们只保留：
-    - chunk 正文
-    - 它所属的 section
 
-    不再把 source file / block type / page / image path 混进 content 里。
-    """
     if title_path:
         return "Section: " + " > ".join(title_path) + "\n\n" + text
     return text
@@ -222,12 +206,8 @@ def load_mineru_json_chunks(
     include_image_chunks: bool = True,
     include_empty_image_chunks: bool = False,
 ) -> List[MinerUChunk]:
-    """
-    Load MinerU node JSON as structure-preserving chunks.
 
-    No fixed-length splitting is performed. Each MinerU text/table/image node
-    becomes one passage, with its parent title path included as context.
-    """
+
     path = Path(json_path)
     with path.open("r", encoding="utf-8") as f:
         data = json.load(f)
@@ -253,7 +233,7 @@ def load_mineru_json_chunks(
 
         meta = node.get("meta_info") or {}
         text = _node_text(node)
-        if not text and not (kind == "IMAGE" and include_empty_image_chunks):
+        if not text and not (kind == "IMAGE" and (include_empty_image_chunks or meta.get("img_path"))):
             continue
 
         title_path = _title_path(node, nodes_by_id)

@@ -10,9 +10,6 @@ from openai import OpenAI
 from scipy.optimize import linear_sum_assignment
 
 
-# Keep this prompt aligned with BookRAG's Eval/utils/prompt.md so the
-# extractor behavior matches the original M3DocRAG evaluation as closely as
-# possible while remaining self-contained inside this repo.
 BOOKRAG_M3DOC_EVAL_PROMPT = """# Role and Goal
 You are an AI evaluator. Your task is to assess a language model's response based on a given question and a ground truth "Correct Answer". You need to perform three actions:
 1.  Extract the most direct answer from the "Model Response".
@@ -105,13 +102,7 @@ Score: 1
 
 
 class BookRAGM3DocAnswerExtractor:
-    """
-    BookRAG-compatible answer extractor for M3DocRAG / M3DocVQA.
 
-    BookRAG's original m3doc evaluation uses a judge LLM to normalize the raw
-    model output before computing EM/F1. We mirror that behavior here while
-    letting the caller pass base_url / api_key / model explicitly.
-    """
 
     def __init__(
         self,

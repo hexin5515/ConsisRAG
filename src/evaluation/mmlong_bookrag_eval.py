@@ -42,10 +42,7 @@ Score: [1 for correct, 0 for incorrect]
 
 
 class BookRAGStyleAnswerExtractor:
-    """
-    复现 BookRAG 在 MMLongBench 上的第一步评测：
-    先用一个强 LLM 从自由回答中抽出标准答案，再给出格式和 0/1 粗分。
-    """
+
 
     def __init__(
         self,
@@ -370,15 +367,8 @@ def evaluate_mmlong_results(
     output_field: str = "output",
     answer_format_field: str = "answer_format",
 ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
-    """
-    基本复刻 BookRAG 在 MMLongBench 上的 answer 评测逻辑。
 
-    输入 records 期望至少包含：
-    - question
-    - answer
-    - output
-    - answer_format
-    """
+
     evaluated: List[Dict[str, Any]] = []
     for item in records:
         record = dict(item)

@@ -24,13 +24,7 @@ def _normalize_openai_base_url(base_url: str) -> str:
 
 
 class OpenAIEmbeddingModel(BaseEmbeddingModel):
-    """
-    OpenAI-compatible embedding provider.
 
-    This class intentionally does not do long-text splitting. It forwards each
-    input string directly to the remote `/v1/embeddings` endpoint and lets the
-    upstream service decide how to handle overlength inputs.
-    """
 
     def __init__(self, global_config: Optional[BaseConfig] = None, embedding_model_name: Optional[str] = None) -> None:
         super().__init__(global_config=global_config)

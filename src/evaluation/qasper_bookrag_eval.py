@@ -9,8 +9,6 @@ import httpx
 from openai import OpenAI
 
 
-# Keep this prompt aligned with BookRAG's Eval/utils/prompt.md so that answer
-# extraction and 0/1 coarse judging follow the same style on Qasper.
 BOOKRAG_QASPER_EVAL_PROMPT = """# Role and Goal
 You are an AI evaluator. Your task is to assess a language model's response based on a given question and a ground truth "Correct Answer". You need to perform three actions:
 1.  Extract the most direct answer from the "Model Response".
@@ -44,14 +42,7 @@ Score: [1 for correct, 0 for incorrect]
 
 
 class BookRAGQasperAnswerExtractor:
-    """
-    BookRAG-compatible answer extractor for Qasper.
 
-    BookRAG's Qasper evaluation first asks a strong judge model to normalize the
-    model output into a concise answer string and a coarse 0/1 score. We mirror
-    that behavior here, but allow the caller to pass base_url / api_key / model
-    explicitly instead of relying on BookRAG's api.txt side file.
-    """
 
     def __init__(
         self,
@@ -126,10 +117,7 @@ Model Response: {output}
 
 
 def normalize_answer(text: str) -> str:
-    """
-    Same normalization style as BookRAG's Qasper evaluation:
-    lower, strip punctuation, strip articles, and squeeze whitespace.
-    """
+
 
     def remove_articles(value: str) -> str:
         return re.sub(r"\b(a|an|the)\b", " ", value)
@@ -226,11 +214,8 @@ def get_accuracy(prediction: str, ground_truths: Sequence[str]) -> int:
 
 
 def eval_single_res(pred: str, gold_answers: Sequence[Dict[str, Any]]) -> Tuple[float, float]:
-    """
-    Mirror BookRAG's Qasper scoring:
-    - accuracy: whether normalized gold answer is contained in normalized pred
-    - f1: max token F1 across references
-    """
+
+
     accuracy_score = 0.0
     f1_score = 0.0
     for gold in gold_answers:
@@ -245,4 +230,3 @@ def eval_single_res(pred: str, gold_answers: Sequence[Dict[str, Any]]) -> Tuple[
         f1 = token_f1_score(pred, gold.get("answer", ""))
         f1_score = max(f1_score, f1)
     return accuracy_score, f1_score
-

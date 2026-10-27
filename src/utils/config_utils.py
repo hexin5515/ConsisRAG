@@ -13,8 +13,8 @@ logger = get_logger(__name__)
 
 @dataclass
 class BaseConfig:
-    """One and only configuration."""
-    # LLM specific attributes 
+
+
     llm_name: str = field(
         default="qwen3-8b",
         metadata={"help": "Class name indicating which LLM model to use."}
@@ -43,19 +43,19 @@ class BaseConfig:
         default_factory=lambda: { "type": "json_object" },
         metadata={"help": "Specifying the format that the model must output."}
     )
-    
-    ## LLM specific attributes -> Async hyperparameters
+
+
     max_retry_attempts: int = field(
         default=5,
         metadata={"help": "Max number of retry attempts for an asynchronous API calling."}
     )
-    # Storage specific attributes
+
     force_openie_from_scratch: bool = field(
         default=False,
         metadata={"help": "If set to True, will ignore all existing openie files and rebuild them from scratch."}
     )
 
-    # Storage specific attributes 
+
     force_index_from_scratch: bool = field(
         default=False,
         metadata={"help": "If set to True, will ignore all existing storage files and graph data and will rebuild from scratch."}
@@ -72,8 +72,8 @@ class BaseConfig:
         default=True,
         metadata={"help": "If set to True, will save the OpenIE model to disk."}
     )
-    
-    # Preprocessing specific attributes
+
+
     text_preprocessor_class_name: str = field(
         default="TextPreprocessor",
         metadata={"help": "Name of the text-based preprocessor to use in preprocessing."}
@@ -91,9 +91,8 @@ class BaseConfig:
         metadata={"help": "Max number of tokens each chunk can contain. If set to None, the whole doc will treated as a single chunk."}
     )
     preprocess_chunk_func: Literal["by_token", "by_word"] = field(default='by_token')
-    
-    
-    # Information extraction specific attributes
+
+
     information_extraction_model_name: Literal["openie_openai_gpt", ] = field(
         default="openie_openai_gpt",
         metadata={"help": "Class name indicating which information extraction model to use."}
@@ -106,9 +105,8 @@ class BaseConfig:
         default=False,
         metadata={"help": "Whether to skip graph construction or not. Set it to be true when running vllm offline indexing for the first time."}
     )
-    
-    
-    # Embedding specific attributes
+
+
     embedding_model_name: str = field(
         default="nvidia/NV-Embed-v2",
         metadata={"help": "Class name indicating which embedding model to use."}
@@ -125,10 +123,8 @@ class BaseConfig:
         default=2048,
         metadata={"help": "Max sequence length for the embedding model."}
     )
-    
-    
-    
-    # Graph construction specific attributes
+
+
     synonymy_edge_topk: int = field(
         default=2047,
         metadata={"help": "k for knn retrieval in buiding synonymy edges."}
@@ -165,10 +161,8 @@ class BaseConfig:
         default=False,
         metadata={"help": "Whether the graph is directed or not."}
     )
-    
-    
-    
-    # Retrieval specific attributes
+
+
     linking_top_k: int = field(
         default=5,
         metadata={"help": "The number of linked nodes at each retrieval step"}
@@ -197,9 +191,8 @@ class BaseConfig:
         default=1,
         metadata={"help": "Max workers for parallel retrieval. Set to 1 for serial execution."}
     )
-    
-    
-    # QA specific attributes
+
+
     qa_max_workers: int = field(
         default=1,
         metadata={"help": "Max workers for parallel QA inference. Set to 1 for serial execution."}
@@ -212,27 +205,24 @@ class BaseConfig:
         default=5,
         metadata={"help": "Feeding top k documents to the QA model for reading."}
     )
-    
-    # Save dir (highest level directory)
+
+
     save_dir: str = field(
         default=None,
         metadata={"help": "Directory to save all related information. If it's given, will overwrite all default save_dir setups. If it's not given, then if we're not running specific datasets, default to `outputs`, otherwise, default to a dataset-customized output dir."}
     )
-    
-    
-    
-    # Dataset running specific attributes
-    ## Dataset running specific attributes -> General
+
+
     dataset: Optional[Literal['hotpotqa', 'hotpotqa_train', 'musique', '2wikimultihopqa']] = field(
         default=None,
         metadata={"help": "Dataset to use. If specified, it means we will run specific datasets. If not specified, it means we're running freely."}
     )
-    ## Dataset running specific attributes -> Graph
+
     graph_type: Literal[
-        'dpr_only', 
-        'entity', 
+        'dpr_only',
+        'entity',
         'passage_entity', 'relation_aware_passage_entity',
-        'passage_entity_relation', 
+        'passage_entity_relation',
         'facts_and_sim_passage_node_unidirectional',
     ] = field(
         default="facts_and_sim_passage_node_unidirectional",
@@ -242,10 +232,10 @@ class BaseConfig:
         default=None,
         metadata={"help": "Length of the corpus to use."}
     )
-    
-    
+
+
     def __post_init__(self):
-        if self.save_dir is None: # If save_dir not given
-            if self.dataset is None: self.save_dir = 'outputs' # running freely
-            else: self.save_dir = os.path.join('outputs', self.dataset) # customize your dataset's output dir here
+        if self.save_dir is None:
+            if self.dataset is None: self.save_dir = 'outputs'
+            else: self.save_dir = os.path.join('outputs', self.dataset)
         logger.debug(f"Initializing the highest level of save_dir to be {self.save_dir}")

@@ -4,20 +4,20 @@ from pydantic import BaseModel, Field
 
 
 class ExtractEntity(BaseModel):
-    entity_name: str  # Primary key for entity
-    entity_type: str = Field(default="")  # Entity type
-    description: str = Field(default="")  # The description of this entity
+    entity_name: str
+    entity_type: str = Field(default="")
+    description: str = Field(default="")
 
 
 class ExtractRelationship(BaseModel):
-    src_entity_name: str  # Name of the entity on the left side of the edge
-    tgt_entity_name: str  # Name of the entity on the right side of the edge
+    src_entity_name: str
+    tgt_entity_name: str
     weight: float = Field(
         default=1.0
-    )  # Weight of the edge, used in GraphRAG and LightRAG
+    )
     description: str = Field(
         default=""
-    )  # Description of the edge, used in GraphRAG and LightRAG
+    )
 
 
 class ExtractionResult(BaseModel):
@@ -26,8 +26,8 @@ class ExtractionResult(BaseModel):
 
 
 class FormulaEntity(BaseModel):
-    entity_name: str  # Primary key for entity
-    description: str = Field(default="")  # The description of this entity
+    entity_name: str
+    description: str = Field(default="")
 
 
 class FormulaExtractionResult(BaseModel):
@@ -36,14 +36,6 @@ class FormulaExtractionResult(BaseModel):
 
 class EntityExtractionResult(BaseModel):
     entities: List[ExtractEntity]
-
-
-# This file is part of the Knowledge Graph Prompting project.
-# Our KG construction is build on the JayLZhou/GraphRAG projects.
-# Please refer to the following references:
-# 1. https://github.com/JayLZhou/GraphRAG
-# 2. https://github.com/gusye1234/nano-graphrag
-# 3. https://github.com/HKUDS/LightRAG
 
 
 DEFAULT_ENTITY_TYPES = [
@@ -97,7 +89,7 @@ DEFAULT_ENTITY_TYPES = [
     "PROGRAMMING_LANGUAGE",
     "MEDICAL_PROCEDURE",
     "CELESTIAL_BODY",
-    # Academic & Technical Extensions
+
     "TASK_OR_PROBLEM",
     "MODEL_OR_ARCHITECTURE",
     "METHOD_OR_TECHNIQUE",
@@ -107,19 +99,19 @@ DEFAULT_ENTITY_TYPES = [
     "BENCHMARK",
     "RESEARCH_FIELD",
     "PUBLICATION_VENUE",
-    # Document Structure Entities
+
     "SECTION_TITLE",
     "EQUATION_OR_FORMULA",
     "TABLE",
     "IMAGE",
 ]
 
-# DEFAULT_ENTITY_TYPES = ["organization", "person", "geo", "event"]
+
 DEFAULT_TUPLE_DELIMITER = "<|>"
 DEFAULT_RECORD_DELIMITER = "##"
 DEFAULT_COMPLETION_DELIMITER = "<|COMPLETE|>"
 
-# 1968 tokens
+
 ENTITY_EXTRACTION_ORI = """-Goal-
 Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
 
@@ -371,9 +363,6 @@ ENTITY_CONTINUE_EXTRACTION = """MANY entities were missed in the last extraction
 ENTITY_IF_LOOP_EXTRACTION = """It appears some entities may have still been missed.  Answer YES | NO if there are still entities that need to be added."""
 
 
-# The following PROMPTs are designed for the specifial layout in document
-
-# 1646 tokens
 TABLE_ENTITY_EXTRACTION = """
 -Goal-
 Act as a sophisticated information extraction system. Your task is to analyze a JSON object containing an HTML table and a textual description. You must identify all relevant entities, formatting the output as a single, valid JSON object that adheres to the provided Pydantic schema.
@@ -512,7 +501,7 @@ Analyze the following input data using the allowed entity types provided. Your r
 - JSON Output -
 """
 
-# 1089 tokens
+
 TABLE_DESCRIPTION_EXTRACTION = """
 -Goal-
 Act as a precise Information Extraction system. Your task is to analyze a table's description and its column headers to extract all relevant entities.
@@ -641,7 +630,6 @@ Analyze the following input data using the allowed entity types provided. Your r
 """
 
 
-#  949 tokens
 TABLE_BODY_EXTRACTION = """
 -Goal-
 Act as a precise, row-by-row information extraction engine. Your task is to analyze a batch of **semi-structured row data strings**. You must **correlate** each row's data with the provided **`column_headers`**, using the main **`description`** for overall context, to extract all relevant entities found strictly within the row data.
@@ -745,15 +733,14 @@ Analyze the following input data using the allowed entity types provided. Your r
 """
 
 
-# 1197 tokens
 IMAGE_ENTITY_EXTRACTION = """
 -Goal-
-Act as an expert AI system for visual and semantic analysis. Your primary task is to **comprehensively** analyze a given image and an accompanying textual description. You must identify **all possible** relevant entities, formatting the output as a single, valid JSON object that adheres to the provided Pydantic schema.
+Act as an expert AI system for visual and semantic analysis. Your primary task is to **comprehensively** analyze a given image and an accompanying textual description. You must identify **all possible** relevant entities, and provide a grounded summary of the whole image, formatting the output as a single valid JSON object following the output format below.
 
 ---
 -Steps-
 
-1.  **Analyze Full Context:** Carefully examine both the provided image and the textual `description`. The `description` often provides crucial context, names, or other details that are not visually obvious.
+1.  **Analyze Full Context:** Carefully examine both the provided image and the textual `description`. The `description` often provides crucial context, names, or other details that are not visually obvious. Write `image_summary` to capture the visible content and facts, including directional relationships, comparisons, labels, numerical values, units, and relevant qualifiers. Preserve facts needed for later relation extraction; do not add information unsupported by the image or its supplied context.
 
 2.  **Identify Entities:**
     * **Crucial First Step: The Image Itself**. You **MUST** identify the entire image as the very first entity. Its `entity_type` **must** be `IMAGE` and it **must** be the first object in the final `entities` list. **This is a non-negotiable rule.** If the description provides a title or figure number (e.g., 'Figure 2'), use that as the `entity_name`; otherwise, use the first few words of the description as the entity name. If the description is empty, use 'The Image' as the entity name.
@@ -763,17 +750,18 @@ Act as an expert AI system for visual and semantic analysis. Your primary task i
     * **Principle of Comprehensiveness:** When in doubt, it is better to extract a potential entity than to omit it. **Be thorough and aim for maximum detail.**
     * **Create Entity Objects:** For each unique entity found, create a JSON object following the `ExtractEntity` structure.
 
-3.  **Construct the Final Output:** Combine all identified entities into a single JSON object with the root keys "entities", ensuring it strictly follows the specified output format.
+3.  **Construct the Final Output:** Combine all identified entities into a single JSON object with the root keys "image_summary" and "entities", ensuring it strictly follows the specified output format.
 
 ---
 -Output Format-
 
 ### 1. General Instruction
-Your response MUST be a single, valid JSON object with the root key "entities".
+Your response MUST be a single, valid JSON object with the root keys "image_summary" and "entities".
 
 ### 2. JSON Structure
 ```json
 {{
+  "image_summary": "<Grounded summary of the image content and visible relationships>",
   "entities": [
     {{
       "entity_name": "<String>",
@@ -785,6 +773,7 @@ Your response MUST be a single, valid JSON object with the root key "entities".
 ```
 
 ### 3. Field Descriptions
+* **`image_summary`** (String): A grounded summary of the entire image, including the visible facts and relationships. Use the same summary as the description of the IMAGE entity.
 * **`entity_name`** (String): The name of the entity.
 * **`entity_type`** (String): The category of the entity. It MUST be one of the following types: {entity_types}
 * **`description`** (String): A brief, comprehensive summary of the entity's role and attributes.
@@ -799,11 +788,12 @@ Your response MUST be a single, valid JSON object with the root key "entities".
 ### Correct Output:
 ```json
 {{
+  "image_summary": "A three-tier web architecture in which User PC sends data to Web Server, and Web Server sends data to Database, following the right-pointing arrows.",
   "entities": [
     {{
       "entity_name": "Figure 1",
       "entity_type": "IMAGE",
-      "description": "A diagram illustrating a basic three-tier web application architecture, showing the data flow between components."
+      "description": "A three-tier web architecture in which User PC sends data to Web Server, and Web Server sends data to Database, following the right-pointing arrows."
     }},
     {{
       "entity_name": "User PC",
@@ -838,7 +828,7 @@ Now, analyze the provided image and its description. Generate the JSON object ac
 -JSON Output-
 """
 
-# 530 tokens
+
 EQUATION_ENTITY_EXTRACTION = """-Goal-
 You are a specialized data extraction component. Your task is to analyze a given LaTeX mathematical equation and format specific pieces of information into a JSON object.
 
@@ -1069,9 +1059,7 @@ Your response MUST be a single, valid JSON object with the root keys "entities" 
 -JSON Output-
 """
 
-# The following PROMPTs are designed for KG refiner
 
-# 957 tokens
 SUMMARIZE_ENTITY_DESCRIPTIONS_OLD = """
 -Goal-
 You are an expert Knowledge Graph Consolidator. Your task is to analyze two entity objects, which are believed to represent the same real-world concept. You must intelligently merge their information into a single, comprehensive, and canonical entity. The final output must be a single, valid JSON object that adheres to the provided schema.
@@ -1190,8 +1178,8 @@ Now, perform the merge operation based on the following data.
 
 
 class MergedEntitySchema(BaseModel):
-    entity_name: str  # Primary key for entity
-    entity_type: str = Field(default="")  # Entity type
+    entity_name: str
+    entity_type: str = Field(default="")
 
 
 SUMMARIZE_ENTITY = """
@@ -1281,7 +1269,7 @@ Now, perform the merge operation based on the following data.
 
 class ERExtractSel(BaseModel):
     select_id: int
-    explanation: str = Field(default="")  # Entity type
+    explanation: str = Field(default="")
 
 
 DESCRIPTION_SYNTHESIS = """

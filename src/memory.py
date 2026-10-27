@@ -1,41 +1,3 @@
-"""
-构建一个以检索为导向的三层 Memory 结构，并维护 schema 之间的关系边。
-
-当前三层含义：
-1. Schema 层：
-   保存抽象的实体类型节点，例如：
-       "PERSON", "ORGANIZATION", "METHOD", "EQUATION_OR_FORMULA"
-
-2. Entity 层：
-   保存具体实体实例节点，例如：
-       "Alice", "OpenAI", "RLHF", "Formula (1)"
-
-3. Passage 层：
-   保存原始文本块 / chunk。
-
-此外，本文件还单独维护：
-4. SchemaRelation 层：
-   保存 schema 与 schema 之间的关系边，例如：
-       PERSON --works_at--> ORGANIZATION
-
-整体关系：
-    Schema --1:N--> Entity --N:M--> Passage
-    Schema --relation--> Schema，并且 relation 也能回到具体 Passage
-
-也就是说：
-- 一个 schema 可以对应多个 entity。
-- 一个 entity 属于一个 schema。
-- 一个 entity 可以出现在多个 passage 中。
-- 一个 passage 可以包含多个 entity。
-- 一个 schema relation 可以由多个 passage 支撑。
-
-输入依赖：
-- docs[*].idx
-- docs[*].passage
-- docs[*].extracted_triples
-- docs[*].extracted_triple_ontology
-"""
-
 from __future__ import annotations
 
 import ast
@@ -44,13 +6,13 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
 
 
-DEFAULT_FILTERED_PATH = ""
+DEFAULT_OPENIE_RESULTS_PATH = ""
 DEFAULT_MEMORY_OUTPUT_PATH = ""
 
 
 @dataclass
 class SchemaNode:
-    """Schema 层节点：保存单个实体类型。"""
+
 
     idx: int
     content: str
@@ -65,7 +27,7 @@ class SchemaNode:
 
 @dataclass
 class EntityNode:
-    """Entity 层节点：保存具体实体实例。"""
+
 
     idx: int
     content: str
@@ -79,7 +41,7 @@ class EntityNode:
 
 @dataclass
 class PassageNode:
-    """Passage 层节点：保存原始 chunk / passage 文本。"""
+
 
     idx: int
     chunk_id: str
@@ -88,11 +50,13 @@ class PassageNode:
     embedding: Optional[List[float]] = None
     entity_indices: List[int] = field(default_factory=list)
     schema_relation_indices: List[int] = field(default_factory=list)
+    image_summary: str = ""
+    original_content: str = ""
 
 
 @dataclass
 class SchemaRelationNode:
-    """Schema 之间的关系边，并记录其来源 chunk。"""
+
 
     idx: int
     content: Tuple[str, str, str]
@@ -107,7 +71,7 @@ class SchemaRelationNode:
 
 
 class ThreeLayerMemory:
-    """Schema -> Entity -> Passage，并维护 SchemaRelation 的 Memory 结构。"""
+
 
     def __init__(self):
         self.schema_layer: List[SchemaNode] = []
@@ -201,23 +165,8 @@ class ThreeLayerMemory:
         return idx
 
     def build_from_openie_results(self, data: Dict[str, Any]) -> None:
-        """
-        从带 ontology 的 OpenIE 结果中构建当前 memory。
 
-        期望输入格式：
-        {
-          "docs": [
-            {
-              "idx": "chunk-id",
-              "passage": "原始 chunk 文本",
-              "extracted_triples": [["Alice", "works_at", "OpenAI"]],
-              "extracted_triple_ontology": {
-                "('Alice', 'works_at', 'OpenAI')": ["PERSON", "works_at", "ORG"]
-              }
-            }
-          ]
-        }
-        """
+
         docs = data.get("docs", [])
         print(f"Building memory from {len(docs)} docs...")
 
@@ -231,6 +180,8 @@ class ThreeLayerMemory:
 
             modality = self._passage_modality(doc)
             passage_idx = self._get_or_create_passage(chunk_id, passage_text, modality)
+            self.passage_layer[passage_idx].image_summary = str(doc.get("image_summary") or "")
+            self.passage_layer[passage_idx].original_content = str(doc.get("original_content") or "")
 
             if not isinstance(triple_ont_map, dict) or not triple_ont_map:
                 continue
@@ -260,7 +211,7 @@ class ThreeLayerMemory:
                     tail_type,
                 )
 
-                # Entity <-> Passage
+
                 for entity_idx in (head_entity_idx, tail_entity_idx):
                     entity_node = self.entity_layer[entity_idx]
                     if passage_idx not in entity_node.passage_indices:
@@ -271,13 +222,13 @@ class ThreeLayerMemory:
                     if entity_idx not in self.passage_layer[passage_idx].entity_indices:
                         self.passage_layer[passage_idx].entity_indices.append(entity_idx)
 
-                # Schema <-> Entity
+
                 if head_entity_idx not in self.schema_layer[head_schema_idx].entity_indices:
                     self.schema_layer[head_schema_idx].entity_indices.append(head_entity_idx)
                 if tail_entity_idx not in self.schema_layer[tail_schema_idx].entity_indices:
                     self.schema_layer[tail_schema_idx].entity_indices.append(tail_entity_idx)
 
-                # Schema <-> Passage
+
                 if passage_idx not in self.schema_layer[head_schema_idx].passage_indices:
                     self.schema_layer[head_schema_idx].passage_indices.append(passage_idx)
                 self._append_unique(self.schema_layer[head_schema_idx].passage_indices_by_modality, modality, passage_idx)
@@ -285,7 +236,7 @@ class ThreeLayerMemory:
                     self.schema_layer[tail_schema_idx].passage_indices.append(passage_idx)
                 self._append_unique(self.schema_layer[tail_schema_idx].passage_indices_by_modality, modality, passage_idx)
 
-                # SchemaRelation <-> Passage
+
                 relation_node = self.schema_relation_layer[schema_relation_idx]
                 if passage_idx not in relation_node.passage_indices:
                     relation_node.passage_indices.append(passage_idx)
@@ -340,14 +291,8 @@ class ThreeLayerMemory:
         passage_embeddings: Dict[str, List[float]] | None = None,
         schema_relation_embeddings: Dict[Tuple[str, str, str], List[float]] | None = None,
     ) -> None:
-        """
-        Attach precomputed embeddings back onto memory nodes.
 
-        参数说明：
-        - schema_embeddings: schema type string -> embedding
-        - passage_embeddings: chunk_id -> embedding
-        - schema_relation_embeddings: (head_type, relation, tail_type) -> embedding
-        """
+
         schema_embeddings = schema_embeddings or {}
         passage_embeddings = passage_embeddings or {}
         schema_relation_embeddings = schema_relation_embeddings or {}
@@ -453,6 +398,8 @@ class ThreeLayerMemory:
                     "chunk_id": node.chunk_id,
                     "content": node.content,
                     "modality": node.modality,
+                    **({"image_summary": node.image_summary} if node.image_summary else {}),
+                    **({"original_content": node.original_content} if node.original_content else {}),
                     **({"embedding": node.embedding} if include_embeddings else {}),
                     "entity_indices": node.entity_indices,
                     "schema_relation_indices": node.schema_relation_indices,
@@ -580,6 +527,8 @@ class ThreeLayerMemory:
                 embedding=item.get("embedding"),
                 entity_indices=item.get("entity_indices", []),
                 schema_relation_indices=item.get("schema_relation_indices", []),
+                image_summary=item.get("image_summary", ""),
+                original_content=item.get("original_content", ""),
             )
             memory.passage_layer.append(node)
             memory._chunk_id_to_idx[node.chunk_id] = node.idx
@@ -720,7 +669,7 @@ def load_openie_results(path: str) -> Dict[str, Any]:
 
 
 def main():
-    input_path = DEFAULT_FILTERED_PATH
+    input_path = DEFAULT_OPENIE_RESULTS_PATH
     output_path = DEFAULT_MEMORY_OUTPUT_PATH
 
     data = load_openie_results(input_path)

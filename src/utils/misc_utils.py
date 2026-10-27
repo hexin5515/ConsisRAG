@@ -95,7 +95,7 @@ def reformat_openie_results(corpus_openie_results) -> (Dict[str, NerRawOutput], 
     return ner_output_dict, triple_output_dict
 
 def extract_entity_nodes(chunk_triples: List[Triple]) -> (List[str], List[List[str]]):
-    chunk_triple_entities = []  # a list of lists of unique entities from each chunk's triples
+    chunk_triple_entities = []
     for triples in chunk_triples:
         triple_entities = set()
         for t in triples:
@@ -108,12 +108,8 @@ def extract_entity_nodes(chunk_triples: List[Triple]) -> (List[str], List[List[s
     return graph_nodes, chunk_triple_entities
 
 def flatten_facts(chunk_triples: List[Triple]) -> Dict[str, str]:
-    """
-    Flattens chunk-level triples into a global fact registry.
 
-    Returns:
-        Dict[str, str]: Mapping from fact_id to canonical triple string representation.
-    """
+
     fact_map: Dict[str, str] = {}
     for triples in chunk_triples:
         for triple in triples:
@@ -127,10 +123,8 @@ def flatten_facts(chunk_triples: List[Triple]) -> Dict[str, str]:
 
 
 def normalize_triple_entry(entry: Union[List[str], Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-    """
-    Normalizes a triple entry (list or dict) into a canonical representation that includes
-    the processed triple text, its string form, and a stable fact id.
-    """
+
+
     if entry is None:
         return None
 
@@ -175,35 +169,24 @@ def min_max_normalize(x):
     return (x - np.min(x)) / (np.max(x) - np.min(x))
 
 def compute_mdhash_id(content: str, prefix: str = "") -> str:
-    """
-    Compute the MD5 hash of the given content string and optionally prepend a prefix.
 
-    Args:
-        content (str): The input string to be hashed.
-        prefix (str, optional): A string to prepend to the resulting hash. Defaults to an empty string.
 
-    Returns:
-        str: A string consisting of the prefix followed by the hexadecimal representation of the MD5 hash.
-    """
     return prefix + md5(content.encode()).hexdigest()
 
 
 def all_values_of_same_length(data: dict) -> bool:
-    """
-    Return True if all values in 'data' have the same length or data is an empty dict,
-    otherwise return False.
-    """
-    # Get an iterator over the dictionary's values
+
+
     value_iter = iter(data.values())
 
-    # Get the length of the first sequence (handle empty dict case safely)
+
     try:
         first_length = len(next(value_iter))
     except StopIteration:
-        # If the dictionary is empty, treat it as all having "the same length"
+
         return True
 
-    # Check that every remaining sequence has this same length
+
     return all(len(seq) == first_length for seq in value_iter)
 
 
