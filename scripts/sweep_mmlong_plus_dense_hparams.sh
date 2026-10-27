@@ -1,23 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Joint sweep for:
-#   --graph-plus-dense-schema-score-threshold
-#   --graph-plus-dense-supplement-top-k
-#
-# Usage:
-#   bash scripts/sweep_mmlong_plus_dense_hparams.sh
-#
-# The script:
-#   - runs one experiment per (threshold, supplement) pair
-#   - extracts only aggregate metrics from the output JSON
-#   - deletes temporary per-question / per-doc artifacts afterwards
-#   - leaves only a compact CSV summary
 
-DATASET="mmlong"   # mmlong | qasper | m3doc
+DATASET="mmlong"
 
-# THRESHOLDS=(0 0.25 0.5 0.75 1)
-# SUPPLEMENTS=(1 2 3 4 5)
 SCHEMA_TOP_K=(5 10 15 20 25 30 35 40 45 50)
 
 STAMP="$(date +%Y%m%d_%H%M%S)"

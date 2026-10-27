@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
-"""
-Run the current incremental MinerU pipeline.
 
-Pipeline steps:
-1. Load MinerU structure-preserving chunks
-2. Extract entities for one chunk
-3. Extract relations/schema for one chunk
-4. Optionally resolve conflicts against accepted facts
-5. Build filtered OpenIE docs and three-layer memory for each PDF
-"""
 
 from __future__ import annotations
 
@@ -36,8 +27,6 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 
-# Default model configuration lives here.
-# Fill these with your local OpenAI-compatible Qwen / Qwen-VL service values.
 DEFAULT_LLM_MODEL = "Qwen/Qwen3-8B-AWQ"
 DEFAULT_LLM_BASE_URL = "http://localhost:8080/v1"
 DEFAULT_ENTITY_LLM_MODEL = DEFAULT_LLM_MODEL
@@ -53,23 +42,8 @@ SKIP_TREE_DIR_NAMES = {
 
 
 def discover_mineru_json_files(input_path: str) -> List[Path]:
-    """
-    Find MinerU JSON files from a file or directory.
 
-    If `input_path` is a file, only that file is used.
-    If it is a directory, recursively find every `tree.json`.
 
-    This matches the common MinerU export layout the user is working with:
-
-        big_dir/
-          doc_a/tree.json
-          doc_b/tree.json
-          doc_c/tree.json
-
-    We intentionally avoid scanning every `*.json` file under the directory,
-    because those folders may also contain unrelated metadata or intermediate
-    JSON files that are not valid MinerU tree inputs.
-    """
     path = Path(input_path)
     if path.is_file():
         return [path]
@@ -90,12 +64,8 @@ def load_mineru_chunks(
     include_image_chunks: bool = True,
     include_empty_image_chunks: bool = False,
 ) -> List[Any]:
-    """
-    Load MinerU chunks from one JSON file or a directory of JSON files.
 
-    The returned chunk objects are `MinerUChunk` instances from
-    `src/utils/mineru_loader.py`.
-    """
+
     from utils.mineru_loader import load_mineru_json_chunks
 
     chunks: List[Any] = []
@@ -121,13 +91,8 @@ def _load_one_mineru_tree(
     include_image_chunks: bool = True,
     include_empty_image_chunks: bool = False,
 ) -> List[Any]:
-    """
-    Load chunks from a single MinerU tree.json file.
 
-    This is the per-document variant used by the folder-level pipeline so we
-    can stream one PDF at a time instead of loading every discovered tree into
-    memory before printing anything.
-    """
+
     from utils.mineru_loader import load_mineru_json_chunks
 
     return load_mineru_json_chunks(
@@ -139,12 +104,8 @@ def _load_one_mineru_tree(
 
 
 def group_chunks_by_pdf(chunks: Iterable[Any]) -> Dict[str, List[Any]]:
-    """
-    Group MinerU chunks by source PDF name.
 
-    This keeps the user's desired behavior from the previous discussion:
-    one PDF can produce one independent memory directory.
-    """
+
     grouped: Dict[str, List[Any]] = {}
     for chunk in chunks:
         source_file = chunk.metadata.get("source_file") or "unknown_pdf"
@@ -153,30 +114,25 @@ def group_chunks_by_pdf(chunks: Iterable[Any]) -> Dict[str, List[Any]]:
 
 
 def safe_stem(name: str) -> str:
-    """Create a filesystem-safe directory name from a PDF filename."""
+
     stem = Path(name).stem or "unknown_pdf"
     return "".join(ch if ch.isalnum() or ch in ("-", "_", ".") else "_" for ch in stem)
 
 
 def _schema_relation_text(schema_relation: Tuple[str, str, str]) -> str:
-    """Render one schema relation into a stable text string for embedding."""
+
     head_type, relation, tail_type = schema_relation
     return f"{head_type} {relation} {tail_type}"
 
 
 def _normalize_section_text(text: str) -> str:
-    """Normalize section text for lightweight matching."""
+
     return " ".join(str(text).strip().lower().split())
 
 
 def is_reference_chunk(chunk: Any) -> bool:
-    """
-    Return True when a chunk belongs to a References/Bibliography section.
 
-    这里默认只做轻量规则：
-    - title_path 任意一级标题是 references / bibliography
-    - 或者节点本身标题就是 references / bibliography
-    """
+
     metadata = dict(getattr(chunk, "metadata", {}) or {})
     title_path = metadata.get("title_path") or []
     section_titles = [_normalize_section_text(item) for item in title_path if item]
@@ -192,30 +148,40 @@ def is_reference_chunk(chunk: Any) -> bool:
 
 
 def filter_reference_chunks(chunks: List[Any]) -> List[Any]:
-    """Drop chunks that belong to references/bibliography sections."""
+
     return [chunk for chunk in chunks if not is_reference_chunk(chunk)]
 
 
-def _entity_system_prompt() -> str:
-    """Shared system prompt for all entity extraction variants."""
-    return (
+def _entity_system_prompt(*, include_image_summary: bool = False) -> str:
+
+    prompt = (
         "You are an expert entity extraction assistant. "
         "Follow the task instructions exactly, but your final output MUST be a single valid JSON object "
         'with root key "entities". Each entity must contain keys "entity_name", "entity_type", and "description". '
         "Do not return any extra explanation."
     )
+    if include_image_summary:
+        prompt += (
+            ' Include an additional root key "image_summary" containing a grounded '
+            "summary of the image's visible content, relationships, labels, values, and units."
+        )
+    return prompt
 
 
-def _entity_messages_from_prompt(prompt_body: str) -> List[Dict[str, Any]]:
-    """Wrap one prompt body into the standard system/user chat format."""
+def _entity_messages_from_prompt(
+    prompt_body: str,
+    *,
+    include_image_summary: bool = False,
+) -> List[Dict[str, Any]]:
+
     return [
-        {"role": "system", "content": _entity_system_prompt()},
+        {"role": "system", "content": _entity_system_prompt(include_image_summary=include_image_summary)},
         {"role": "user", "content": prompt_body},
     ]
 
 
 def _encode_image_as_data_url(image_path: str) -> str | None:
-    """Encode a local image file as a data URL for multimodal chat models."""
+
     path = Path(str(image_path or ""))
     if not path.exists() or not path.is_file():
         return None
@@ -231,19 +197,14 @@ def _encode_image_as_data_url(image_path: str) -> str | None:
 
 
 def _image_entity_messages(prompt_body: str, image_path: str | None) -> List[Dict[str, Any]]:
-    """
-    Build a multimodal entity-extraction message when an image file is available.
 
-    和 BookRAG 的思路对齐：
-    - 文本 prompt 仍然保留 caption/footnote 描述
-    - 同时把原始图片一并送进模型
-    """
+
     data_url = _encode_image_as_data_url(image_path or "")
     if not data_url:
-        return _entity_messages_from_prompt(prompt_body)
+        return _entity_messages_from_prompt(prompt_body, include_image_summary=True)
 
     return [
-        {"role": "system", "content": _entity_system_prompt()},
+        {"role": "system", "content": _entity_system_prompt(include_image_summary=True)},
         {
             "role": "user",
             "content": [
@@ -255,7 +216,7 @@ def _image_entity_messages(prompt_body: str, image_path: str | None) -> List[Dic
 
 
 def _strip_section_prefix(text: str) -> str:
-    """Remove the synthetic `Section: ...` header from chunk text."""
+
     stripped = str(text or "").strip()
     if not stripped.startswith("Section:"):
         return stripped
@@ -264,7 +225,7 @@ def _strip_section_prefix(text: str) -> str:
 
 
 def _table_description_text(metadata: Dict[str, Any], chunk_context: str) -> str:
-    """Build the table description in the same spirit as BookRAG-main."""
+
     parts = [
         str(metadata.get("caption") or "").strip(),
         str(metadata.get("footnote") or "").strip(),
@@ -274,13 +235,13 @@ def _table_description_text(metadata: Dict[str, Any], chunk_context: str) -> str
 
 
 def _table_body_html(metadata: Dict[str, Any]) -> str:
-    """Read table HTML from top-level metadata first, then current_node."""
+
     current_node = metadata.get("current_node") or {}
     return str(metadata.get("table_body") or current_node.get("table_body") or "").strip()
 
 
 def parse_html_table_to_grid(html_string: str) -> List[List[str]]:
-    """Convert HTML table text into a 2D grid while respecting row/col spans."""
+
     from bs4 import BeautifulSoup
 
     if not html_string:
@@ -321,7 +282,7 @@ def parse_html_table_to_grid(html_string: str) -> List[List[str]]:
 
 
 def is_numeric(value: str) -> bool:
-    """Heuristic numeric check copied from BookRAG-main."""
+
     if not isinstance(value, str):
         return False
     text = value.strip().replace("%", "").replace("(", "").replace(")", "").replace(",", "")
@@ -335,7 +296,7 @@ def is_numeric(value: str) -> bool:
 
 
 def identify_header_rows(grid: List[List[str]]) -> int:
-    """Infer how many leading rows are table headers."""
+
     if not grid or len(grid) < 2:
         return 0 if not grid else 1
 
@@ -389,7 +350,7 @@ def identify_header_rows(grid: List[List[str]]) -> int:
 
 
 def create_hierarchical_headers(grid: List[List[str]], num_header_rows: int) -> List[str]:
-    """Create flattened hierarchical column headers like `ACE (ED) > 10-shot`."""
+
     column_headers = []
     if num_header_rows > 0 and grid and len(grid) >= num_header_rows:
         header_grid = grid[:num_header_rows]
@@ -403,7 +364,7 @@ def create_hierarchical_headers(grid: List[List[str]], num_header_rows: int) -> 
 
 
 def _count_tokens(text: str) -> int:
-    """Count tokens with tiktoken when available; fallback to a rough word count."""
+
     try:
         from utils.llm_utils import num_tokens_by_tiktoken
 
@@ -418,7 +379,7 @@ def _split_table_row_batches(
     *,
     max_tokens_for_rows: int,
 ) -> List[List[str]]:
-    """Split table body rows into prompt-sized batches."""
+
     body_rows = grid[num_header_rows:]
     row_strings = [" | ".join((cell or "").strip() for cell in row) for row in body_rows]
 
@@ -451,11 +412,8 @@ def _split_table_row_batches(
 
 
 def _build_table_entity_extraction_message_batches(chunk: Any) -> List[List[Dict[str, str]]]:
-    """
-    Build BookRAG-style table extraction prompts:
-    1. description + column_headers
-    2. batched rows_batch extraction
-    """
+
+
     from prompts.kg_prompt import (
         DEFAULT_ENTITY_TYPES,
         TABLE_BODY_EXTRACTION,
@@ -526,27 +484,8 @@ def _build_table_entity_extraction_message_batches(chunk: Any) -> List[List[Dict
 
 
 def _build_entity_extraction_messages(chunk: Any) -> List[Dict[str, Any]]:
-    """
-    Build an LLM prompt for entity extraction using prompts from
-    `src/prompts/kg_prompt.py`.
 
-    We normalize all prompt variants to the same target JSON schema:
-        {
-          "entities": [
-            {
-              "entity_name": "...",
-              "entity_type": "...",
-              "description": "..."
-            }
-          ]
-        }
 
-    当前版本尽量保持输入简单：
-    - 主要输入就是 chunk.content
-    - 只在 table / image / title 这种特殊块里补极少量必要字段
-    - 不再把 current_node / parent_node / footnote / caption 等大量 metadata
-      重复拼进 prompt
-    """
     from prompts.kg_prompt import (
         DEFAULT_ENTITY_TYPES,
         DEFAULT_TUPLE_DELIMITER,
@@ -618,7 +557,7 @@ def _build_entity_extraction_messages(chunk: Any) -> List[Dict[str, Any]]:
 
 
 def _build_image_text_only_entity_messages(chunk: Any) -> List[Dict[str, Any]]:
-    """Fallback image prompt without attaching the raw image."""
+
     from prompts.kg_prompt import DEFAULT_ENTITY_TYPES, IMAGE_ENTITY_EXTRACTION
 
     prompt_body = IMAGE_ENTITY_EXTRACTION.format(
@@ -630,17 +569,12 @@ def _build_image_text_only_entity_messages(chunk: Any) -> List[Dict[str, Any]]:
             ensure_ascii=False,
         ),
     )
-    return _entity_messages_from_prompt(prompt_body)
+    return _entity_messages_from_prompt(prompt_body, include_image_summary=True)
 
 
 def _entity_position(text: str, entity_text: str, used_spans: List[Tuple[int, int]]) -> Tuple[int, int]:
-    """
-    Find a non-overlapping character span for an extracted entity.
 
-    LLM extraction may return repeated strings; we greedily assign the first
-    unused occurrence so the output format stays compatible with the earlier
-    spaCy-based JSON.
-    """
+
     if not entity_text:
         return -1, -1
 
@@ -656,14 +590,8 @@ def _entity_position(text: str, entity_text: str, used_spans: List[Tuple[int, in
 
 
 def _default_equation_entity(chunk_text: str) -> Dict[str, str]:
-    """
-    Create a fallback equation entity when the equation extractor returns nothing.
 
-    这里直接沿用 BookRAG 的思路：
-    - 名称用公式文本前几项拼一个可读名字
-    - 类型固定为 EQUATION_OR_FORMULA
-    - 描述保留原始公式文本
-    """
+
     equation_text = " ".join(str(chunk_text).split()[:8]).strip()
     entity_name = f"Equation: {equation_text}" if equation_text else "Equation"
     return {
@@ -684,9 +612,8 @@ def extract_entities_from_one_mineru_chunk_llm(
     temperature: float,
     max_tokens: int,
 ) -> Dict[str, Any]:
-    """
-    Extract entities for one MinerU chunk using an LLM instead of spaCy.
-    """
+
+
     cache_path = output_dir / "cache" / f"{model_name.replace('/', '_')}_entity_cache.sqlite"
     metadata = dict(getattr(chunk, "metadata", {}) or {})
     block_type = str(metadata.get("block_type", "text")).lower()
@@ -773,44 +700,65 @@ def extract_entities_from_one_mineru_chunk_llm(
             }
         )
 
-    return {
+    result = {
         "chunk_id": chunk.chunk_id,
         "chunk_text": chunk.content,
         "entities": entities,
     }
+    if block_type == "image":
+        image_summary = ""
+        for response in responses:
+            candidate = response.get("image_summary") if isinstance(response, dict) else None
+            if isinstance(candidate, str) and candidate.strip():
+                image_summary = candidate.strip()
+                break
+        if not image_summary:
+            image_summary = next(
+                (
+                    entity["label_description"]
+                    for entity in entities
+                    if entity["label"] == "IMAGE" and entity["label_description"]
+                ),
+                "",
+            )
+        result["image_summary"] = image_summary
+        result["original_content"] = str(chunk.content)
+        if image_summary and image_summary not in str(chunk.content):
+            result["chunk_text"] = f"{chunk.content}\n\n[Image Summary]\n{image_summary}"
+    return result
 
 
 def schema_key_from_parts(head_type: str, relation: str, tail_type: str) -> str:
-    """Create the canonical schema key string."""
+
     return f"({head_type}, {relation}, {tail_type})"
 
 
 def make_schema_id(schema: List[str]) -> str:
-    """Build a stable schema id from ontology content."""
+
     payload = "|".join(str(x) for x in schema)
     return f"schema_{hashlib.sha1(payload.encode('utf-8')).hexdigest()[:12]}"
 
 
 def make_type_schema_id(entity_type: str) -> str:
-    """Build a stable schema-node id from one entity type."""
+
     payload = str(entity_type)
     return f"type_schema_{hashlib.sha1(payload.encode('utf-8')).hexdigest()[:12]}"
 
 
 def make_triple_id(chunk_id: str, triple: List[str]) -> str:
-    """Build a stable triple id from chunk id and triple text."""
+
     payload = f"{chunk_id}|{'|'.join(str(x) for x in triple)}"
     return f"triple_{hashlib.sha1(payload.encode('utf-8')).hexdigest()[:12]}"
 
 
 def make_entity_id(entity_name: str, entity_type: str) -> str:
-    """Build a stable entity-node id from entity text and type."""
+
     payload = f"{str(entity_type).strip().lower()}|{str(entity_name).strip().lower()}"
     return f"entity_{hashlib.sha1(payload.encode('utf-8')).hexdigest()[:12]}"
 
 
 def summarize_chunk_metadata(metadata: Dict[str, Any]) -> Dict[str, Any]:
-    """Keep only the chunk metadata fields that are useful for indexing."""
+
     return {
         "source_file": metadata.get("source_file"),
         "page_idx": metadata.get("page_idx"),
@@ -824,24 +772,21 @@ def summarize_chunk_metadata(metadata: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def entity_chunk_for_output(entity_chunk: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Convert one internal entity chunk record into a compact on-disk JSON shape.
 
-    内部处理阶段仍然会保留 chunk_text，方便下一步做关系抽取；
-    但 output_entities.json 只保留最核心的字段：
-    - chunk_id
-    - context
-    - entities
-    """
-    return {
+
+    result = {
         "chunk_id": entity_chunk.get("chunk_id"),
         "context": entity_chunk.get("chunk_text", ""),
         "entities": entity_chunk.get("entities", []),
     }
+    for key in ("image_summary", "original_content"):
+        if key in entity_chunk:
+            result[key] = entity_chunk[key]
+    return result
 
 
 def write_json(data: Dict[str, Any], path: Path) -> None:
-    """Write a dictionary to JSON."""
+
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -876,13 +821,8 @@ def encode_memory_embeddings(
     embedding_model: Any | None = None,
     embedding_config: Any | None = None,
 ) -> None:
-    """
-    Follow the original pipeline style to compute and persist memory embeddings.
 
-    Passage embeddings follow the original chunk embedding process.
-    Schema-relation embeddings follow the original fact embedding spirit:
-    encode structured relation text as one string.
-    """
+
     from src.embedding_store import EmbeddingStore
     from src.utils.misc_utils import compute_mdhash_id
     import numpy as np
@@ -914,10 +854,7 @@ def encode_memory_embeddings(
         schema_store.insert_strings(schema_texts)
         schema_relation_store.insert_strings(schema_relation_texts)
 
-        # Keep graph memory linked to the original passage nodes, but store
-        # retrieval embeddings at a finer sub-chunk granularity. This lets long
-        # passages be split for embedding without breaking schema -> passage
-        # associations in memory.json.
+
         chunk_embeddings_dir = output_dir / "chunk_embeddings"
         chunk_embeddings_dir.mkdir(parents=True, exist_ok=True)
         chunk_vdb_path = chunk_embeddings_dir / "vdb_chunk.parquet"
@@ -995,7 +932,7 @@ def encode_memory_embeddings(
 
 
 def _cache_key(messages: List[Dict[str, Any]], model_name: str, temperature: float) -> str:
-    """Create a stable cache key for one LLM request."""
+
     payload = {
         "messages": messages,
         "model": model_name,
@@ -1005,7 +942,7 @@ def _cache_key(messages: List[Dict[str, Any]], model_name: str, temperature: flo
 
 
 def _init_cache(cache_path: Path) -> None:
-    """Create a small SQLite cache table for LLM responses."""
+
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(str(cache_path))
     try:
@@ -1023,7 +960,7 @@ def _init_cache(cache_path: Path) -> None:
 
 
 def _read_cache(cache_path: Path, key: str) -> str | None:
-    """Read one response from SQLite cache."""
+
     conn = sqlite3.connect(str(cache_path))
     try:
         row = conn.execute("SELECT response FROM cache WHERE key = ?", (key,)).fetchone()
@@ -1035,7 +972,7 @@ def _read_cache(cache_path: Path, key: str) -> str | None:
 
 
 def _write_cache(cache_path: Path, key: str, response: str) -> None:
-    """Save one response to SQLite cache."""
+
     conn = sqlite3.connect(str(cache_path))
     try:
         conn.execute(
@@ -1048,7 +985,7 @@ def _write_cache(cache_path: Path, key: str, response: str) -> None:
 
 
 def _parse_json_response(response_text: str) -> Any:
-    """Parse a JSON response that may be wrapped in Markdown code fences."""
+
     text = response_text.strip()
     if text.startswith("```json"):
         text = text[7:]
@@ -1119,12 +1056,8 @@ def _chat_json(
     max_tokens: int,
     cache_path: Path,
 ) -> Any:
-    """
-    Call a locally deployed OpenAI-compatible chat service and parse JSON.
 
-    This expects the user to fill `DEFAULT_*_MODEL` and `DEFAULT_*_BASE_URL`
-    with their locally served Qwen / Qwen-VL endpoints.
-    """
+
     from llm_client import LLMClient, LLMConfig
 
     effective_model_name = str(model_name or "").strip()
@@ -1149,7 +1082,7 @@ def _chat_json(
 
 
 def _filter_entities(entities: List[Dict[str, Any]], max_entities: int) -> List[Dict[str, Any]]:
-    """Filter entity types that are usually weak for relation extraction."""
+
     excluded_labels = {"CARDINAL", "ORDINAL", "MONEY", "PERCENT", "QUANTITY"}
     filtered = [ent for ent in entities if ent.get("label") not in excluded_labels]
 
@@ -1166,7 +1099,7 @@ def _filter_entities(entities: List[Dict[str, Any]], max_entities: int) -> List[
 
 
 def _valid_relation(item: Dict[str, Any]) -> bool:
-    """Check whether one LLM-returned relation item has the required fields."""
+
     required = ["head", "relation", "tail", "head_type", "tail_type"]
     return all(item.get(field) for field in required)
 
@@ -1185,12 +1118,8 @@ def extract_entities_from_one_mineru_chunk(
     nlp: Any = None,
     spacy_module: Any = None,
 ) -> Dict[str, Any]:
-    """
-    Extract entities for a single MinerU chunk.
 
-    It handles one chunk at a time so the pipeline can immediately use this
-    chunk's entities for relation extraction and conflict resolution.
-    """
+
     if extraction_mode == "llm":
         return extract_entities_from_one_mineru_chunk_llm(
             chunk,
@@ -1233,13 +1162,8 @@ def extract_relations_from_one_entity_chunk(
     max_tokens: int,
     max_entities_per_chunk: int,
 ) -> List[Dict[str, Any]]:
-    """
-    Extract relation/schema triples for a single entity-enriched chunk.
 
-    The prompt is still the author's relation extraction prompt from
-    `prompt.py` / `prompt_builder.py`; only the execution granularity changes
-    from batch to one chunk at a time.
-    """
+
     from prompt_builder import build_relation_extraction_messages
 
     chunk_id = entity_chunk.get("chunk_id")
@@ -1305,16 +1229,15 @@ def relation_chunk_record(
     *,
     chunk_metadata: Dict[str, Any],
 ) -> Dict[str, Any]:
-    """
-    Build one chunk record shaped like schema_fact_extract.py output.
-    """
+
+
     triple_to_schema = {}
     for triple in triples:
         triple_key = f"({triple['head']}, {triple['relation']}, {triple['tail']})"
         schema_value = f"({triple['head_type']}, {triple['relation']}, {triple['tail_type']})"
         triple_to_schema[triple_key] = schema_value
 
-    return {
+    result = {
         "chunk_id": entity_chunk.get("chunk_id"),
         "chunk_text": entity_chunk.get("chunk_text", ""),
         "entities": entity_chunk.get("entities", []),
@@ -1323,6 +1246,10 @@ def relation_chunk_record(
         "triple_to_schema": triple_to_schema,
         "chunk_metadata": chunk_metadata,
     }
+    for key in ("image_summary", "original_content"):
+        if key in entity_chunk:
+            result[key] = entity_chunk[key]
+    return result
 
 
 def relation_records_to_output(
@@ -1331,15 +1258,8 @@ def relation_records_to_output(
     source_metadata: Dict[str, Any],
     model_name: str,
 ) -> Dict[str, Any]:
-    """
-    Build a concise, index-friendly relation output.
 
-    The output is organized around:
-    - schema nodes (entity types)
-    - entity nodes (instances)
-    - chunk nodes (evidence blocks)
-    - triple edges (instance-level entity relations)
-    """
+
     relation_counts: Dict[str, int] = {}
     schema_counts: Dict[str, int] = {}
     schema_nodes_by_type: Dict[str, Dict[str, Any]] = {}
@@ -1568,32 +1488,23 @@ def relation_records_to_output(
 
 
 def triple_key_from_list(triple: List[str]) -> str:
-    """Create the canonical triple key used by memory.py."""
+
     return str(tuple(str(x) for x in triple))
 
 
 def triple_list_from_relation(item: Dict[str, Any]) -> List[str]:
-    """Convert one relation item to [head, relation, tail]."""
+
     return [str(item["head"]), str(item["relation"]), str(item["tail"])]
 
 
 def ontology_from_relation(item: Dict[str, Any]) -> List[str]:
-    """Convert one relation item to [head_type, relation, tail_type]."""
+
     return [str(item["head_type"]), str(item["relation"]), str(item["tail_type"])]
 
 
 def openie_doc_from_relation_chunk(relation_chunk: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Convert one relation chunk record into one minimal OpenIE-like doc.
 
-    这里保留后续 ontology_filtering.py 和 memory.py 需要的字段。
-    额外附带 chunk_metadata，是为了后面在 memory 中按模态组织 chunk。
-    - idx
-    - passage
-    - extracted_triples
-    - extracted_triple_ontology
-    - chunk_metadata
-    """
+
     triples: List[List[str]] = []
     triple_ontology: Dict[str, List[str]] = {}
     for item in relation_chunk.get("triples", []):
@@ -1602,19 +1513,22 @@ def openie_doc_from_relation_chunk(relation_chunk: Dict[str, Any]) -> Dict[str, 
         triples.append(triple)
         triple_ontology[triple_key_from_list(triple)] = ontology
 
-    return {
+    result = {
         "idx": str(relation_chunk.get("chunk_id")),
         "passage": relation_chunk.get("chunk_text", ""),
         "extracted_triples": triples,
         "extracted_triple_ontology": triple_ontology,
         "chunk_metadata": summarize_chunk_metadata(relation_chunk.get("chunk_metadata", {})),
     }
+    for key in ("image_summary", "original_content"):
+        if key in relation_chunk:
+            result[key] = relation_chunk[key]
+    return result
 
 
 def iter_doc_triples(docs: List[Dict[str, Any]]) -> Iterable[Tuple[Dict[str, Any], List[str], List[str]]]:
-    """
-    Iterate through OpenIE-like docs and yield (doc, triple, ontology).
-    """
+
+
     for doc in docs:
         triple_ontology = doc.get("extracted_triple_ontology") or {}
         for triple in doc.get("extracted_triples", []):
@@ -1627,7 +1541,7 @@ def iter_doc_triples(docs: List[Dict[str, Any]]) -> Iterable[Tuple[Dict[str, Any
 
 
 def empty_conflict_index() -> Dict[str, Any]:
-    """Create the in-memory indexes used for fast conflict candidate lookup."""
+
     return {
         "records": {},
         "by_head_relation": {},
@@ -1637,21 +1551,13 @@ def empty_conflict_index() -> Dict[str, Any]:
 
 
 def _index_add(mapping: Dict[Any, set], key: Any, triple_id: str) -> None:
-    """Add one triple id into an index bucket."""
+
     mapping.setdefault(key, set()).add(triple_id)
 
 
 def build_conflict_index(docs: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """
-    Build conflict-retrieval indexes from accepted docs.
 
-    中文说明：
-    这是用来替代“每次都扫描所有 accepted_docs”的核心。
-    我们把旧 triples 预先索引成三类：
-    1. by_head_relation: (head, relation) -> triple_ids
-    2. by_entity: entity -> triple_ids
-    3. by_schema: (head_type, relation, tail_type) -> triple_ids
-    """
+
     index = empty_conflict_index()
     for doc, triple, ontology in iter_doc_triples(docs):
         add_triple_to_conflict_index(index, doc, triple, ontology)
@@ -1665,14 +1571,24 @@ def add_triple_to_conflict_index(
     triple: List[str],
     ontology: List[str],
 ) -> None:
-    """Insert one triple record into the conflict index."""
+
     triple_id = triple_key_from_list(triple)
+    previous = index["records"].get(triple_id)
+    sources = list(conflict_record_sources(previous)) if previous else []
+    source = {
+        "doc_idx": doc.get("idx"),
+        "passage": doc.get("passage", ""),
+        "modality": (doc.get("chunk_metadata") or {}).get("block_type", "text"),
+    }
+    if source not in sources:
+        sources.append(source)
     triple_record = {
         "id": triple_id,
         "triple": triple,
         "ontology": ontology,
         "passage": doc.get("passage", ""),
         "doc_idx": doc.get("idx"),
+        "sources": sources,
     }
     index["records"][triple_id] = triple_record
 
@@ -1687,20 +1603,54 @@ def add_triple_to_conflict_index(
     _index_add(index["by_schema"], schema_key, triple_id)
 
 
+def conflict_record_sources(record: Dict[str, Any]) -> List[Dict[str, Any]]:
+
+    sources = record.get("sources")
+    if isinstance(sources, list) and sources:
+        return sources
+    return [{
+        "doc_idx": record.get("doc_idx"),
+        "passage": record.get("passage", ""),
+        "modality": record.get("modality", "text"),
+    }]
+
+
+def collect_conflict_supporting_chunks(
+    index: Dict[str, Any],
+    triple_records: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+
+    entity_names = {
+        str(triple[position]).lower()
+        for record in triple_records
+        for triple in [record.get("triple", [])]
+        if isinstance(triple, list) and len(triple) == 3
+        for position in (0, 2)
+    }
+    supporting_fact_ids: set[str] = set()
+    for entity_name in entity_names:
+        supporting_fact_ids.update(index["by_entity"].get(entity_name, set()))
+
+    sources: List[Dict[str, Any]] = []
+    seen: set[Tuple[str, str]] = set()
+    for fact_id in sorted(supporting_fact_ids):
+        for source in conflict_record_sources(index["records"][fact_id]):
+            key = (str(source.get("doc_idx")), str(source.get("passage", "")))
+            if key not in seen:
+                seen.add(key)
+                sources.append(dict(source))
+    return sources
+
+
 def add_doc_to_conflict_index(index: Dict[str, Any], doc: Dict[str, Any]) -> None:
-    """Insert all triples from one accepted doc into the conflict index."""
+
     for _, triple, ontology in iter_doc_triples([doc]):
         add_triple_to_conflict_index(index, doc, triple, ontology)
 
 
 def conflict_index_for_output(index: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Convert the in-memory conflict index to a JSON-serializable structure.
 
-    输出目标：
-    - 方便人工查看有哪些索引桶
-    - 方便后续检索/调试阶段直接复用
-    """
+
     return {
         "metadata": {
             "num_records": len(index.get("records", {})),
@@ -1731,32 +1681,8 @@ def find_related_existing_triples(
     new_ontology: List[str] | None,
     max_related: int,
 ) -> List[Dict[str, Any]]:
-    """
-    Find existing triples that may conflict with a new triple.
 
-    This indexed candidate recall uses local maps instead of scanning all
-    accepted docs on every call.
 
-    中文说明：
-    这个函数只负责“召回可能冲突的旧三元组候选”，并不直接判断冲突。
-
-    现在的候选召回策略基于索引，主要有三条：
-    1. same_subject_predicate:
-       如果旧三元组和新三元组的 head、relation 完全一样，
-       那么它们很可能是在说“同一个事实槽位”，只是 tail 不同，
-       这类最容易发生直接冲突。
-    2. shared_entity:
-       如果旧三元组和新三元组共享头实体或尾实体，
-       那么它们虽然不一定冲突，但有可能存在语义矛盾或覆盖关系，
-       所以先作为候选召回给后面的 LLM。
-    3. same_schema:
-       如果 schema 一样，也可以补召回一部分高相关旧 triples。
-
-    这里的设计目标是：
-    - 不再扫描所有 accepted_docs；
-    - 先用局部索引把候选缩小；
-    - 再把候选交给 conflict_detection prompt 做精判断。
-    """
     new_s, new_p, new_o = [x.lower() for x in new_triple]
     new_triple_id = triple_key_from_list(new_triple)
     related = []
@@ -1791,6 +1717,7 @@ def find_related_existing_triples(
                 "source": source,
                 "passage": record.get("passage", ""),
                 "doc_idx": record.get("doc_idx"),
+                "sources": conflict_record_sources(record),
             }
         )
         if len(related) >= max_related:
@@ -1805,19 +1732,8 @@ def filter_conflict_candidates_for_llm(
     *,
     max_related: int,
 ) -> List[Dict[str, Any]]:
-    """
-    Keep only the highest-value conflict candidates before calling the LLM.
 
-    Why this exists:
-    - shared-entity recall is useful for indexing/debugging, but it explodes the
-      number of LLM calls on larger chunk sets.
-    - in practice, the strongest contradiction signal is still "same subject +
-      same predicate + different object".
 
-    So here we narrow the LLM-facing candidate set to the most conflict-like
-    cases first. This makes batch conflict detection much faster without
-    changing the JSON output structure downstream.
-    """
     new_s = str(new_triple[0]).strip().lower()
     new_p = str(new_triple[1]).strip().lower()
     new_o = str(new_triple[2]).strip().lower()
@@ -1858,19 +1774,8 @@ def find_related_triples_within_doc(
     *,
     max_related: int,
 ) -> List[Dict[str, Any]]:
-    """
-    Find potentially conflicting triples inside the current chunk itself.
 
-    中文说明：
-    这个函数负责“chunk 内部冲突候选召回”。
-    也就是说，当前 chunk 抽出了多条 triples 后，
-    先检查它们彼此之间是否已经自相矛盾，
-    再去和历史 accepted_docs 做比较。
 
-    召回规则和 find_related_existing_triples 保持一致：
-    - same_subject_predicate
-    - shared_entity
-    """
     new_s, new_p, new_o = [x.lower() for x in new_triple]
     related = []
     seen = set()
@@ -1909,9 +1814,8 @@ def find_related_triples_within_doc(
 
 
 def merge_related_triple_candidates(*candidate_groups: List[Dict[str, Any]], max_related: int) -> List[Dict[str, Any]]:
-    """
-    Merge related-triple candidate lists and deduplicate by triple id.
-    """
+
+
     merged: List[Dict[str, Any]] = []
     seen = set()
     for group in candidate_groups:
@@ -1933,25 +1837,8 @@ def check_conflict_for_new_triple(
     output_dir: Path,
     args: argparse.Namespace,
 ) -> Dict[str, Any]:
-    """
-    Use the author's conflict_detection prompt for one new triple.
 
-    中文说明：
-    这个函数负责“让 LLM 判断新三元组和候选旧三元组是否真的冲突”。
 
-    输入：
-    - new_triple: 当前新 chunk 刚抽出来的一条三元组
-    - related_triples: 上一步候选召回得到的旧三元组列表
-
-    输出：
-    - has_conflict: 是否存在冲突
-    - conflicts: LLM 认为的冲突明细
-    - conflicting_triple_ids: 涉及冲突的旧三元组 id
-
-    也就是说：
-    find_related_existing_triples() 负责“粗召回”，
-    check_conflict_for_new_triple() 负责“精判断”。
-    """
     if not related_triples:
         return {"has_conflict": False, "conflicts": [], "conflicting_triple_ids": []}
 
@@ -1960,7 +1847,7 @@ def check_conflict_for_new_triple(
     prompt_template = PROMPT["conflict_detection"]
     related_text = ""
     for i, item in enumerate(related_triples, 1):
-        # 这里把候选旧三元组展开成 prompt 文本，交给 LLM 做冲突判断。
+
         related_text += (
             f"Triple {i} (ID: {item['id']}, Source: {item.get('source', 'unknown')}): "
             f"{item['triple']}\n"
@@ -1996,16 +1883,8 @@ def check_conflict_for_new_triple(
 
 
 def build_conflict_groups(index: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """
-    Group triples into a few high-value conflict candidate buckets so we can
-    ask the LLM once per group instead of once per triple.
 
-    Group categories:
-    1. same_head_relation: same head entity + same relation
-    2. same_head_tail_different_relation: same head entity + same tail entity
-       but different relations
-    3. same_head: all triples sharing the same head entity
-    """
+
     records = index.get("records", {})
     groups: List[Dict[str, Any]] = []
 
@@ -2016,60 +1895,29 @@ def build_conflict_groups(index: Dict[str, Any]) -> List[Dict[str, Any]]:
         triple_ids: Iterable[str],
         possible_conflict_reason: str,
     ) -> None:
-        """
-        根据一组 triple ids 构造一个标准化的冲突候选组。
 
-        这里做的是“组装输出结构”的工作，不负责决定某类 triples
-        是否值得分组。值不值得分组，由外层三类规则控制。
 
-        参数说明：
-        - group_type:
-            组的类别，例如：
-            - same_head_relation
-            - same_head_tail_different_relation
-            - same_head
-        - raw_key:
-            用来唯一标识这个组的原始键。例如：
-            - (head, relation)
-            - (head, tail)
-            - (head,)
-        - triple_ids:
-            属于这个组的 triple id 列表
-        - possible_conflict_reason:
-            给后续 LLM 的“冲突可能原因提示词”。注意这里只是提示，
-            不是结论；真正是否冲突还是交给模型判断。
-        """
-        # 先去重，避免同一个 triple id 在组里重复出现。
-        # 这里用 dict.fromkeys 是为了“去重同时保序”。
         triple_ids = list(dict.fromkeys(str(item) for item in triple_ids))
         if len(triple_ids) < 2:
-            # 一个组至少要有 2 条 triple，少于 2 条没有比较意义。
+
             return
 
-        # 从 records 中把 triple id 展开成完整记录。
-        # 只有 records 里真的存在的 triple 才能进入组。
+
         group_records = [records[item] for item in triple_ids if item in records]
         if len(group_records) < 2:
             return
 
-        # 记录这个组涉及到哪些 chunk。
-        # 这样后面如果模型判断有冲突，我们可以知道：
-        # - 主要归到哪个 chunk
-        # - 是否是跨 chunk 冲突
+
         involved_chunk_ids = sorted(
             {
-                str(item.get("doc_idx"))
+                str(source.get("doc_idx"))
                 for item in group_records
-                if item.get("doc_idx") is not None
+                for source in conflict_record_sources(item)
+                if source.get("doc_idx") is not None
             }
         )
 
-        # 这里取第一个 chunk 作为 primary_chunk_id，主要是为了：
-        # - 后续 conflict_by_chunk 输出能有一个主归属
-        # - 尽量不打破当前已有的按 chunk 汇总结构
-        #
-        # 注意：一个组完全可能跨多个 chunk。
-        # 真正完整的信息还是在 involved_chunk_ids 里。
+
         primary_chunk_id = involved_chunk_ids[0] if involved_chunk_ids else None
         groups.append(
             {
@@ -2083,27 +1931,10 @@ def build_conflict_groups(index: Dict[str, Any]) -> List[Dict[str, Any]]:
             }
         )
 
-    # ------------------------------------------------------------------
-    # 第一类分组：same_head_relation
-    #
-    # 规则：
-    #   相同头实体 + 相同关系
-    #
-    # 为什么这类最重要：
-    #   这是最典型的“事实槽位冲突”模式。
-    #   例如：
-    #     (X, birthplace, Shanghai)
-    #     (X, birthplace, Beijing)
-    #   它们共享同一个 head 和 relation，但 tail 不同，
-    #   很可能是互斥冲突、时间冲突，或者粒度冲突。
-    #
-    # 数据来源：
-    #   直接利用前面建好的 by_head_relation 索引，
-    #   不需要再扫描所有 triples 去做 O(n^2) 两两比较。
-    # ------------------------------------------------------------------
+
     for key, triple_ids in index.get("by_head_relation", {}).items():
-        # 只有当同一个 (head, relation) 桶下出现多个不同 tail，
-        # 才有必要认为“存在潜在冲突比较价值”。
+
+
         unique_tails = {
             str(records[item]["triple"][2]).strip().lower()
             for item in triple_ids
@@ -2121,20 +1952,7 @@ def build_conflict_groups(index: Dict[str, Any]) -> List[Dict[str, Any]]:
             ),
         )
 
-    # ------------------------------------------------------------------
-    # 第二类和第三类分组之前，先建立两个辅助桶：
-    #
-    # 1. head_tail_groups:
-    #    (head, tail) -> triple_ids
-    #    用来找“头尾相同但关系不同”的 triples
-    #
-    # 2. head_only_groups:
-    #    head -> triple_ids
-    #    用来找“相同头实体”的整组 triples
-    #
-    # 这一步相当于把全量 triples 再投影成两种视角，
-    # 后面直接在桶里做组装即可。
-    # ------------------------------------------------------------------
+
     head_tail_groups: Dict[Tuple[str, str], List[str]] = {}
     head_only_groups: Dict[str, List[str]] = {}
     for triple_id, record in records.items():
@@ -2147,25 +1965,7 @@ def build_conflict_groups(index: Dict[str, Any]) -> List[Dict[str, Any]]:
         head_tail_groups.setdefault((head, tail), []).append(triple_id)
         head_only_groups.setdefault(head, []).append(triple_id)
 
-    # ------------------------------------------------------------------
-    # 第二类分组：same_head_tail_different_relation
-    #
-    # 规则：
-    #   相同头实体 + 相同尾实体 + 不同关系
-    #
-    # 为什么单独拿出来：
-    #   这类 triples 虽然不是最典型的“不同 tail 冲突”，
-    #   但它们常常暴露出：
-    #   - 关系标签冲突
-    #   - 关系粒度不一致
-    #   - 模型把相近语义关系重复/混乱地标成不同 relation
-    #
-    # 例如：
-    #   (A, founded, B)
-    #   (A, works_for, B)
-    #
-    # 它们未必严格互斥，但很值得让 LLM 按组看一眼。
-    # ------------------------------------------------------------------
+
     for key, triple_ids in head_tail_groups.items():
         unique_relations = {
             str(records[item]["triple"][1]).strip().lower()
@@ -2184,23 +1984,7 @@ def build_conflict_groups(index: Dict[str, Any]) -> List[Dict[str, Any]]:
             ),
         )
 
-    # ------------------------------------------------------------------
-    # 第三类分组：same_head
-    #
-    # 规则：
-    #   相同头实体的所有 triples 放进同一组
-    #
-    # 为什么还需要这类更宽的组：
-    #   有些冲突不是靠“同 relation”或“同 head-tail”才能看出来，
-    #   而是需要把一个主体上的多条事实放在一起综合判断。
-    #
-    # 例如：
-    #   - 某人同时出现在两个互斥身份关系里
-    #   - 某实体在多个关系下体现出时间冲突
-    #   - 某主体上的几条关系组合起来前后矛盾
-    #
-    # 这一类组更宽，因此噪声也更高；但它能覆盖前两类抓不到的情况。
-    # ------------------------------------------------------------------
+
     for head, triple_ids in head_only_groups.items():
         if len(triple_ids) < 2:
             continue
@@ -2214,10 +1998,7 @@ def build_conflict_groups(index: Dict[str, Any]) -> List[Dict[str, Any]]:
             ),
         )
 
-    # 最后按 group_type + group_id 排序，保证：
-    # - 输出稳定
-    # - 调试时每次顺序一致
-    # - cache 命中更稳定
+
     groups.sort(key=lambda item: (item["group_type"], item["group_id"]))
     return groups
 
@@ -2227,21 +2008,13 @@ def classify_conflict_group_scope(
     *,
     new_doc_idx: str,
 ) -> str | None:
-    """
-    Classify one candidate conflict group by source scope.
 
-    Returns:
-    - "new_doc_internal":
-        every triple in the group comes from the current new_doc
-    - "new_doc_vs_accepted":
-        the group contains both new_doc triples and accepted_doc triples
-    - None:
-        accepted_only group; skip it during incremental conflict detection
-    """
+
     doc_ids = {
-        str(item.get("doc_idx"))
+        str(source.get("doc_idx"))
         for item in group.get("triples", [])
-        if item.get("doc_idx") is not None
+        for source in conflict_record_sources(item)
+        if source.get("doc_idx") is not None
     }
     if not doc_ids:
         return None
@@ -2259,15 +2032,15 @@ def check_conflict_for_group(
     output_dir: Path,
     args: argparse.Namespace,
 ) -> Dict[str, Any]:
-    """
-    Ask the LLM to judge one grouped candidate-conflict set.
-    """
+
+
     from prompt import PROMPT
 
     triples_text_lines: List[str] = []
     for idx, item in enumerate(group.get("triples", []), 1):
+        source_ids = [source.get("doc_idx") for source in conflict_record_sources(item)]
         triples_text_lines.append(
-            f"Triple {idx} (ID: {item.get('id')}, Chunk: {item.get('doc_idx')}): "
+            f"Triple {idx} (ID: {item.get('id')}, Chunks: {source_ids}): "
             f"{item.get('triple')}"
         )
 
@@ -2312,17 +2085,11 @@ def detect_conflicts_for_docs_batch(
     output_dir: Path,
     args: argparse.Namespace,
 ) -> Dict[str, Any]:
-    """
-    Run conflict detection in a post-hoc batch style, closer to the original pipeline.
 
-    核心区别：
-    - 不在“新 triple 刚进来时”立刻在线判断
-    - 先把当前 PDF 的 triples 都抽完
-    - 再用整份 docs 做一次全局冲突检测
-    """
+
     full_index = build_conflict_index(docs)
     candidate_groups = build_conflict_groups(full_index)
-    # import ipdb;ipdb.set_trace()
+
     all_conflicts: List[Dict[str, Any]] = []
     conflicting_triple_ids: set = set()
     conflicts_by_chunk: Dict[str, List[Dict[str, Any]]] = {}
@@ -2354,6 +2121,7 @@ def detect_conflicts_for_docs_batch(
             "conflicts": detection.get("conflicts", []),
             "conflicting_triple_ids": conflicting_ids,
             "triples": filtered_triples,
+            "supporting_chunks": collect_conflict_supporting_chunks(full_index, filtered_triples),
         }
         all_conflicts.append(conflict_item)
         primary_chunk_id = str(group.get("primary_chunk_id"))
@@ -2385,21 +2153,8 @@ def detect_conflicts_for_new_doc_groups(
     output_dir: Path,
     args: argparse.Namespace,
 ) -> Dict[str, Any]:
-    """
-    Incremental conflict detection for the current chunk.
 
-    核心思想：
-    - 当前 chunk 抽完 triples 后，立刻把“旧 docs + 当前 new_doc”放在一起看；
-    - 先按我们定义的三大分组规则建 candidate groups；
-    - 再按来源把组缩成：
-        1. new_doc_internal
-        2. new_doc_vs_accepted
-      跳过 accepted_only；
-    - 最后按组调用一次 LLM 做冲突判断。
 
-    这样既保持“构图过程中逐渐检测并消解冲突”的语义，
-    又能避免按单条 triple 重复调模型。
-    """
     current_docs = accepted_docs + [new_doc]
     full_index = build_conflict_index(current_docs)
     new_doc_idx = str(new_doc.get("idx"))
@@ -2445,6 +2200,7 @@ def detect_conflicts_for_new_doc_groups(
                 "conflicts": detection.get("conflicts", []),
                 "conflicting_triple_ids": conflicting_ids,
                 "triples": filtered_triples,
+                "supporting_chunks": collect_conflict_supporting_chunks(full_index, filtered_triples),
             }
         )
 
@@ -2472,25 +2228,7 @@ def build_resolution_source_text(
     new_doc: Dict[str, Any],
     conflict_items: List[Dict[str, Any]],
 ) -> str:
-    """
-    Build the source text consumed by the author's conflict_resolution prompt.
 
-    中文说明：
-    当 conflict_detection 已经确认“有冲突”之后，
-    conflict_resolution 不只需要三元组本身，还需要看到它们来自哪些 passage。
-
-    所以这里会把：
-    - 当前新 chunk 的原文
-    - 新三元组
-    - 冲突旧三元组
-    - 旧三元组对应的原文 passage
-    拼成一个长文本，交给 conflict_resolution prompt。
-
-    这样 LLM 才能根据原文证据判断：
-    - 哪条应该保留
-    - 哪条应该删除
-    - 哪条应该改写
-    """
     lines = []
     lines.append("New chunk source:")
     lines.append(f"Chunk ID: {new_doc.get('idx')}")
@@ -2499,6 +2237,30 @@ def build_resolution_source_text(
     lines.append("Conflicting triples:")
 
     seen = set()
+    seen_sources = {(str(new_doc.get("idx")), str(new_doc.get("passage", "")))}
+
+    def append_source(source: Dict[str, Any]) -> None:
+        key = (str(source.get("doc_idx")), str(source.get("passage", "")))
+        if key in seen_sources:
+            return
+        seen_sources.add(key)
+        lines.append(f"  Source chunk: {source.get('doc_idx')}")
+        lines.append(f"  Modality: {source.get('modality', 'text')}")
+        lines.append(f"  Source passage: {source.get('passage', '')}")
+
+    def append_fact(record: Dict[str, Any]) -> None:
+        triple = record.get("triple")
+        fact_id = record.get("id") or triple_key_from_list(triple)
+        if fact_id in seen:
+            return
+        seen.add(fact_id)
+        sources = conflict_record_sources(record)
+        lines.append(f"- ID: {fact_id}")
+        lines.append(f"  Triple: {triple}")
+        lines.append(f"  Supporting chunk IDs: {[source.get('doc_idx') for source in sources]}")
+        for source in sources:
+            append_source(source)
+
     for item in conflict_items:
         grouped_triples = item.get("triples")
         if isinstance(grouped_triples, list) and grouped_triples:
@@ -2506,32 +2268,24 @@ def build_resolution_source_text(
             lines.append(f"Group type: {item.get('group_type')}")
             lines.append(f"Possible conflict reason: {item.get('possible_conflict_reason', '')}")
             for grouped_item in grouped_triples:
-                grouped_id = grouped_item.get("id")
-                if grouped_id in seen:
-                    continue
-                seen.add(grouped_id)
-                lines.append(f"- ID: {grouped_id}")
-                lines.append(f"  Triple: {grouped_item.get('triple')}")
-                lines.append(f"  Source passage: {grouped_item.get('passage', '')}")
-            continue
+                append_fact(grouped_item)
+        else:
+            target = item.get("target_triple")
+            if target:
+                append_fact({
+                    "id": triple_key_from_list(target),
+                    "triple": target,
+                    "doc_idx": new_doc.get("idx"),
+                    "passage": new_doc.get("passage", ""),
+                })
+            for related in item.get("related_triples", []):
+                append_fact(related)
 
-        target = item.get("target_triple")
-        if target:
-            target_id = triple_key_from_list(target)
-            if target_id not in seen:
-                seen.add(target_id)
-                lines.append(f"- ID: {target_id}")
-                lines.append(f"  Triple: {target}")
-                lines.append(f"  Source passage: {new_doc.get('passage', '')}")
-
-        for related in item.get("related_triples", []):
-            related_id = related.get("id")
-            if related_id in seen:
-                continue
-            seen.add(related_id)
-            lines.append(f"- ID: {related_id}")
-            lines.append(f"  Triple: {related.get('triple')}")
-            lines.append(f"  Source passage: {related.get('passage', '')}")
+        supporting_chunks = item.get("supporting_chunks", [])
+        if supporting_chunks:
+            lines.append("Additional entity-level supporting evidence (context, not extra facts to resolve):")
+            for source in supporting_chunks:
+                append_source(source)
 
     return "\n".join(lines)
 
@@ -2543,18 +2297,8 @@ def resolve_conflicts_for_chunk(
     output_dir: Path,
     args: argparse.Namespace,
 ) -> Dict[str, Any]:
-    """
-    Use the author's conflict_resolution prompt for the conflicts introduced by
-    one new chunk.
 
-    中文说明：
-    这个函数处理的是“一个新 chunk 引入的一整组冲突”。
 
-    它的作用不是再判断“有没有冲突”，而是做下一步：
-    - 对已经确认的冲突给出处理决策；
-    - 返回 resolved_triples 列表；
-    - 后面 apply_resolution_to_docs() 会根据这些决策真正修改当前 memory 状态。
-    """
     from prompt import PROMPT
 
     prompt_template = PROMPT["conflict_resolution"]
@@ -2612,16 +2356,8 @@ def resolve_conflicts_for_chunk(
 
 
 def remove_triple_from_doc(doc: Dict[str, Any], triple: List[str]) -> None:
-    """
-    Remove a triple and its ontology from one OpenIE-like doc.
 
-    中文说明：
-    删除时要同时删两处：
-    1. extracted_triples 里的具体事实
-    2. extracted_triple_ontology 里的 fact -> schema 映射
 
-    否则会出现“事实删了，但 ontology 还挂着”的脏数据。
-    """
     key = triple_key_from_list(triple)
     doc["extracted_triples"] = [
         item for item in doc.get("extracted_triples", []) if triple_key_from_list(item) != key
@@ -2639,27 +2375,26 @@ def add_or_replace_triple_in_doc(
     resolved_triple: List[str],
     original_ontology: List[str],
 ) -> None:
-    """
-    Replace one triple in a doc. If the original triple is not present, add the
-    resolved triple.
 
-    中文说明：
-    当 conflict_resolution 的结果是 modified 时，
-    这里会把旧 triple 替换成新 triple。
 
-    注意这里也会同步更新 ontology：
-    - head_type 和 tail_type 尽量沿用旧 ontology
-    - relation 用新的 resolved_triple[1]
-
-    这是一个比较保守的做法：
-    默认认为冲突消解主要改 relation / triple 内容，
-    实体类型大多数情况下仍然可复用。
-    """
     remove_triple_from_doc(doc, original_triple)
+    add_resolved_triple_to_doc(doc, resolved_triple, original_ontology)
+
+
+def add_resolved_triple_to_doc(
+    doc: Dict[str, Any],
+    resolved_triple: List[str],
+    original_ontology: List[str],
+) -> None:
+
     existing_keys = {triple_key_from_list(item) for item in doc.get("extracted_triples", [])}
     resolved_key = triple_key_from_list(resolved_triple)
+    existing_ontology = (doc.get("extracted_triple_ontology") or {}).get(resolved_key)
+    if resolved_key in existing_keys and isinstance(existing_ontology, list) and len(existing_ontology) == 3:
+
+        return
     if resolved_key not in existing_keys:
-        doc.setdefault("extracted_triples", []).append(resolved_triple)
+        doc.setdefault("extracted_triples", []).append(list(resolved_triple))
 
     ontology = list(original_ontology)
     if len(ontology) == 3:
@@ -2673,16 +2408,8 @@ def find_doc_containing_triple(
     docs: List[Dict[str, Any]],
     triple: List[str],
 ) -> Tuple[Dict[str, Any] | None, List[str] | None]:
-    """
-    Find the first doc containing a triple and return its ontology.
 
-    中文说明：
-    conflict_resolution 返回的是“哪条 triple 要改/删”，
-    但真正修改时，需要先找到这条 triple 现在挂在哪个 doc(chunk) 里。
 
-    这个函数就是做这个定位：
-    triple -> doc + ontology
-    """
     key = triple_key_from_list(triple)
     for doc in docs:
         for existing in doc.get("extracted_triples", []):
@@ -2694,34 +2421,31 @@ def find_doc_containing_triple(
     return None, None
 
 
+def find_docs_containing_triple(
+    docs: List[Dict[str, Any]],
+    triple: List[str],
+) -> List[Tuple[Dict[str, Any], List[str]]]:
+
+    key = triple_key_from_list(triple)
+    matches = []
+    for doc in docs:
+        if not any(triple_key_from_list(existing) == key for existing in doc.get("extracted_triples", [])):
+            continue
+        ontology = (doc.get("extracted_triple_ontology") or {}).get(key)
+        if not (isinstance(ontology, list) and len(ontology) == 3):
+            ontology = ["UNKNOWN", str(triple[1]), "UNKNOWN"]
+        matches.append((doc, list(ontology)))
+    return matches
+
+
 def apply_resolution_to_docs(
     *,
     accepted_docs: List[Dict[str, Any]],
     new_doc: Dict[str, Any],
     resolution: Dict[str, Any],
 ) -> None:
-    """
-    Apply conflict resolution decisions to existing docs and the current new doc.
 
-    - discarded: remove the triple
-    - modified: replace the original triple with resolved_triple
-    - kept: leave it unchanged
 
-    中文说明：
-    这是“把 LLM 的消解决策真正写回当前构图状态”的关键一步。
-
-    accepted_docs 表示此前已经接受进 memory 的旧 chunk 集合，
-    new_doc 表示当前正在处理的新 chunk。
-
-    所以这里会把它们拼成：
-        all_docs = accepted_docs + [new_doc]
-    然后逐条应用 resolution：
-    - discarded: 删掉原 triple
-    - modified: 用 resolved_triple 替换原 triple
-    - kept: 不动
-
-    这样下一个 chunk 再进来时，看到的就是“已经更新后的知识状态”。
-    """
     all_docs = accepted_docs + [new_doc]
     resolved_items = resolution.get("resolved_triples", [])
     if not isinstance(resolved_items, list):
@@ -2731,6 +2455,7 @@ def apply_resolution_to_docs(
         )
         return
 
+    plans: Dict[str, Dict[str, Any]] = {}
     for idx, item in enumerate(resolved_items):
         if not isinstance(item, dict):
             print(
@@ -2743,39 +2468,42 @@ def apply_resolution_to_docs(
         if not (isinstance(original, list) and len(original) == 3):
             continue
 
-        doc, ontology = find_doc_containing_triple(all_docs, [str(x) for x in original])
-        if doc is None:
-            continue
-
+        original = [str(x) for x in original]
         decision = str(item.get("resolution", "")).lower()
-        if decision == "discarded":
-            remove_triple_from_doc(doc, [str(x) for x in original])
-        elif decision == "modified":
+        if decision not in {"kept", "discarded", "modified"}:
+            continue
+        resolved = None
+        if decision == "modified":
             resolved = item.get("resolved_triple")
-            if isinstance(resolved, list) and len(resolved) == 3:
-                add_or_replace_triple_in_doc(
-                    doc,
-                    original_triple=[str(x) for x in original],
-                    resolved_triple=[str(x) for x in resolved],
-                    original_ontology=ontology or ["UNKNOWN", str(original[1]), "UNKNOWN"],
-                )
+            if not (isinstance(resolved, list) and len(resolved) == 3):
+                continue
+            resolved = [str(x) for x in resolved]
+        original_key = triple_key_from_list(original)
+        if original_key in plans:
+            print(f"Warning: repeated resolution for {original_key}; using the last valid decision.")
+        plans[original_key] = {
+            "original": original,
+            "decision": decision,
+            "resolved": resolved,
+            "occurrences": find_docs_containing_triple(all_docs, original),
+        }
+
+    for plan in plans.values():
+        if plan["decision"] in {"discarded", "modified"}:
+            for doc, _ in plan["occurrences"]:
+                remove_triple_from_doc(doc, plan["original"])
+    for plan in plans.values():
+        if plan["decision"] == "modified":
+            for doc, ontology in plan["occurrences"]:
+                add_resolved_triple_to_doc(doc, plan["resolved"], ontology)
 
 
 def rebuild_relation_chunks_from_openie_docs(
     relation_chunks: List[Dict[str, Any]],
     accepted_docs: List[Dict[str, Any]],
 ) -> List[Dict[str, Any]]:
-    """
-    Synchronize relation chunk records after conflict resolution has modified
-    OpenIE-like docs.
 
-    中文说明：
-    冲突消解真正改动的是 accepted_docs/new_doc 这套 OpenIE-like 结构。
-    但输出文件 output_relations.json 依赖的是 relation_chunks。
 
-    所以在全部 chunk 处理完之后，需要再把最新的 accepted_docs
-    反向同步回 relation_chunks，确保最终输出文件和 memory 中的数据一致。
-    """
     doc_by_idx = {str(doc.get("idx")): doc for doc in accepted_docs}
     rebuilt = []
 
@@ -2822,18 +2550,9 @@ def run_one_pdf_incremental_pipeline(
     embedding_model: Any | None = None,
     embedding_config: Any | None = None,
 ) -> None:
-    """
-    Incrementally build one PDF memory.
 
-    For each MinerU chunk:
-    1. extract entities
-    2. extract relation/schema triples
-    3. immediately run grouped conflict detection against the accepted memory so far
-    4. optionally call conflict_resolution for this chunk's conflict groups
-    5. apply resolution decisions before moving to the next chunk
-    """
+
     from memory import ThreeLayerMemory
-    from ontology_filtering import filter_low_frequency_ontology
 
     output_dir.mkdir(parents=True, exist_ok=True)
     entities_path = output_dir / "output_entities.json"
@@ -2865,7 +2584,7 @@ def run_one_pdf_incremental_pipeline(
 
     for idx, chunk in enumerate(chunks, 1):
         print(f"[chunk {idx}/{len(chunks)}] {chunk.chunk_id}")
-        # Step 1: 当前 chunk 做实体抽取。
+
         entity_chunk = extract_entities_from_one_mineru_chunk(
             chunk,
             output_dir=output_dir,
@@ -2892,7 +2611,7 @@ def run_one_pdf_incremental_pipeline(
             )
             continue
 
-        # Step 2: 当前 chunk 做关系抽取，得到新 triples。
+
         triples = extract_relations_from_one_entity_chunk(
             entity_chunk,
             output_dir=output_dir,
@@ -2989,13 +2708,9 @@ def run_one_pdf_incremental_pipeline(
         "docs": accepted_docs,
     }
 
-    filtered_data = filter_low_frequency_ontology(
-        openie_data,
-        min_count=args.ontology_min_count,
-    )
     print(f"[final] Build three-layer memory: {memory_path}")
     memory = ThreeLayerMemory()
-    memory.build_from_openie_results(filtered_data)
+    memory.build_from_openie_results(openie_data)
     encode_memory_embeddings(
         memory,
         output_dir,
@@ -3010,19 +2725,8 @@ def _process_one_tree_file(
     root_output_dir: Path,
     args: argparse.Namespace,
 ) -> Dict[str, Any]:
-    """
-    Worker entry for one MinerU tree file.
 
-    We parallelize at the document/tree granularity instead of inside one PDF's
-    incremental loop. That keeps the existing chunk-by-chunk conflict handling
-    unchanged, while still letting multiple PDFs run concurrently.
 
-    Each worker process loads its own chunks and, when needed, creates its own
-    embedding model instance during `encode_memory_embeddings(...)`. We do not
-    try to share the embedding runtime across processes because those objects
-    are not reliably pickleable and would make the parallel path much more
-    fragile.
-    """
     result: Dict[str, Any] = {
         "json_path": str(json_path),
         "status": "ok",
@@ -3128,7 +2832,6 @@ def main() -> None:
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--max-tokens", type=int, default=8192)
     parser.add_argument("--max-entities-per-chunk", type=int, default=100)
-    parser.add_argument("--ontology-min-count", type=int, default=2)
     parser.add_argument("--disable-conflict-resolution", action="store_true", help="Do not call conflict detection/resolution while processing chunks.")
     parser.add_argument("--max-conflict-candidates", type=int, default=20, help="Maximum existing triples sent as candidates for each new triple.")
     parser.add_argument("--save-every", type=int, default=10, help="Save intermediate incremental outputs every N chunks.")

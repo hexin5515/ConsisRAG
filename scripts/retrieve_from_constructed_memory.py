@@ -1,20 +1,5 @@
 #!/usr/bin/env python3
-"""
-基于构图阶段输出的 memory / vdb 文件做一个简单、可运行的检索流程。
 
-当前检索链路分三步：
-1. 用 query 和 schema / schema_relation 向量做第一跳召回
-2. 根据召回到的 schema / schema_relation，展开到候选 passages
-3. 再用 query 和 chunk 向量对候选 passages 做一次精排
-
-输入文件默认来自同一个 PDF 输出目录，例如：
-    output/<run_name>/<pdf_name>/
-        memory.json
-        memory_embeddings.json
-        chunk_embeddings/vdb_chunk.parquet
-        schema_embeddings/vdb_schema.parquet
-        schema_relation_embeddings/vdb_schema_relation.parquet
-"""
 
 from __future__ import annotations
 
@@ -50,7 +35,7 @@ from memory import ThreeLayerMemory
 from evaluation.mmlong_bookrag_eval import BookRAGStyleAnswerExtractor, evaluate_mmlong_results
 from prompts.linking import get_query_instruction
 
-# Keep retrieval defaults aligned with the construction-stage embedding config.
+
 DEFAULT_EMBEDDING_MODEL = "Qwen/Qwen3-Embedding-0.6B"
 DEFAULT_EMBEDDING_BASE_URL = "http://localhost:8083/v1/embeddings"
 DEFAULT_EMBEDDING_API_KEY = "openai"
@@ -67,7 +52,7 @@ DEFAULT_PLANNER_MODEL = DEFAULT_ANSWER_MODEL
 DEFAULT_PLANNER_BASE_URL = DEFAULT_ANSWER_BASE_URL
 DEFAULT_PLANNER_API_KEY = DEFAULT_ANSWER_API_KEY
 DEFAULT_MINERU_ROOT = "data/datasets/MMLongBench-Doc/process_documents"
-GRAPH_TEXT_TOP_K = 5    #MMLong 5 3 2 Qasper 5 3 2 M3DocVAQ 10 3 2 
+GRAPH_TEXT_TOP_K = 5
 GRAPH_TABLE_TOP_K = 3
 GRAPH_IMAGE_TOP_K = 2
 
@@ -208,13 +193,8 @@ def _resolve_vdb_paths(memory_path: Path, args: argparse.Namespace) -> Dict[str,
 
 
 def _infer_doc_id_from_memory_path(memory_path: Path) -> str:
-    """
-    从当前输出目录推断 MMLongBench 的 doc_id。
 
-    例如：
-        output/.../tacl_a_00660/memory.json
-    ->  tacl_a_00660.pdf
-    """
+
     return f"{memory_path.parent.name}.pdf"
 
 
@@ -227,16 +207,8 @@ def _empty_token_usage() -> Dict[str, int]:
 
 
 def _usage_to_dict(usage: Any) -> Dict[str, int]:
-    """
-    统一把 OpenAI SDK 返回的 usage 对象转成普通 dict。
 
-    不同 provider / SDK 版本上，usage 可能是：
-    - 具备属性的对象
-    - dict
-    - None
 
-    这里统一落成三个最稳定的字段，方便后面做总量累计。
-    """
     if usage is None:
         return _empty_token_usage()
 
@@ -280,18 +252,8 @@ def _load_samples_for_doc(samples_json_path: str, doc_id: str) -> List[Dict[str,
 
 
 def _infer_doc_id_from_sample_item(item: Dict[str, Any]) -> str:
-    """
-    Infer the benchmark doc_id from one sample item.
 
-    The original HVM-GraphRAG MMLongBench path expects:
-        {"doc_id": "tacl_a_00660.pdf", ...}
 
-    Some Office-style exports instead omit `doc_id` and only keep:
-        {"doc_path": "PATH_TO_DIR/tacl_a_00660.pdf", ...}
-
-    To stay compatible with both, we prefer `doc_id` when present and fall back
-    to the basename of `doc_path`.
-    """
     doc_id = str(item.get("doc_id", "")).strip()
     if doc_id:
         return doc_id
@@ -425,12 +387,8 @@ def _html_table_to_text(table_html: str) -> str:
 
 
 def _infer_embedding_model_name(sample_dim: int) -> str:
-    """
-    根据向量维度做一个保守推断。
 
-    当前优先从环境变量读取真实 embedding 模型名；如果未设置，
-    再根据向量维度做保守推断。
-    """
+
     env_model = os.environ.get("MEMGRAPHRAG_EMBED_MODEL", "").strip()
     if env_model:
         return env_model
@@ -465,7 +423,7 @@ def _build_embedding_model(embedding_model_name: str) -> Any:
 
 
 class MinerUMetadataLookup:
-    """用 chunk_id 回查原始 MinerU tree.json，补回 table/image 的细粒度信息。"""
+
 
     def __init__(
         self,
@@ -476,11 +434,21 @@ class MinerUMetadataLookup:
         vlm_model: str = "",
         vlm_base_url: str = "",
         vlm_api_key: str = "",
+        memory: ThreeLayerMemory | None = None,
     ) -> None:
         self.memory_path = Path(memory_path).resolve()
         self.doc_id = _infer_doc_id_from_memory_path(self.memory_path)
         self.tree_json_path = self._resolve_tree_json(tree_json_path=tree_json_path, mineru_root=mineru_root)
         self.chunk_map: Dict[str, Dict[str, Any]] = {}
+        self._image_representations = {
+            str(passage.chunk_id): {
+                "image_summary": passage.image_summary,
+                "original_content": passage.original_content,
+                "full_content": passage.content,
+            }
+            for passage in memory.passage_layer
+            if passage.image_summary
+        } if memory is not None else {}
         self.vlm_model = (vlm_model or os.environ.get("MEMGRAPHRAG_VLM_MODEL", DEFAULT_VLM_MODEL)).strip()
         self.vlm_base_url = _normalize_chat_base_url(
             vlm_base_url or os.environ.get("MEMGRAPHRAG_VLM_BASE_URL", DEFAULT_VLM_BASE_URL)
@@ -503,17 +471,13 @@ class MinerUMetadataLookup:
         if not root.exists():
             return None
 
-        # BookRAG preprocesses each document into a deterministic UUID-named folder:
-        #     doc_uuid = str(uuid.uuid5(uuid.NAMESPACE_DNS, doc_id))
-        # where doc_id for MMLongBench is the visible file name like `tacl_a_00660.pdf`.
-        # We reuse the same mapping here instead of scanning every tree.json.
+
         doc_uuid = str(uuid.uuid5(uuid.NAMESPACE_DNS, self.doc_id))
         candidate = root / doc_uuid / "tree.json"
         if candidate.exists():
             return candidate
 
-        # Keep one narrow compatibility fallback for runs whose output folder name
-        # already matches the process_documents child directory name.
+
         stem_candidate = root / self.memory_path.parent.name / "tree.json"
         if stem_candidate.exists():
             return stem_candidate
@@ -685,6 +649,20 @@ class MinerUMetadataLookup:
     ) -> Dict[str, Any]:
         enriched = dict(record)
         chunk_id = str(record.get("chunk_id", ""))
+        stored = getattr(self, "_image_representations", {}).get(chunk_id, {})
+        image_summary = str(stored.get("image_summary") or record.get("image_summary") or "").strip()
+        if image_summary:
+            base_content = str(stored.get("full_content") or record.get("full_content", ""))
+            if image_summary not in base_content:
+                base_content = f"{base_content}\n\n[Image Summary]\n{image_summary}".strip()
+            enriched["image_summary"] = image_summary
+            enriched["image_description"] = image_summary
+            enriched["original_content"] = stored.get("original_content") or record.get("original_content", "")
+            enriched["full_content"] = base_content
+            enriched["qa_content"] = base_content
+            if self.tree_json_path is not None:
+                enriched["tree_json_path"] = str(self.tree_json_path)
+            return enriched
         metadata = self.chunk_map.get(chunk_id)
         if not metadata:
             return enriched
@@ -781,10 +759,8 @@ def _rank_chunk_candidates(
     top_k: int,
     allowed_modalities: Iterable[str] | None = None,
 ) -> List[Dict[str, Any]]:
-    """
-    纯 dense baseline：
-    直接对 chunk / sub-chunk 向量做检索，再聚合回原始 passage。
-    """
+
+
     modality_filter = set(m.strip().lower() for m in allowed_modalities or [] if m.strip())
     embeddings = np.vstack(chunk_df["embedding"].apply(lambda x: np.asarray(x, dtype=np.float32)).tolist())
     scores = _cosine_scores(query_vec, embeddings)
@@ -827,15 +803,8 @@ def _collect_candidate_passages(
     schema_hits: List[Dict[str, Any]],
     relation_hits: List[Dict[str, Any]],
 ) -> Dict[int, Dict[str, Any]]:
-    """
-    将结构层召回结果展开成候选 passage 集。
 
-    这里我们保留两类结构信号：
-    - schema 命中
-    - schema relation 命中
 
-    passage 的初始分数先用结构层的最大分数，后面再做 chunk-level rerank。
-    """
     candidates: Dict[int, Dict[str, Any]] = {}
 
     schema_score_map = {item["content"]: item["score"] for item in schema_hits}
@@ -886,13 +855,8 @@ def _expand_schema_hits_with_connected_relations(
     schema_hits: List[Dict[str, Any]],
     relation_hits: List[Dict[str, Any]],
 ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
-    """
-    从已召回 schema 出发，保留“至少一端连接到已召回 schema”的 relation，
-    并把 relation 的另一端 schema 一并补进 schema 命中集合。
 
-    这样得到的是一个以 top-k schema 为种子、经一跳 relation 扩展得到的
-    连通 schema 子图，而不是彼此孤立的 schema / relation 命中结果。
-    """
+
     if not schema_hits or not relation_hits:
         return schema_hits, []
 
@@ -967,15 +931,8 @@ def _rerank_passages(
     top_k: int,
     allowed_modalities: Iterable[str] | None = None,
 ) -> List[Dict[str, Any]]:
-    """
-    用 chunk 向量对候选 passages 精排。
 
-    最终分数做一个简单融合：
-        final_score = 0.7 * dense_score + 0.3 * structural_score
 
-    这里先用固定权重，目的是把流程跑通，后面如果我们要认真调 retrieval，
-    再把融合策略做成可配置就行。
-    """
     modality_filter = set(m.strip().lower() for m in allowed_modalities or [] if m.strip())
     chunk_embeddings = np.vstack(chunk_df["embedding"].apply(lambda x: np.asarray(x, dtype=np.float32)).tolist())
     dense_scores = _cosine_scores(query_vec, chunk_embeddings)
@@ -1028,6 +985,8 @@ def _rerank_passages(
                 ],
                 "best_segment_preview": parent_best_segment_map.get(dense_lookup_key, passage.content),
                 "content": passage.content,
+                "image_summary": getattr(passage, "image_summary", ""),
+                "original_content": getattr(passage, "original_content", ""),
             }
         )
 
@@ -1068,17 +1027,7 @@ def _normalize_query_text(query: str) -> str:
 
 @dataclass(frozen=True)
 class BookRAGStyleFilter:
-    """
-    Lightweight local replica of BookRAG's filter schema.
 
-    BookRAG's GBC planner emits filters with the following shape:
-      - filter_type in {"section", "image", "table", "page"}
-      - filter_value optionally used for {"section", "page"}
-
-    We keep the same structure here so the retrieval-time metadata is easy to
-    compare against BookRAG's original behavior, even though the current
-    HVM-GraphRAG retrieval runtime only applies the modality-relevant subset.
-    """
 
     filter_type: str
     filter_value: str | None = None
@@ -1086,17 +1035,7 @@ class BookRAGStyleFilter:
 
 @dataclass(frozen=True)
 class BookRAGStyleFilterPlan:
-    """
-    Query analysis result inspired by BookRAG's GBC planning stage.
 
-    We intentionally keep the public fields close to BookRAG:
-      - query_type: simple / complex / global
-      - filters: a list of structural filters
-      - operation: optional aggregation intent for global-style queries
-
-    Extra audit fields (`matched_keywords`, `reason`) are included so we can
-    inspect later why a query was filtered a certain way.
-    """
 
     query_type: str
     filters: List[BookRAGStyleFilter]
@@ -1133,24 +1072,8 @@ def _dedupe_preserve_order(values: Iterable[str]) -> List[str]:
 
 
 def _build_bookrag_style_query_filter_plan(query: str) -> BookRAGStyleFilterPlan:
-    """
-    Build a BookRAG-style filter plan from the raw query text.
 
-    This intentionally mirrors the *shape* of BookRAG's GBC planner:
-      1. infer a coarse query type (`simple` / `complex` / `global`)
-      2. construct a list of structural filters
 
-    The implementation here is rule-based rather than LLM-based. That is a
-    deliberate choice:
-      - no extra model latency/cost during retrieval
-      - deterministic and auditable
-      - safe to add as an optional layer without perturbing the existing code
-
-    Current runtime support:
-      - `image` / `table` filters are translated into modality restrictions
-      - `section` / `page` filters are preserved in metadata for future use
-        but are not yet applied to candidate generation
-    """
     normalized = _normalize_query_text(query)
     matched_keywords: List[str] = []
     filters: List[BookRAGStyleFilter] = []
@@ -1250,16 +1173,8 @@ def _build_bookrag_style_query_filter_plan(query: str) -> BookRAGStyleFilterPlan
 def _modalities_from_bookrag_style_filters(
     plan: BookRAGStyleFilterPlan,
 ) -> List[str]:
-    """
-    Convert BookRAG-style filters into the modality restrictions supported by
-    the current retrieval runtime.
 
-    The mapping is intentionally conservative:
-      - image/table cues always keep `text` available for supporting context
-        unless the query resembles a BookRAG-style global aggregation, where
-        the original system would filter directly over that modality.
-      - section/page filters are preserved in metadata only for now.
-    """
+
     filter_types = {item.filter_type for item in plan.filters}
     has_image = "image" in filter_types
     has_table = "table" in filter_types
@@ -1290,22 +1205,8 @@ def _resolve_query_modalities_with_bookrag_filter(
     requested_modalities: Iterable[str] | None,
     enable_bookrag_query_filter: bool,
 ) -> Tuple[List[str], Dict[str, Any]]:
-    """
-    Resolve the final modality filter for one query.
 
-    Behavior:
-      - if query filtering is disabled, preserve the original user-provided
-        modalities unchanged
-      - if enabled, build a BookRAG-style filter plan from the query
-      - translate supported filters into modalities
-      - merge them conservatively with explicit user constraints
 
-    Merge policy:
-      - if the user did not pass `--modalities`, use the query-derived set
-      - if the user did pass `--modalities`, intersect the two
-      - if the intersection is empty, keep the user-provided modalities to
-        avoid a surprising hard failure caused by an over-aggressive heuristic
-    """
     requested = _dedupe_preserve_order(requested_modalities or [])
     if not enable_bookrag_query_filter:
         return requested, {
@@ -1364,17 +1265,8 @@ def _extract_json_object(text: str) -> Dict[str, Any]:
 
 
 def _normalize_bookrag_query_type(payload: Dict[str, Any]) -> str:
-    """
-    Normalize planner classification payloads into one of:
-      - simple
-      - complex
-      - global
 
-    We keep this tolerant because some models return slight schema drift such as:
-      - {"type": "global"}
-      - {"category": "Complex"}
-      - {"query_type": "This is a global question"}
-    """
+
     candidate_keys = [
         "query_type",
         "type",
@@ -1403,14 +1295,7 @@ def _normalize_bookrag_query_type(payload: Dict[str, Any]) -> str:
 
 
 class BookRAGStyleTaskPlanner:
-    """
-    Local planner that mirrors BookRAG GBC planning:
-      - classify into simple / complex / global
-      - decompose complex questions into retrieval + synthesis steps
-      - build filters + operation for global questions
 
-    Unlike the lightweight query filter above, this planner is LLM-driven.
-    """
 
     def __init__(
         self,
@@ -1614,30 +1499,8 @@ User Query: "{query}"
 
 
 def _analyze_query_evidence_needs(query: str) -> Dict[str, Any]:
-    """
-    Lightweight query analysis for evidence fusion.
 
-    This helper does *not* decide the final answer route. Instead, it estimates
-    what kinds of evidence are likely to be useful when we merge graph and dense
-    retrieval results.
 
-    The return value is intentionally simple and auditable:
-    - needs_table / needs_image:
-        Whether the query explicitly references table / figure / chart style
-        objects, so we should preserve those modalities when possible.
-    - prefers_direct_text:
-        Whether the query looks like local text grounding is important. Dense
-        retrieval is usually stronger on these direct-answer text spans.
-    - query_type:
-        A coarse label for later debugging and analysis.
-    - matched_keywords:
-        Which lexical cues fired.
-
-    We keep this rule-based on purpose:
-    - deterministic
-    - cheap
-    - easy to inspect when a fused context behaves unexpectedly
-    """
     normalized = _normalize_query_text(query)
 
     table_keywords = [
@@ -1704,19 +1567,8 @@ def _analyze_query_evidence_needs(query: str) -> Dict[str, Any]:
 
 
 def _route_query_to_strategy_family(query: str) -> Dict[str, Any]:
-    """
-    Coarse query router used before the fused strategy.
 
-    This helper implements the exact idea we discussed:
-    - queries with strong graph-style cues -> `graph`
-    - queries that look like single-modality / local text grounding -> `dense`
-    - everything else -> `fused`
 
-    Important design choice:
-    We keep this as a *high-confidence* router, not a hard full classifier.
-    If the query is ambiguous, we intentionally fall back to `fused` instead of
-    over-committing to graph or dense.
-    """
     normalized = _normalize_query_text(query)
 
     graph_patterns = [
@@ -1802,15 +1654,8 @@ def _take_unique_by_bucket(
     bucket_name: str | None = None,
     top_k: int = 1,
 ) -> List[Dict[str, Any]]:
-    """
-    Pick up to `top_k` unique passages, optionally constrained to one modality
-    bucket.
 
-    This is the core primitive used by the fused strategy. We keep it tiny and
-    explicit so the final context assembly is easy to reason about:
-    - no hidden reranking
-    - no hidden side effects besides marking used chunk ids
-    """
+
     selected: List[Dict[str, Any]] = []
     for item in passages:
         chunk_id = str(item.get("chunk_id", ""))
@@ -1849,19 +1694,8 @@ def _merge_unique_passages(
 def _select_graph_passages_by_bucket(
     passage_hits: List[Dict[str, Any]],
 ) -> List[Dict[str, Any]]:
-    """
-    graph 检索按三类模态分别截断：
-    - text: 普通文本 + list 等非 table/image 模态
-    - table
-    - image
 
-    当前固定配额：
-    - text: top 10
-    - table: top 2
-    - image: top 3
 
-    再合并后按最终分数排序，避免某一类模态把其它模态完全挤掉。
-    """
     buckets: Dict[str, List[Dict[str, Any]]] = {"text": [], "table": [], "image": []}
     for item in passage_hits:
         bucket = _graph_modality_bucket(item.get("modality", ""))
@@ -1883,6 +1717,68 @@ def _select_graph_passages_by_bucket(
 
     merged.sort(key=lambda row: float(row.get("final_score", float("-inf"))), reverse=True)
     return merged
+
+
+def _merge_graph_dense_evidence(
+    graph_passages: Sequence[Dict[str, Any]],
+    dense_passages: Sequence[Dict[str, Any]],
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    merged: Dict[str, Dict[str, Any]] = {}
+    graph_ids = {str(item.get("chunk_id", "")).strip() for item in graph_passages}
+    supplemental_ids: List[str] = []
+    for item in list(graph_passages) + list(dense_passages):
+        chunk_id = str(item.get("chunk_id", "")).strip()
+        if not chunk_id:
+            raise ValueError("Evidence chunks must have a nonempty chunk_id.")
+        raw_score = item.get("dense_score")
+        if raw_score is None:
+            raw_score = item.get("final_score")
+        if raw_score is None:
+            raise ValueError(f"Missing query-chunk similarity for {chunk_id}.")
+        score = float(raw_score)
+        if not np.isfinite(score):
+            raise ValueError(f"Invalid query-chunk similarity for {chunk_id}.")
+        if chunk_id not in merged:
+            merged[chunk_id] = dict(item)
+            merged[chunk_id]["chunk_id"] = chunk_id
+            merged[chunk_id]["dense_score"] = score
+            merged[chunk_id]["final_score"] = score
+            if chunk_id not in graph_ids:
+                supplemental_ids.append(chunk_id)
+        else:
+            record = merged[chunk_id]
+            if score > record["dense_score"]:
+                record.update(item)
+                record["chunk_id"] = chunk_id
+                record["dense_score"] = score
+            else:
+                for key, value in item.items():
+                    if key not in record:
+                        record[key] = value
+            record["final_score"] = record["dense_score"]
+    return list(merged.values()), [merged[chunk_id] for chunk_id in supplemental_ids]
+
+
+def _organize_evidence_by_modality(
+    passages: Sequence[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    unique_passages, _ = _merge_graph_dense_evidence(passages, [])
+    buckets: Dict[str, List[Dict[str, Any]]] = {"text": [], "table": [], "image": []}
+    for passage in unique_passages:
+        buckets[_graph_modality_bucket(passage.get("modality", ""))].append(passage)
+    limits = {
+        "text": GRAPH_TEXT_TOP_K,
+        "table": GRAPH_TABLE_TOP_K,
+        "image": GRAPH_IMAGE_TOP_K,
+    }
+    organized: List[Dict[str, Any]] = []
+    for modality in ("text", "table", "image"):
+        ranked = sorted(
+            buckets[modality],
+            key=lambda item: (-item["dense_score"], str(item["chunk_id"])),
+        )
+        organized.extend(ranked[:limits[modality]])
+    return organized
 
 
 def _filter_schema_hits_by_threshold(
@@ -1930,6 +1826,8 @@ def _attach_passage_metadata(
                 ],
                 "content_preview": _truncate_text(full_content, preview_chars),
                 "full_content": full_content,
+                "image_summary": getattr(passage, "image_summary", ""),
+                "original_content": getattr(passage, "original_content", ""),
             }
         )
         enriched.append(record)
@@ -1937,9 +1835,7 @@ def _attach_passage_metadata(
 
 
 class RetrievalRuntime:
-    """
-    复用 memory / vdb / embedding model，避免批量问题时每题重复加载。
-    """
+
 
     def __init__(
         self,
@@ -1974,6 +1870,7 @@ class RetrievalRuntime:
             memory_path=str(self.memory_path),
             mineru_root=mineru_root,
             tree_json_path=tree_json_path,
+            memory=self.memory,
         )
 
     def _dense_fallback_for_missing_graph(
@@ -2138,13 +2035,8 @@ class RetrievalRuntime:
         preview_chars: int,
         bookrag_query_filtering: bool = False,
     ) -> Dict[str, Any]:
-        """
-        Dense-only ablation with graph-style modality bucketing.
 
-        This keeps the dense retrieval stage unchanged, but replaces the final
-        flat top-k cutoff with the same text/table/image bucket caps used by
-        the graph-guided branch.
-        """
+
         effective_modalities, query_filter_info = _resolve_query_modalities_with_bookrag_filter(
             query=query,
             requested_modalities=modalities,
@@ -2249,93 +2141,76 @@ class RetrievalRuntime:
         dense_supplement_top_k: int,
         bookrag_query_filtering: bool = False,
     ) -> Dict[str, Any]:
-        """
-        Seed-schema graph_plus_dense behavior:
 
-        1. Retrieve raw top-k schemas / schema relations
-        2. Keep only schemas whose score >= threshold as seed schemas
-        3. Use connected schema relations to perform one-hop expansion
-        4. Collect graph candidate passages and rerank them
-        5. Apply graph-side modality bucketing
-        6. Append a few unique dense passages as direct-answer supplements
 
-        If no seed schema survives the threshold, the method falls back to the
-        dense baseline and uses dense passages only.
-        """
-        if not self.graph_structure_available:
-            return self._dense_fallback_for_missing_graph(
-                query=query,
-                strategy_name="graph_plus_dense",
-                passage_top_k=passage_top_k,
-                modalities=modalities,
-                preview_chars=preview_chars,
-                bookrag_query_filtering=bookrag_query_filtering,
-            )
+        if min(schema_top_k, schema_relation_top_k, passage_top_k, dense_supplement_top_k) < 0:
+            raise ValueError("Retrieval top-k values must be nonnegative.")
         effective_modalities, query_filter_info = _resolve_query_modalities_with_bookrag_filter(
             query=query,
             requested_modalities=modalities,
             enable_bookrag_query_filter=bookrag_query_filtering,
         )
-        structure_query_vec = _encode_query(self.embedding_model, query, "query_to_fact")
-        passage_query_vec = _encode_query(self.embedding_model, query, "query_to_passage")
-        raw_schema_hits = _rank_vdb_rows(self.schema_df, structure_query_vec, top_k=schema_top_k)
-        raw_relation_hits = _rank_vdb_rows(self.relation_df, structure_query_vec, top_k=schema_relation_top_k)
-        seed_schema_hits = _filter_schema_hits_by_threshold(
-            raw_schema_hits,
-            score_threshold=schema_score_threshold,
-        )
-        if seed_schema_hits:
+        raw_schema_hits = []
+        raw_relation_hits = []
+        seed_schema_hits = []
+        schema_hits = []
+        relation_hits = []
+        candidates = {}
+        reranked_passages = []
+        graph_top_passages = []
+        if self.graph_structure_available:
+            structure_query_vec = _encode_query(self.embedding_model, query, "query_to_fact")
+            raw_schema_hits = _rank_vdb_rows(self.schema_df, structure_query_vec, top_k=schema_top_k)
+            if not self.relation_df.empty:
+                raw_relation_hits = _rank_vdb_rows(self.relation_df, structure_query_vec, top_k=schema_relation_top_k)
+            seed_schema_hits = _filter_schema_hits_by_threshold(
+                raw_schema_hits,
+                score_threshold=schema_score_threshold,
+            )
+        if seed_schema_hits and passage_top_k > 0:
             schema_hits, relation_hits = _expand_schema_hits_with_connected_relations(
                 self.memory,
                 seed_schema_hits,
                 raw_relation_hits,
             )
             candidates = _collect_candidate_passages(self.memory, schema_hits, relation_hits)
+            passage_query_vec = _encode_query(self.embedding_model, query, "query_to_passage")
             reranked_passages = _rerank_passages(
                 self.memory,
                 self.chunk_df,
                 passage_query_vec,
                 candidates,
-                top_k=max(
-                passage_top_k,
-                GRAPH_TEXT_TOP_K + GRAPH_TABLE_TOP_K + GRAPH_IMAGE_TOP_K,
-            ),
+                top_k=passage_top_k,
                 allowed_modalities=effective_modalities,
             )
-            passage_hits = _select_graph_passages_by_bucket(reranked_passages)
-            graph_top_passages = self.mineru_lookup.enrich_passages(
-                _format_passage_hits(passage_hits, preview_chars=preview_chars)
+            graph_top_passages = _format_passage_hits(
+                reranked_passages,
+                preview_chars=preview_chars,
             )
-        else:
-            schema_hits = []
-            relation_hits = []
-            candidates = {}
-            reranked_passages = []
-            graph_top_passages = []
 
-        dense_result = self.retrieve_dense_baseline(
-            query,
-            passage_top_k=passage_top_k,
-            modalities=effective_modalities,
-            preview_chars=preview_chars,
-            bookrag_query_filtering=False,
-        )
+        dense_top_passages = []
+        if dense_supplement_top_k > 0:
+            dense_result = self.retrieve_dense_baseline(
+                query,
+                passage_top_k=dense_supplement_top_k,
+                modalities=effective_modalities,
+                preview_chars=preview_chars,
+                bookrag_query_filtering=False,
+            )
+            dense_top_passages = dense_result.get("top_passages", [])
         max_schema_score = _max_top_schema_score(raw_schema_hits)
+        merged_passages, supplemental_candidates = _merge_graph_dense_evidence(
+            graph_top_passages,
+            dense_top_passages,
+        )
+        final_passages = self.mineru_lookup.enrich_passages(
+            _organize_evidence_by_modality(merged_passages)
+        )
+        supplemental_ids = {item["chunk_id"] for item in supplemental_candidates}
+        supplemental_passages = [item for item in final_passages if item["chunk_id"] in supplemental_ids]
+        selected_mode = "graph_plus_dense" if graph_top_passages else "dense_only"
 
-        if graph_top_passages:
-            merged_passages, supplemental_passages = _merge_unique_passages(
-                graph_top_passages,
-                dense_result.get("top_passages", []),
-                supplemental_top_k=dense_supplement_top_k,
-            )
-            final_passages = merged_passages
-            selected_mode = "graph_plus_dense"
-        else:
-            supplemental_passages = []
-            final_passages = list(dense_result.get("top_passages", []))
-            selected_mode = "dense_baseline"
-
-        return {
+        result = {
             "query": query,
             "mode": "graph_plus_dense",
             "selected_mode": selected_mode,
@@ -2352,6 +2227,7 @@ class RetrievalRuntime:
             "top_schema_relations": relation_hits,
             "top_passages": final_passages,
             "supplemental_dense_passages": supplemental_passages,
+            "graph_structure_available": self.graph_structure_available,
             "stats": {
                 "num_raw_schema_hits": len(raw_schema_hits),
                 "num_seed_schema_hits": len(seed_schema_hits),
@@ -2361,7 +2237,9 @@ class RetrievalRuntime:
                 "num_candidate_passages": len(candidates),
                 "num_reranked_passages": len(reranked_passages),
                 "num_graph_passages": len(graph_top_passages),
-                "num_dense_passages": len(dense_result.get("top_passages", [])),
+                "num_dense_passages": len(dense_top_passages),
+                "num_merged_passages": len(merged_passages),
+                "num_supplemental_dense_candidates": len(supplemental_candidates),
                 "num_supplemental_dense_passages": len(supplemental_passages),
                 "num_final_passages": len(final_passages),
                 "num_text_passages": sum(1 for item in final_passages if _graph_modality_bucket(item.get("modality", "")) == "text"),
@@ -2369,6 +2247,10 @@ class RetrievalRuntime:
                 "num_image_passages": sum(1 for item in final_passages if _graph_modality_bucket(item.get("modality", "")) == "image"),
             },
         }
+        if not self.graph_structure_available:
+            result["fallback_reason"] = "missing_or_empty_schema_vdb"
+            result["stats"]["fallback_reason"] = result["fallback_reason"]
+        return result
 
     def retrieve_graph_plus_dense_no_bucket(
         self,
@@ -2491,23 +2373,8 @@ class RetrievalRuntime:
         dense_supplement_top_k: int,
         bookrag_query_filtering: bool = False,
     ) -> Dict[str, Any]:
-        """
-        Fused retrieval strategy designed to preserve complementary strengths:
 
-        - Dense is usually better at direct local text grounding, especially for
-          short factual spans and numeric answers written explicitly in prose.
-        - Graph retrieval is usually better at preserving structure-aware
-          evidence, especially when tables/figures/images are explicitly
-          referenced by the question.
 
-        Instead of routing to one side, we build the final context in slots:
-        1. Dense direct-text evidence
-        2. Graph structural text evidence
-        3. Graph table/image evidence when the query suggests they matter
-        4. Dense modality backfill if graph misses a required modality
-
-        This keeps the implementation explicit and easy to ablate later.
-        """
         if not self.graph_structure_available:
             return self._dense_fallback_for_missing_graph(
                 query=query,
@@ -2571,9 +2438,7 @@ class RetrievalRuntime:
         )
         dense_passages = list(dense_result.get("top_passages", []))
 
-        # Slot-based fusion. We explicitly reserve some capacity for dense text
-        # and some capacity for graph structure-aware evidence instead of letting
-        # one side fully dominate the final context.
+
         used_chunk_ids: set[str] = set()
         final_passages: List[Dict[str, Any]] = []
 
@@ -2582,8 +2447,7 @@ class RetrievalRuntime:
         graph_table_budget = 1 if query_profile["needs_table"] else 0
         graph_image_budget = 1 if query_profile["needs_image"] else 0
 
-        # 1) Dense direct-text evidence: keep a couple of high-probability text
-        # spans that are often decisive for exact short answers.
+
         final_passages.extend(
             _take_unique_by_bucket(
                 dense_passages,
@@ -2593,8 +2457,7 @@ class RetrievalRuntime:
             )
         )
 
-        # 2) Graph structural text evidence: keep graph text chunks because they
-        # often carry section-level or structure-guided context that dense misses.
+
         final_passages.extend(
             _take_unique_by_bucket(
                 graph_top_passages,
@@ -2604,8 +2467,7 @@ class RetrievalRuntime:
             )
         )
 
-        # 3) Graph modality-specific evidence: when the query explicitly asks
-        # about a table/figure/chart, preserve that modality from the graph side.
+
         if graph_table_budget > 0:
             final_passages.extend(
                 _take_unique_by_bucket(
@@ -2625,8 +2487,7 @@ class RetrievalRuntime:
                 )
             )
 
-        # 4) Dense modality backfill: if the query clearly needs table/image but
-        # graph failed to keep that modality, try to backfill from dense.
+
         if query_profile["needs_table"] and not any(
             _graph_modality_bucket(item.get("modality", "")) == "table" for item in final_passages
         ):
@@ -2650,8 +2511,7 @@ class RetrievalRuntime:
                 )
             )
 
-        # 5) Keep a small extra dense supplement as a safety net for direct
-        # answer spans that graph may still miss.
+
         final_passages.extend(
             _take_unique_by_bucket(
                 dense_passages,
@@ -2710,15 +2570,8 @@ class RetrievalRuntime:
         dense_supplement_top_k: int,
         bookrag_query_filtering: bool = False,
     ) -> Dict[str, Any]:
-        """
-        Route to graph / dense / fused using a coarse, high-confidence query
-        classifier.
 
-        This is intentionally conservative:
-        - confident graph cue   -> graph_guided
-        - confident dense cue   -> dense_baseline
-        - ambiguous query       -> graph_dense_fused
-        """
+
         if not self.graph_structure_available:
             return self._dense_fallback_for_missing_graph(
                 query=query,
@@ -2778,9 +2631,7 @@ class RetrievalRuntime:
         return payload
 
 class AnswerGenerator:
-    """
-    用同一个回答模型分别读取 graph-guided / dense baseline 检索结果。
-    """
+
 
     def __init__(
         self,
@@ -3247,7 +3098,7 @@ def _structured_section_candidates(passage: Dict[str, Any]) -> List[str]:
         if title_level not in (None, -1) or block_type == "title":
             _append_candidate(node.get("content"))
 
-    # Deduplicate while preserving order.
+
     deduped: List[str] = []
     seen: set[str] = set()
     for item in candidates:
@@ -3275,17 +3126,12 @@ def _passage_matches_bookrag_filter(passage: Dict[str, Any], filter_item: BookRA
         if _section_filter_matches(passage.get("title_path", []), filter_item.filter_value):
             return True
 
-        # Besides the flattened title_path, keep the raw structural ancestors in
-        # play. Some MinerU trees keep the most useful section cue in parent /
-        # ancestor title nodes rather than in a perfectly aligned title_path.
+
         for candidate in _structured_section_candidates(passage):
             if _section_candidate_matches(candidate, normalized_target, target_tokens):
                 return True
 
-        # Some MinerU trees store section cues in image captions / block content
-        # rather than in the structural title path. We check a few lightweight
-        # text fields so global section-count questions can still anchor to the
-        # right passages.
+
         content_candidates = [
             passage.get("current_content"),
             passage.get("caption"),
@@ -3308,9 +3154,7 @@ def _filter_tree_passages_with_bookrag_filters(
     if not filters:
         return [dict(item) for item in passages]
 
-    # Match BookRAG-style semantics more closely:
-    # - different filter types are combined with AND
-    # - multiple values of the same filter type are combined with OR
+
     grouped_filters: Dict[str, List[BookRAGStyleFilter]] = {}
     for filter_item in filters:
         filter_type = str(filter_item.filter_type or "").strip().lower()
@@ -3342,17 +3186,8 @@ def retrieve_with_bookrag_query_routing(
     schema_score_threshold: float,
     dense_supplement_top_k: int,
 ) -> Tuple[Dict[str, Any], float, Dict[str, int]]:
-    """
-    Query-routing layer for `--bookrag-query-filtering`.
 
-    Behavior requested by the user:
-    - classify the query with BookRAG's classification prompt
-    - if simple/complex: keep using the selected retrieval strategy
-    - if global: divert into a dedicated global retrieval path
 
-    Only the global branch should invoke BookRAG's global-planning prompt.
-    Simple and complex queries stay on the normal HVM-GraphRAG retrieval path.
-    """
     classify_start = time.perf_counter()
     query_type, planning_usage = planner.classify_query_type_with_usage(query)
     planning_time_sec = time.perf_counter() - classify_start
@@ -3687,7 +3522,7 @@ def build_retrieval_result(args: argparse.Namespace) -> Dict[str, Any]:
     )
     planner = None
     try:
-        strategy = getattr(args, "retrieval_strategy", "graph")
+        strategy = getattr(args, "retrieval_strategy", "graph_plus_dense")
         if getattr(args, "bookrag_query_filtering", False):
             planner = BookRAGStyleTaskPlanner(
                 base_url=getattr(args, "planner_base_url", DEFAULT_PLANNER_BASE_URL),
@@ -3794,8 +3629,8 @@ def build_retrieval_result_for_query(
     schema_relation_vdb_path: str = "",
     chunk_vdb_path: str = "",
     embedding_model: str = "",
-    schema_top_k: int = 5,
-    schema_relation_top_k: int = 5,
+    schema_top_k: int = 10,
+    schema_relation_top_k: int = 10,
     passage_top_k: int = 10,
     modalities: Iterable[str] | None = None,
     preview_chars: int = 240,
@@ -3803,9 +3638,8 @@ def build_retrieval_result_for_query(
     tree_json_path: str = "",
     bookrag_query_filtering: bool = False,
 ) -> Dict[str, Any]:
-    """
-    方便批量模式复用单 query 检索逻辑。
-    """
+
+
     class _Args:
         pass
 
@@ -3819,8 +3653,8 @@ def build_retrieval_result_for_query(
     args.schema_top_k = schema_top_k
     args.schema_relation_top_k = schema_relation_top_k
     args.passage_top_k = passage_top_k
-    args.retrieval_strategy = "graph"
-    args.graph_plus_dense_schema_score_threshold = 0.615
+    args.retrieval_strategy = "graph_plus_dense"
+    args.graph_plus_dense_schema_score_threshold = 0.25
     args.graph_plus_dense_supplement_top_k = 2
     args.modalities = list(modalities or [])
     args.preview_chars = preview_chars
@@ -3902,19 +3736,19 @@ def parse_args() -> argparse.Namespace:
         ),
     )
 
-    parser.add_argument("--schema-top-k", type=int, default=5)
-    parser.add_argument("--schema-relation-top-k", type=int, default=5)
+    parser.add_argument("--schema-top-k", type=int, default=10)
+    parser.add_argument("--schema-relation-top-k", type=int, default=10)
     parser.add_argument("--passage-top-k", type=int, default=10)
     parser.add_argument(
         "--retrieval-strategy",
         choices=["graph", "dense", "dense_bucketed", "graph_plus_dense", "graph_plus_dense_no_bucket", "graph_dense_fused", "graph_dense_fused_routed"],
-        default="graph",
+        default="graph_plus_dense",
         help=(
             "Which retrieval strategy to use when returning a single retrieval result. "
             "`graph` keeps the current graph-guided pipeline, "
             "`dense` uses the dense baseline, "
             "`dense_bucketed` is the dense-only ablation that keeps the graph-style modality buckets, and "
-            "`graph_plus_dense` uses graph when schema confidence is high and supplements it with a few dense chunks, while "
+            "`graph_plus_dense` merges graph and dense evidence before modality organization, while "
             "`graph_plus_dense_no_bucket` is the ablation variant that removes graph-side modality bucketing, and "
             "`graph_dense_fused` explicitly fuses dense direct-text evidence with graph structure-aware evidence, and "
             "`graph_dense_fused_routed` first does coarse query routing, then falls back to the fused strategy when needed."
@@ -3923,14 +3757,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--graph-plus-dense-schema-score-threshold",
         type=float,
-        default=0.615,
+        default=0.25,
         help="Schema score threshold for the graph_plus_dense retrieval strategy.",
     )
     parser.add_argument(
         "--graph-plus-dense-supplement-top-k",
         type=int,
         default=2,
-        help="How many unique dense chunks to append when graph_plus_dense chooses the graph route.",
+        help="Number of top-ranked dense chunks to union with graph evidence before modality organization.",
     )
     parser.add_argument(
         "--graph-schema-score-threshold",

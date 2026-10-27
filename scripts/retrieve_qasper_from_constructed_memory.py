@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
-"""
-Run retrieval + answer generation on Qasper memories, and evaluate with
-BookRAG-compatible Qasper accuracy/F1 logic.
 
-Design goals:
-1. Reuse the current RetrievalRuntime / AnswerGenerator so the retrieval side
-   stays consistent with the latest HVM-GraphRAG pipeline.
-2. Keep the evaluation logic aligned with BookRAG's Qasper evaluation:
-   - use a judge model to extract a normalized final answer
-   - compute accuracy / token F1 in the same style as BookRAG
-"""
 
 from __future__ import annotations
 
@@ -30,7 +20,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 
-from retrieve_from_constructed_memory import (  # type: ignore
+from retrieve_from_constructed_memory import (
     DEFAULT_ANSWER_API_KEY,
     DEFAULT_ANSWER_BASE_URL,
     DEFAULT_ANSWER_MODEL,
@@ -86,17 +76,8 @@ def _progress_bar(current: int, total: int, width: int = 28) -> str:
 
 
 def _group_qasper_by_doc(samples: Sequence[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
-    """
-    Group Qasper questions by paper id.
 
-    Qasper examples expose:
-    - `doc_uuid`: the process_documents directory name
-    - `id`: the arXiv/paper id, which usually matches our memory folder name
-    - `doc_path`: the source PDF path
 
-    We primarily use the paper id because current HVM-GraphRAG outputs are
-    typically stored as `<output_root>/<paper_id>/memory.json`.
-    """
     grouped: Dict[str, Dict[str, Any]] = {}
     for item in samples:
         paper_id = Path(str(item.get("doc_path", ""))).stem or str(item.get("id", "")).strip()
@@ -296,11 +277,11 @@ def main() -> None:
         ],
         default="graph_plus_dense",
     )
-    parser.add_argument("--schema-top-k", type=int, default=5)
-    parser.add_argument("--schema-relation-top-k", type=int, default=5)
+    parser.add_argument("--schema-top-k", type=int, default=15)
+    parser.add_argument("--schema-relation-top-k", type=int, default=10)
     parser.add_argument("--passage-top-k", type=int, default=10)
-    parser.add_argument("--graph-plus-dense-schema-score-threshold", type=float, default=0.615)
-    parser.add_argument("--graph-plus-dense-supplement-top-k", type=int, default=2)
+    parser.add_argument("--graph-plus-dense-schema-score-threshold", type=float, default=0.25)
+    parser.add_argument("--graph-plus-dense-supplement-top-k", type=int, default=5)
     parser.add_argument("--modalities", nargs="*", default=[])
     parser.add_argument(
         "--bookrag-query-filtering",

@@ -1,40 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Joint sweep for:
-#   --graph-plus-dense-schema-score-threshold
-#   --graph-plus-dense-supplement-top-k
-#
-# Usage:
-#   1) Edit DATASET and BASE_CMD below.
-#   2) bash scripts/sweep_graph_plus_dense_hparams.sh
-#
-# The script:
-#   - runs one experiment per (threshold, supplement) pair
-#   - extracts only aggregate metrics from the output JSON
-#   - deletes temporary per-question / per-doc artifacts afterwards
-#   - leaves only a compact CSV summary
 
-DATASET="qasper"   # mmlong | qasper | m3doc
+DATASET="qasper"
 
-# THRESHOLDS=(0 0.25 0.5 0.75 1)
-# SUPPLEMENTS=(1 2 3 4 5)
 SCHEMA_TOP_K=(5 10 15 20 25 30 35 40 45 50)
 
 
 STAMP="$(date +%Y%m%d_%H%M%S)"
 SUMMARY_CSV="output/sweep_${DATASET}_schema_${STAMP}.csv"
 
-# -----------------------------------------------------------------------------
-# Paste one existing launch command here, but write it as a bash array.
-# Keep:
-#   --retrieval-strategy graph_plus_dense
-# Do NOT add:
-#   --output-path
-#   --per-doc-output-dir
-# because this script manages temp outputs itself.
-#
-# Example: Qasper
 BASE_CMD=(
   python scripts/retrieve_qasper_from_constructed_memory.py
   output/qasper_constructed_memory
@@ -45,7 +20,6 @@ BASE_CMD=(
   --passage-top-k 10
   --graph-plus-dense-schema-score-threshold 0.25
   --graph-plus-dense-supplement-top-k 5
-  --bookrag-query-filtering
 )
 
 mkdir -p output

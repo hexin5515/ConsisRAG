@@ -1,17 +1,5 @@
 #!/usr/bin/env python3
-"""
-Run retrieval + answer generation on M3DocVQA/M3DocRAG memories, and evaluate
-with BookRAG-compatible EM/F1 logic.
 
-Design goals:
-1. Reuse the current RetrievalRuntime / AnswerGenerator so retrieval behavior
-   stays aligned with the latest HVM-GraphRAG pipeline.
-2. Mirror BookRAG's M3DocRAG evaluation:
-   - use a judge LLM to extract a normalized final answer
-   - compute list-style EM/F1 the same way as BookRAG
-3. Keep the output structure, progress display, and runtime/token accounting
-   close to the existing Qasper/MMLong scripts so later analysis feels uniform.
-"""
 
 from __future__ import annotations
 
@@ -32,7 +20,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 
-from retrieve_from_constructed_memory import (  # type: ignore
+from retrieve_from_constructed_memory import (
     DEFAULT_ANSWER_API_KEY,
     DEFAULT_ANSWER_BASE_URL,
     DEFAULT_ANSWER_MODEL,
@@ -262,11 +250,11 @@ def main() -> None:
         ],
         default="graph_plus_dense",
     )
-    parser.add_argument("--schema-top-k", type=int, default=5)
-    parser.add_argument("--schema-relation-top-k", type=int, default=5)
+    parser.add_argument("--schema-top-k", type=int, default=10)
+    parser.add_argument("--schema-relation-top-k", type=int, default=15)
     parser.add_argument("--passage-top-k", type=int, default=10)
-    parser.add_argument("--graph-plus-dense-schema-score-threshold", type=float, default=0.615)
-    parser.add_argument("--graph-plus-dense-supplement-top-k", type=int, default=2)
+    parser.add_argument("--graph-plus-dense-schema-score-threshold", type=float, default=0.5)
+    parser.add_argument("--graph-plus-dense-supplement-top-k", type=int, default=4)
     parser.add_argument("--modalities", nargs="*", default=[])
     parser.add_argument("--bookrag-query-filtering", action="store_true")
     parser.add_argument("--planner-model", default=DEFAULT_PLANNER_MODEL)
