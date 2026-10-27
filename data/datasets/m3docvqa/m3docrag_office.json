@@ -1,0 +1,3800 @@
+[
+  {
+    "question": "What kind of expression is on the face of the  woman in The  Bodyguard World Tour?",
+    "answer": "happy",
+    "doc_uuid": "0156a721-082b-5d2f-81ae-68c72d01d980",
+    "doc_path": "PATH_TO_DIR/10a64187b134156ef25069ba18f399fd.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "01892404-bc60-5f44-aaad-4c95552b59e0",
+    "doc_path": "PATH_TO_DIR/dd762b916a62213422f226e5d0c94fa7.pdf"
+  },
+  {
+    "question": "who is the father of bree's baby",
+    "answer": "Austin",
+    "doc_uuid": "01892404-bc60-5f44-aaad-4c95552b59e0",
+    "doc_path": "PATH_TO_DIR/dd762b916a62213422f226e5d0c94fa7.pdf"
+  },
+  {
+    "question": "What is Regina King wearing on her head?",
+    "answer": "headband",
+    "doc_uuid": "02d22f6e-8ba7-5e6d-b9ec-c9177257948d",
+    "doc_path": "PATH_TO_DIR/56d229bc6428c1909f95df538950ebb9.pdf"
+  },
+  {
+    "question": "What is the wine in the Judgment of Paris (wine) in the breakdown by judge, that does not have a grade of 17 and has a 1973 vintage?",
+    "answer": "Stag's Leap Wine Cellars",
+    "doc_uuid": "02d45865-0b31-56ad-9715-88f8b4996e8e",
+    "doc_path": "PATH_TO_DIR/cdd66e5aad25004b5855379e7a080715.pdf"
+  },
+  {
+    "question": "Margot at the Wedding has how many main characters, as portrayed on the front cover?",
+    "answer": "3",
+    "doc_uuid": "03b5f10a-ba57-50ab-a56c-c2c1d2fdf830",
+    "doc_path": "PATH_TO_DIR/890daca84ae6e9abf9529097b7185e08.pdf"
+  },
+  {
+    "question": "What was the award in the SF Novel category in science fiction of 2013 in Australian literature?",
+    "answer": "Aurealis Award",
+    "doc_uuid": "03b68ff2-e62f-5554-9982-335d92903c14",
+    "doc_path": "PATH_TO_DIR/48d50d33e75de6ae88fec02634a9ee38.pdf"
+  },
+  {
+    "question": "What position are Gary Zukav's hands in?",
+    "answer": "folded",
+    "doc_uuid": "045d736f-4397-5f52-8612-952f266df210",
+    "doc_path": "PATH_TO_DIR/a13181b92f041a81f4dcb5d02cb19b32.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "045d736f-4397-5f52-8612-952f266df210",
+    "doc_path": "PATH_TO_DIR/a13181b92f041a81f4dcb5d02cb19b32.pdf"
+  },
+  {
+    "question": "Was 2008 the year Simon Brand directed the film Paraiso Travel?",
+    "answer": "Yes",
+    "doc_uuid": "04e2588f-0903-5855-ab00-a7d2d1c996cb",
+    "doc_path": "PATH_TO_DIR/2ee5b872ff71fde2f258a3e0cd3e9d56.pdf"
+  },
+  {
+    "question": "Is there a field of green present in the 1980 Tooth Cup photo?",
+    "answer": "yes",
+    "doc_uuid": "04f6afb2-eea6-50cb-aaae-2d06aa1dc3cb",
+    "doc_path": "PATH_TO_DIR/af6382b9a97512324115ab7e40c9d6af.pdf"
+  },
+  {
+    "question": "What is Morgan Mitchell running on?",
+    "answer": "track",
+    "doc_uuid": "06119599-39fe-55c4-b7c1-0d912ec50a31",
+    "doc_path": "PATH_TO_DIR/81f60493e2fd56d3616585aecbb28013.pdf"
+  },
+  {
+    "question": "Is River of Wine based in America or Asia?",
+    "answer": "asia",
+    "doc_uuid": "06be43f0-b5d2-5dc6-9a50-0c6495df52d1",
+    "doc_path": "PATH_TO_DIR/a6829966713a0ff17747fd677c81ed47.pdf"
+  },
+  {
+    "question": "What was the earliest year the Tallahassee Capitals finished in 8th place?",
+    "answer": "1941",
+    "doc_uuid": "070dc9c4-0530-581a-b19e-92100a2dd1e1",
+    "doc_path": "PATH_TO_DIR/5c1fc9b16599ea9f7ba5f9f0f327f172.pdf"
+  },
+  {
+    "question": "Did the band Fridge release an album with Brainwashed Recordings on March 1, 1999?",
+    "answer": "No",
+    "doc_uuid": "07b80190-b674-50ef-bc8d-10e73e3ae116",
+    "doc_path": "PATH_TO_DIR/69721e483853c924f337da0e138eb2eb.pdf"
+  },
+  {
+    "question": "does your next of kin have to be over 18",
+    "answer": "no",
+    "doc_uuid": "07c8a99c-9d6e-5877-ac5e-34f23ac01b06",
+    "doc_path": "PATH_TO_DIR/1af8c72abf4c10e483963da0004aada0.pdf"
+  },
+  {
+    "question": "What color shirt is Tommaso Benvenuti (rugby union) wearing ?",
+    "answer": "blue",
+    "doc_uuid": "09956c54-a8ba-56a5-a353-940250b37b03",
+    "doc_path": "PATH_TO_DIR/3ff0574ce7020df4a809ade7543d2f01.pdf"
+  },
+  {
+    "question": "How many figures are in the document?",
+    "answer": 3,
+    "doc_uuid": "09be7fb3-b10d-52c7-9cdb-0eaaa3432573",
+    "doc_path": "PATH_TO_DIR/be6e7084a8f407ae043980031fe5de6a.pdf"
+  },
+  {
+    "question": "what is Simon Pagenaud holding in the air?",
+    "answer": "hand",
+    "doc_uuid": "09be7fb3-b10d-52c7-9cdb-0eaaa3432573",
+    "doc_path": "PATH_TO_DIR/be6e7084a8f407ae043980031fe5de6a.pdf"
+  },
+  {
+    "question": "Was the stage role of Nettie Harris played by Renee Elise Goldsberry at The Public Theater location?",
+    "answer": "No",
+    "doc_uuid": "0b04ba89-6f6d-564d-b1c7-fa0e28b3a198",
+    "doc_path": "PATH_TO_DIR/ff726bf4839911c9c2f8dc93bee36510.pdf"
+  },
+  {
+    "question": "What does Manuela Maleeva wear around her neck?",
+    "answer": "neckless",
+    "doc_uuid": "0b5385c1-180b-5ae8-aa3f-b123e3311562",
+    "doc_path": "PATH_TO_DIR/85c0e667c19899e57de4593337b88120.pdf"
+  },
+  {
+    "question": "was the man in the iron mask filmed at versailles",
+    "answer": "no",
+    "doc_uuid": "0b9db804-95ca-55fb-909c-cd3a29fed5d0",
+    "doc_path": "PATH_TO_DIR/84da708369ee998ed0229875e79ef809.pdf"
+  },
+  {
+    "question": "There is a man with crossed arms on the logo of which champion in the Top12 Finals?",
+    "answer": "Rugby Calvisano",
+    "doc_uuid": "0cfcdae7-8912-5064-975f-21345816c066",
+    "doc_path": "PATH_TO_DIR/cddc3caf6a7051085a4d207cc038594f.pdf"
+  },
+  {
+    "question": "How many tables are on pages 2 to 4?",
+    "answer": 2,
+    "doc_uuid": "0cfcdae7-8912-5064-975f-21345816c066",
+    "doc_path": "PATH_TO_DIR/cddc3caf6a7051085a4d207cc038594f.pdf"
+  },
+  {
+    "question": "How many total tables are in the document?",
+    "answer": 3,
+    "doc_uuid": "0cfcdae7-8912-5064-975f-21345816c066",
+    "doc_path": "PATH_TO_DIR/cddc3caf6a7051085a4d207cc038594f.pdf"
+  },
+  {
+    "question": "Which name appears in the list of those out of the 2018-19 Al-Hazem F.C. season on February 4, 2019?",
+    "answer": "Youssef Kalfa",
+    "doc_uuid": "0d1fb1ef-3860-58fe-a7ae-15c4bc690f5b",
+    "doc_path": "PATH_TO_DIR/4b374cfd09f86cd42d6d8d4d99585442.pdf"
+  },
+  {
+    "question": "How many figures are on pages 6 to 8?",
+    "answer": 1,
+    "doc_uuid": "0d615adc-92dc-519c-9c24-a44fb84607c3",
+    "doc_path": "PATH_TO_DIR/a7232b4fff11a1d215019b44b0b7788a.pdf"
+  },
+  {
+    "question": "who played darth vader in return of jedi",
+    "answer": "Shaw",
+    "doc_uuid": "0d615adc-92dc-519c-9c24-a44fb84607c3",
+    "doc_path": "PATH_TO_DIR/a7232b4fff11a1d215019b44b0b7788a.pdf"
+  },
+  {
+    "question": "who rode american pharoah in the kentucky derby",
+    "answer": "Victor Espinoza",
+    "doc_uuid": "0daa1c4d-735e-5035-a068-ab7ad0dfce27",
+    "doc_path": "PATH_TO_DIR/3660091d31af08e90876608ac33c47dd.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 5,
+    "doc_uuid": "0daa1c4d-735e-5035-a068-ab7ad0dfce27",
+    "doc_path": "PATH_TO_DIR/3660091d31af08e90876608ac33c47dd.pdf"
+  },
+  {
+    "question": "In what year was John L. Simpson in the movie titled War Matters?",
+    "answer": "2013",
+    "doc_uuid": "0db424a7-a8f4-51df-a5d4-e9d3102e48f8",
+    "doc_path": "PATH_TO_DIR/8055b3bc9f9d861112541d502bcda6f1.pdf"
+  },
+  {
+    "question": "how many times did west indies won the world cup",
+    "answer": "twice",
+    "doc_uuid": "0e0f2c75-a1cf-51b5-bb06-ece78a78b345",
+    "doc_path": "PATH_TO_DIR/405a5dfc46e1f783342fc0b7f76d2a26.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "0e22106c-05e3-52c2-92af-227c34ffcc08",
+    "doc_path": "PATH_TO_DIR/5b69752ae7d65d12770d456b67583076.pdf"
+  },
+  {
+    "question": "Which Album(s), in Top 20 Albums of 2009 of Triple J Hottest 100, 2009, has bulb on poster?",
+    "answer": "Fantasies (album)",
+    "doc_uuid": "0e22106c-05e3-52c2-92af-227c34ffcc08",
+    "doc_path": "PATH_TO_DIR/5b69752ae7d65d12770d456b67583076.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 5?",
+    "answer": 1,
+    "doc_uuid": "0e8b3e99-98cd-521d-b7d0-22b9db0baa4f",
+    "doc_path": "PATH_TO_DIR/3a1deb4ffce18d177dc652a067686e96.pdf"
+  },
+  {
+    "question": "is dolphin tale based on a true story",
+    "answer": "yes",
+    "doc_uuid": "0e8b3e99-98cd-521d-b7d0-22b9db0baa4f",
+    "doc_path": "PATH_TO_DIR/3a1deb4ffce18d177dc652a067686e96.pdf"
+  },
+  {
+    "question": "who played joanna in the movie love actually",
+    "answer": "Olivia Rose Olson",
+    "doc_uuid": "0e936776-0050-50b0-95b9-0fd55344a04c",
+    "doc_path": "PATH_TO_DIR/36fa14840f24b79c1d477ad2ad44e014.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "0e936776-0050-50b0-95b9-0fd55344a04c",
+    "doc_path": "PATH_TO_DIR/36fa14840f24b79c1d477ad2ad44e014.pdf"
+  },
+  {
+    "question": "the primary colors of pigment are cyan yellow and magenta true or false",
+    "answer": "no",
+    "doc_uuid": "0efec5ad-9749-54dd-92ae-76e1b3ec35de",
+    "doc_path": "PATH_TO_DIR/24fde863debcf9c9d9d90044ff990e96.pdf"
+  },
+  {
+    "question": "Is there an adult on the motorcycle in the poster for Easy Wheels?",
+    "answer": "no",
+    "doc_uuid": "0f1d53a1-066f-5d9d-9cb8-bd2bd33aa564",
+    "doc_path": "PATH_TO_DIR/7377d327e9b7294fdb91127343e04240.pdf"
+  },
+  {
+    "question": "What was the title of the film where Freida Pinto played Ahna?",
+    "answer": "Black Knight Decoded",
+    "doc_uuid": "0fb82ab8-4ffb-541a-91a3-5a1f3de9132f",
+    "doc_path": "PATH_TO_DIR/41dc98f6fcf3e153b4d6fd5dd1f48212.pdf"
+  },
+  {
+    "question": "What was the title of the Freida Pinto film when her role was Usha Vance?",
+    "answer": "Hillbilly Elegy",
+    "doc_uuid": "0fb82ab8-4ffb-541a-91a3-5a1f3de9132f",
+    "doc_path": "PATH_TO_DIR/41dc98f6fcf3e153b4d6fd5dd1f48212.pdf"
+  },
+  {
+    "question": "where does the president's helicopter land at the white house",
+    "answer": "The south lawn",
+    "doc_uuid": "0ff99f4e-ab6a-5950-b4d3-61fde5a0d4dc",
+    "doc_path": "PATH_TO_DIR/d39c8ce813882ad9bd3c8edf3f6f706b.pdf"
+  },
+  {
+    "question": "mount shasta is a volcano in northern california that towers more than how many feet",
+    "answer": "14,179 feet",
+    "doc_uuid": "107a45e5-9ddb-5f30-a12c-b37be6257b0c",
+    "doc_path": "PATH_TO_DIR/1af50ffc6e236bbe868440d2e2302dc8.pdf"
+  },
+  {
+    "question": "are there any more grizzly bears in california",
+    "answer": "no",
+    "doc_uuid": "10f3aca8-feb8-50af-8560-02c23226fbbd",
+    "doc_path": "PATH_TO_DIR/49b389dade5bc6e74160b4af6d8682ca.pdf"
+  },
+  {
+    "question": "What type of facial hair does Graham Hill have?",
+    "answer": "moustache",
+    "doc_uuid": "112a9392-e811-52bc-9f74-acf9338f8d7b",
+    "doc_path": "PATH_TO_DIR/dc66961601133f0b26f44d0f69bada1c.pdf"
+  },
+  {
+    "question": "How many different uniform options are available for the 2014 Montreal Alouettes season?",
+    "answer": "three",
+    "doc_uuid": "11893ba2-582c-5181-b3f9-826b17172117",
+    "doc_path": "PATH_TO_DIR/d77ab3de05854fff3d2741f546a96bc9.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "11893ba2-582c-5181-b3f9-826b17172117",
+    "doc_path": "PATH_TO_DIR/d77ab3de05854fff3d2741f546a96bc9.pdf"
+  },
+  {
+    "question": "true or false. you can ride an icebreaker to the north pole",
+    "answer": "yes",
+    "doc_uuid": "128a7cc1-ebd5-5afd-a4fe-43c4fc833cf3",
+    "doc_path": "PATH_TO_DIR/acd28ea3367845ebcf7f1400aeaf189f.pdf"
+  },
+  {
+    "question": "the former soviet union broke into separate states",
+    "answer": "yes",
+    "doc_uuid": "12e721ab-a744-54d4-981e-587194369593",
+    "doc_path": "PATH_TO_DIR/d4359c96a990546ce443842f13e6135c.pdf"
+  },
+  {
+    "question": "What shape is encasing the bird on the flag of Western Australia?",
+    "answer": "circle",
+    "doc_uuid": "136fbdc3-3e43-5ab3-a301-56dc241d7885",
+    "doc_path": "PATH_TO_DIR/4fbb7040e9dc9f3b5677f20a71ca72bb.pdf"
+  },
+  {
+    "question": "who is the getting married in veere di wedding",
+    "answer": "Kalindi and Rishabh",
+    "doc_uuid": "13f5d07a-960f-57dd-bbc8-58032d0d0c3d",
+    "doc_path": "PATH_TO_DIR/9304fa21e848b99a873dd4715f202a54.pdf"
+  },
+  {
+    "question": "In 2007 did Jennifer Robertson get an award or nomination for her work in This Hour Has 22 Minutes?",
+    "answer": "No",
+    "doc_uuid": "1408db3f-6e99-57b2-a1ac-80e866a1b7bc",
+    "doc_path": "PATH_TO_DIR/09c7c54b0defd9b1fc4cba9a1d432e02.pdf"
+  },
+  {
+    "question": "What color is Bowser (character)'s hair?",
+    "answer": "red",
+    "doc_uuid": "153bb548-6098-5834-9671-2fa50e795da4",
+    "doc_path": "PATH_TO_DIR/2a9670077e3ad8d5dd25a782f877d5a9.pdf"
+  },
+  {
+    "question": "How many figures are on page 4?",
+    "answer": 1,
+    "doc_uuid": "153bb548-6098-5834-9671-2fa50e795da4",
+    "doc_path": "PATH_TO_DIR/2a9670077e3ad8d5dd25a782f877d5a9.pdf"
+  },
+  {
+    "question": "who is the original singer of one moment in time",
+    "answer": "Whitney Houston",
+    "doc_uuid": "156ca95c-244d-514a-b63e-edc51c9df547",
+    "doc_path": "PATH_TO_DIR/d35463d32f29ce0205e742812ab4640f.pdf"
+  },
+  {
+    "question": "Was Police F.C. of Trinidad and Tobago the for team when Club Sando was the against team in hat-tricks of the TT Pro League in 2015-16?",
+    "answer": "No",
+    "doc_uuid": "162e78ff-ea0e-5851-af00-e1656833c3f1",
+    "doc_path": "PATH_TO_DIR/972bbd969d9772cf6c9494dd129349ae.pdf"
+  },
+  {
+    "question": "Which bearded player was in the Championship of PFA Team of the year in the 2000s?",
+    "answer": "Joe Ledley",
+    "doc_uuid": "16499762-3b37-5de1-a8be-b0cb8edf5323",
+    "doc_path": "PATH_TO_DIR/06d5db003a3df5cebad11cfd922b05d4.pdf"
+  },
+  {
+    "question": "In the list of World Heritage sites in South Africa, which name shows a flag in front of a building?",
+    "answer": "Robben Island",
+    "doc_uuid": "170c41cd-5bf7-5cb3-8632-4614c83bce02",
+    "doc_path": "PATH_TO_DIR/d0d3744e9e439c0eca075860f85ff99e.pdf"
+  },
+  {
+    "question": "are granny smith and green apples the same",
+    "answer": "yes",
+    "doc_uuid": "1778de50-96d6-5c63-a69f-f072a540b359",
+    "doc_path": "PATH_TO_DIR/879df630fd3dec45e970c9324657a052.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 4,
+    "doc_uuid": "1778de50-96d6-5c63-a69f-f072a540b359",
+    "doc_path": "PATH_TO_DIR/879df630fd3dec45e970c9324657a052.pdf"
+  },
+  {
+    "question": "What was the combined total of penalty minutes for the scoring leaders on the Kentucky Thoroughblades in the 2000-01 AHL season",
+    "answer": 300.0,
+    "doc_uuid": "17d80c7e-d53b-54bb-b4c0-43ad6b179e8f",
+    "doc_path": "PATH_TO_DIR/e389435373a6e2d9b81cf0424e8755d4.pdf"
+  },
+  {
+    "question": "What is Erfan Zeneli chasing?",
+    "answer": "ball",
+    "doc_uuid": "1853c992-02f1-5d2b-bbf0-25aeefd779ab",
+    "doc_path": "PATH_TO_DIR/a9957e3d1171e055b782469ffef573cf.pdf"
+  },
+  {
+    "question": "There is a flag with a roaring lion on it for which team that is included among the stadiums and locations of the 2017-18 I liga?",
+    "answer": "Miedź Legnica",
+    "doc_uuid": "19314b1e-a3ea-5610-8857-0c9bf6006e4e",
+    "doc_path": "PATH_TO_DIR/c8d8e51c58e15c31cd0c91e1ca6e6cd5.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Climate' section?",
+    "answer": 1,
+    "doc_uuid": "1934a7bb-42dd-5cbf-82a3-5659e84f1330",
+    "doc_path": "PATH_TO_DIR/6b89b8195e9d1f14e72507950443ec3e.pdf"
+  },
+  {
+    "question": "in which year there was a heavy landslide in nainital",
+    "answer": "1880",
+    "doc_uuid": "1934a7bb-42dd-5cbf-82a3-5659e84f1330",
+    "doc_path": "PATH_TO_DIR/6b89b8195e9d1f14e72507950443ec3e.pdf"
+  },
+  {
+    "question": "What facial expression does David Baldacci have?",
+    "answer": "smiling",
+    "doc_uuid": "19497c48-189c-5e37-9967-a1d07831d0ed",
+    "doc_path": "PATH_TO_DIR/79612e154d8e3cb774e116524c723889.pdf"
+  },
+  {
+    "question": "What is Virginia Ruzici wearing around her neck?",
+    "answer": "medal",
+    "doc_uuid": "194e8ac5-3397-5a5f-9188-ac45ad96fd84",
+    "doc_path": "PATH_TO_DIR/c794d4a64dadb6c4ea02e1797af86cbe.pdf"
+  },
+  {
+    "question": "What arid climate is the region where Page Municipal Airport is located?",
+    "answer": "desert",
+    "doc_uuid": "1a112880-dc1c-5c3f-8cbd-9bdd54d4c402",
+    "doc_path": "PATH_TO_DIR/ea63f0bf3dfcbd0efe3e90ff0af6e5ef.pdf"
+  },
+  {
+    "question": "who sing the most songs in the world",
+    "answer": "Asha Bhosle",
+    "doc_uuid": "1b244802-e0e7-5d03-9d7d-de6f39cbcd11",
+    "doc_path": "PATH_TO_DIR/851c8142a354d132715daf5bae2cda7a.pdf"
+  },
+  {
+    "question": "Was the role of Eddie Collins played by actor Tab Hunter in the Main cast list of Sweet Kill?",
+    "answer": "Yes",
+    "doc_uuid": "1b49a562-e1ab-538b-9e6c-2affa4837ee1",
+    "doc_path": "PATH_TO_DIR/f2742e5eca41ae8a11680d5374f323eb.pdf"
+  },
+  {
+    "question": "Which Title(s), in Filmography |  Film of Joan Marshall, has a poster featuring a woman with a stethoscope?",
+    "answer": "Tammy and the Doctor",
+    "doc_uuid": "1e6f55eb-db7b-50cd-bca3-31eba07e76e2",
+    "doc_path": "PATH_TO_DIR/d53c071a1fc776594afdf57be43006ed.pdf"
+  },
+  {
+    "question": "Is Plamen Iliev (footballer, born 1991) wearing green?",
+    "answer": "yes",
+    "doc_uuid": "1ef3d6f4-d122-5789-bf81-932a0534b431",
+    "doc_path": "PATH_TO_DIR/c22fa469de500495cde9e49c19fafb4e.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "1ef3d6f4-d122-5789-bf81-932a0534b431",
+    "doc_path": "PATH_TO_DIR/c22fa469de500495cde9e49c19fafb4e.pdf"
+  },
+  {
+    "question": "when are the oakland raiders going to las vegas",
+    "answer": "March 27, 2017",
+    "doc_uuid": "1f271c1a-77fb-55e5-b86a-b7fe8925891b",
+    "doc_path": "PATH_TO_DIR/9979328fe00d3526c8aa22b32492fec9.pdf"
+  },
+  {
+    "question": "How many figures are on pages 10 to 17?",
+    "answer": 1,
+    "doc_uuid": "1f271c1a-77fb-55e5-b86a-b7fe8925891b",
+    "doc_path": "PATH_TO_DIR/9979328fe00d3526c8aa22b32492fec9.pdf"
+  },
+  {
+    "question": "Which Driver(s), in Group C of 2003 Race of Champions, is sponsored by a company with three vertical green lines on its logo?",
+    "answer": "Boris Said",
+    "doc_uuid": "1f4fb27e-dc4b-5f5b-b162-22ef3b05aabf",
+    "doc_path": "PATH_TO_DIR/114bbd404a968f20cd30bcb07c5d4c95.pdf"
+  },
+  {
+    "question": "is jamie on malcolm in the middle a boy or girl",
+    "answer": "boy",
+    "doc_uuid": "1f86399f-e142-507f-bfd4-5560315319b3",
+    "doc_path": "PATH_TO_DIR/0d87239dc5bc9ac6257e5b9f31fe8c47.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 7?",
+    "answer": 1,
+    "doc_uuid": "21c02bab-c277-59bf-b807-d15818e50839",
+    "doc_path": "PATH_TO_DIR/d52e6009e3f40f4bdfd0b7b9c3056cd4.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "21c02bab-c277-59bf-b807-d15818e50839",
+    "doc_path": "PATH_TO_DIR/d52e6009e3f40f4bdfd0b7b9c3056cd4.pdf"
+  },
+  {
+    "question": "when was the best little whorehouse in texas made",
+    "answer": "1982",
+    "doc_uuid": "21c02bab-c277-59bf-b807-d15818e50839",
+    "doc_path": "PATH_TO_DIR/d52e6009e3f40f4bdfd0b7b9c3056cd4.pdf"
+  },
+  {
+    "question": "is back to the future at universal studios",
+    "answer": "no",
+    "doc_uuid": "222c2667-0b11-5d13-adbd-a4d7bf22496f",
+    "doc_path": "PATH_TO_DIR/6dcc8531b196cbfa54696036aa675056.pdf"
+  },
+  {
+    "question": "who plays the indian boy in phineas and ferb",
+    "answer": "Maulik Pancholy",
+    "doc_uuid": "22d70fc9-c16c-5246-a232-94daebe51074",
+    "doc_path": "PATH_TO_DIR/dddf5048bb0af2b16e7ac4150c85391d.pdf"
+  },
+  {
+    "question": "what was the poster on the wall in shawshank redemption",
+    "answer": "Rita Hayworth",
+    "doc_uuid": "22f5111e-488a-54cf-912d-6567c38ba94e",
+    "doc_path": "PATH_TO_DIR/8be1ac0bcb01140a5d48b5c012149ac1.pdf"
+  },
+  {
+    "question": "How many people are present on the The Great Gatsby (2013 film) poster?",
+    "answer": "six",
+    "doc_uuid": "236691a6-2d4b-5d61-bd2a-47feebd05af2",
+    "doc_path": "PATH_TO_DIR/717b9622d97becb987e3ff8f19e5fcd7.pdf"
+  },
+  {
+    "question": "How many figures are on pages 7 to 8?",
+    "answer": 2,
+    "doc_uuid": "236691a6-2d4b-5d61-bd2a-47feebd05af2",
+    "doc_path": "PATH_TO_DIR/717b9622d97becb987e3ff8f19e5fcd7.pdf"
+  },
+  {
+    "question": "What type of piercing does Manuel Lazzari have?",
+    "answer": "ear",
+    "doc_uuid": "23c67365-3d3d-51fd-9266-02ff71e41798",
+    "doc_path": "PATH_TO_DIR/897f52c139bd67b0453648ef089f753b.pdf"
+  },
+  {
+    "question": "is fallout 3 connected to fallout 1 and 2",
+    "answer": "yes",
+    "doc_uuid": "23d0b3d1-d8ac-5afe-8b9f-dcab7166479d",
+    "doc_path": "PATH_TO_DIR/d409607ad16982542545b0201c7d4263.pdf"
+  },
+  {
+    "question": "Which race was played in Sportsland Sugo of 2006 Super GT Series?",
+    "answer": "SUGO GT 300km Race",
+    "doc_uuid": "23f22635-cddd-59cb-aa44-5b746a3af0b3",
+    "doc_path": "PATH_TO_DIR/1028472563479f898d6446ade785d538.pdf"
+  },
+  {
+    "question": "Who was the artist of the album The Pre-Fix For Death where Danny Diablo had a guest appearance?",
+    "answer": "Necro",
+    "doc_uuid": "23f40554-9012-5c80-973b-c0a1cf27fb27",
+    "doc_path": "PATH_TO_DIR/1252c10b6aea2bd2831985f6181f49f6.pdf"
+  },
+  {
+    "question": "Did the Chase Masterson movie \"Sometimes They Come Back... for More\" come out in 2000?",
+    "answer": "No",
+    "doc_uuid": "244c3933-673b-5306-91b2-aeea47468858",
+    "doc_path": "PATH_TO_DIR/bd06692523441fa6dc1c5e21081273e5.pdf"
+  },
+  {
+    "question": "who played mr doolittle in my fair lady",
+    "answer": "Stanley Holloway",
+    "doc_uuid": "257dea2a-0f6f-55ad-bfe7-676ecb0e732f",
+    "doc_path": "PATH_TO_DIR/f2ede5c89af748f95f797e164db1c1b0.pdf"
+  },
+  {
+    "question": "sofia the first why is she a princess",
+    "answer": "her mother, Miranda, marries King Roland II of Enchantia",
+    "doc_uuid": "261feb6b-2d67-535e-a9fa-0680736f365e",
+    "doc_path": "PATH_TO_DIR/6bb31a475a5b62e2d09d6721ddc7e4d8.pdf"
+  },
+  {
+    "question": "How many tables are in the 'Awards and nominations' section?",
+    "answer": 1,
+    "doc_uuid": "261feb6b-2d67-535e-a9fa-0680736f365e",
+    "doc_path": "PATH_TO_DIR/6bb31a475a5b62e2d09d6721ddc7e4d8.pdf"
+  },
+  {
+    "question": "What color besides blue makes up the logo for the 2011 New Hampshire Wildcats football team?",
+    "answer": "white",
+    "doc_uuid": "27df1704-cc41-5e8f-9667-d056f4176392",
+    "doc_path": "PATH_TO_DIR/98d9514760c7e4e3fe4b53c204c15d90.pdf"
+  },
+  {
+    "question": "Was Essen Stadtbahn the System when Dusseldorf, Neuss was the city on route in the table of Component Systems and lines of Rhine-Ruhr Stadtbahn?",
+    "answer": "No",
+    "doc_uuid": "2888168a-601e-5bd6-bd6a-5274f9b0c1f9",
+    "doc_path": "PATH_TO_DIR/cae621152ff83c5c5df051ea12f0d18b.pdf"
+  },
+  {
+    "question": "What was Cristiano Ronaldo's club when he received Top assists in the 2018-19 Serie A?",
+    "answer": "Juventus",
+    "doc_uuid": "28958fbc-d59d-548a-9ede-40100b7e734e",
+    "doc_path": "PATH_TO_DIR/67627b9b0cd8233be58f1b3a8c238733.pdf"
+  },
+  {
+    "question": "When the first consist was 4117 for the equipment used by the Lark train, what was the second consist?",
+    "answer": "4118",
+    "doc_uuid": "289800ce-9009-57df-9d58-03ea2f455967",
+    "doc_path": "PATH_TO_DIR/24d7976683e1bcfdcde965bd01d4de18.pdf"
+  },
+  {
+    "question": "How many statues are visible on the building in front of Murcia?",
+    "answer": "two",
+    "doc_uuid": "29a4d2be-dc32-5891-b6d9-81a7c0a172d7",
+    "doc_path": "PATH_TO_DIR/9975f93834166e70263e5f8df581c7d2.pdf"
+  },
+  {
+    "question": "How many tables are in the 'Demographics' section?",
+    "answer": 1,
+    "doc_uuid": "29a4d2be-dc32-5891-b6d9-81a7c0a172d7",
+    "doc_path": "PATH_TO_DIR/9975f93834166e70263e5f8df581c7d2.pdf"
+  },
+  {
+    "question": "who plays the huntsman in snow white and the huntsman",
+    "answer": "Chris Hemsworth",
+    "doc_uuid": "2a924ef4-8501-59f5-9eb5-0e7f4b8601ba",
+    "doc_path": "PATH_TO_DIR/5fd0070c6f59fbbf8d3ff10325c48aeb.pdf"
+  },
+  {
+    "question": "How many figures are on pages 13 to 14?",
+    "answer": 0,
+    "doc_uuid": "2a924ef4-8501-59f5-9eb5-0e7f4b8601ba",
+    "doc_path": "PATH_TO_DIR/5fd0070c6f59fbbf8d3ff10325c48aeb.pdf"
+  },
+  {
+    "question": "How many tables are on pages 8 to 9?",
+    "answer": 1,
+    "doc_uuid": "2c8bae11-b470-55aa-9ee4-098df906decb",
+    "doc_path": "PATH_TO_DIR/2f94454039f886628e87c36a4e2afa0c.pdf"
+  },
+  {
+    "question": "What color is the portion of the mat that Lilia Akhaimova is standing on?",
+    "answer": "white",
+    "doc_uuid": "2c8bae11-b470-55aa-9ee4-098df906decb",
+    "doc_path": "PATH_TO_DIR/2f94454039f886628e87c36a4e2afa0c.pdf"
+  },
+  {
+    "question": "What is Tapio Heikkila wearing on his wrists?",
+    "answer": "wristbands",
+    "doc_uuid": "2cd691f1-bff1-59f4-bff0-e81bfe2722ec",
+    "doc_path": "PATH_TO_DIR/c920d083a4855154f28df2bfe12e51fd.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "2cd691f1-bff1-59f4-bff0-e81bfe2722ec",
+    "doc_path": "PATH_TO_DIR/c920d083a4855154f28df2bfe12e51fd.pdf"
+  },
+  {
+    "question": "Was Laura Saccomani 1.88 meters in height in the 2010-11 team of Volley Pesaro Past Squads?",
+    "answer": "No",
+    "doc_uuid": "2d1fe035-3d58-5744-8ea7-917e1d864076",
+    "doc_path": "PATH_TO_DIR/e28123cea8fe72b47d36a48b39d01eaf.pdf"
+  },
+  {
+    "question": "How many streams of water are seen in the fountain in front of Lyric Theatre (Hammersmith)?",
+    "answer": "twelve",
+    "doc_uuid": "2e57f578-4ec8-5913-a85f-bcc25261fac8",
+    "doc_path": "PATH_TO_DIR/5efa8a7f6a11def76e2d39030d622110.pdf"
+  },
+  {
+    "question": "Was mezzo-soprano the voice type for the role of Sonno in Ercole amante?",
+    "answer": "Yes",
+    "doc_uuid": "2e7e4cd5-5d37-5b68-8891-e1f9b364450c",
+    "doc_path": "PATH_TO_DIR/73455589cd0cfabdf0eb888dd5fba609.pdf"
+  },
+  {
+    "question": "How many tables are on pages 4 to 6?",
+    "answer": 3,
+    "doc_uuid": "2f0e11ee-cf69-5257-a5bb-afa28c4be141",
+    "doc_path": "PATH_TO_DIR/3f4c1ecbd1e562f944be1a53cf3af900.pdf"
+  },
+  {
+    "question": "Aside from black and white, which other color adorns the uniforms worn duing the 2014 Calgary Stampeders season?",
+    "answer": "red",
+    "doc_uuid": "2f0e11ee-cf69-5257-a5bb-afa28c4be141",
+    "doc_path": "PATH_TO_DIR/3f4c1ecbd1e562f944be1a53cf3af900.pdf"
+  },
+  {
+    "question": "when is season 9 of charmed coming out",
+    "answer": "June 2010",
+    "doc_uuid": "300d01ac-a655-5568-a3c9-22c57aea713e",
+    "doc_path": "PATH_TO_DIR/ec21e416ede6dd6a4587000fc02d74aa.pdf"
+  },
+  {
+    "question": "In which season did the Gold Coast Titans have a home attendance of 17,877 supporters?",
+    "answer": "2010",
+    "doc_uuid": "30aba90a-f65c-5cf4-808c-f6de7e48903f",
+    "doc_path": "PATH_TO_DIR/fda84aa7e1698ccd15ccd0601542d7a0.pdf"
+  },
+  {
+    "question": "What is on the wrists of Arthur Ashe?",
+    "answer": "wristbands",
+    "doc_uuid": "3111f69c-6c47-5cf1-ac4a-da21bce6b7bf",
+    "doc_path": "PATH_TO_DIR/80b9da7ee2e0436ed43bf6c4be6285e5.pdf"
+  },
+  {
+    "question": "in Top scorers of 2010–11 Premier League, which player has blonde hair?",
+    "answer": "Dirk Kuyt",
+    "doc_uuid": "3172080a-1739-522d-b344-4fda8288a295",
+    "doc_path": "PATH_TO_DIR/44a1a5ec1ea32a7f70f4d4d99ccb46f7.pdf"
+  },
+  {
+    "question": "What color hair does alyson stoner have?",
+    "answer": "blonde",
+    "doc_uuid": "31b07560-fd0d-5af2-ad80-4549236b30bb",
+    "doc_path": "PATH_TO_DIR/19af22e07afe0137773a47a13cae475b.pdf"
+  },
+  {
+    "question": "can you use oyster card at epsom station",
+    "answer": "no",
+    "doc_uuid": "322e5a80-4902-557f-afc1-2c9491b14c87",
+    "doc_path": "PATH_TO_DIR/1cb13cfa0626eb58bd5ddbeb0b9c2160.pdf"
+  },
+  {
+    "question": "What color is the woman's hair on the top of the advertisement for True True Lie?",
+    "answer": "blond",
+    "doc_uuid": "32462cc4-2407-5a10-b88f-d5401fabcdcc",
+    "doc_path": "PATH_TO_DIR/ab5b1e945e030bcb84f638050605ee2c.pdf"
+  },
+  {
+    "question": "Which completely bald person who wears thick glasses is among the members of LGBT billionaires?",
+    "answer": "Domenico Dolce",
+    "doc_uuid": "32d0568c-6fdb-5b4e-818e-91f8d61b3b96",
+    "doc_path": "PATH_TO_DIR/d57e56eff064047af5a6ef074a570956.pdf"
+  },
+  {
+    "question": "What is Giorgia Rubino wearing on his left wrist?",
+    "answer": "watch",
+    "doc_uuid": "33496e7f-4a38-5d29-8140-68290e4085d2",
+    "doc_path": "PATH_TO_DIR/842c909551f5c741acfe0795fdef1f19.pdf"
+  },
+  {
+    "question": "What logo is on the pants of Courtney Okolo?",
+    "answer": "nike",
+    "doc_uuid": "33629671-31be-5c47-9cf0-3bfc4ebc1e2d",
+    "doc_path": "PATH_TO_DIR/b6bcedc1b0be14736478c74aa08cad71.pdf"
+  },
+  {
+    "question": "are tigers the biggest cat in the world",
+    "answer": "no",
+    "doc_uuid": "344de661-ffcc-5187-83aa-2c9c276f65eb",
+    "doc_path": "PATH_TO_DIR/cccdbbac68b3e7004cbc337d54826e1a.pdf"
+  },
+  {
+    "question": "What song did Pithapuram and A. P. Komala perform on the Panduranga Mahatyam soundtrack?",
+    "answer": "\"Ekkadoyi Muddula Bava\"",
+    "doc_uuid": "3559a503-d2b3-518c-bada-c29b359833b7",
+    "doc_path": "PATH_TO_DIR/3d77673d423e1a7b8a45aa4c0cbb3a34.pdf"
+  },
+  {
+    "question": "Was Australian ghostshark the common name with a 88% identity in the list of Homology of Orthologs of TMTC4?",
+    "answer": "No",
+    "doc_uuid": "356bf4c3-b0b2-53e8-8d29-fd1af3abd6a9",
+    "doc_path": "PATH_TO_DIR/32d291c66bc15ec979ec7a7c6fbc1d80.pdf"
+  },
+  {
+    "question": "Which Club(s), in Top goalscorers of 2012 1. deild karla, logo has a downwards pointing arrow on it?",
+    "answer": "UMF Tindastóll",
+    "doc_uuid": "35d97bf5-494c-5205-82f7-fc85f4994453",
+    "doc_path": "PATH_TO_DIR/efd88ee5d64c2bc8028a9745ebd2121d.pdf"
+  },
+  {
+    "question": "who is the owner of urdu 1 channel",
+    "answer": "Media Alliance",
+    "doc_uuid": "360e46a2-1715-5d22-a6e7-9cdf7257ca46",
+    "doc_path": "PATH_TO_DIR/afcef35843597cf95e723843c24af891.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "36402887-7a35-50e8-9ae0-3ce21d7afc02",
+    "doc_path": "PATH_TO_DIR/8827acff04702456dfcc460bab561493.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 4?",
+    "answer": 1,
+    "doc_uuid": "36402887-7a35-50e8-9ae0-3ce21d7afc02",
+    "doc_path": "PATH_TO_DIR/8827acff04702456dfcc460bab561493.pdf"
+  },
+  {
+    "question": "who played mr wilson on the original dennis the menace",
+    "answer": "Joseph Sherrard Kearns",
+    "doc_uuid": "36402887-7a35-50e8-9ae0-3ce21d7afc02",
+    "doc_path": "PATH_TO_DIR/8827acff04702456dfcc460bab561493.pdf"
+  },
+  {
+    "question": "There is an eagle on the symbol for which ranks in the dates of David H. Huntoon's ranks?",
+    "answer": "Colonel (United States)",
+    "doc_uuid": "367351a2-0cf3-5a59-b995-f20aba7f217e",
+    "doc_path": "PATH_TO_DIR/1fdf48e68d14c7ec58d27134b73cb05a.pdf"
+  },
+  {
+    "question": "What is the average enrollment in the public members in the current members of the America East Conference?",
+    "answer": 16672.375,
+    "doc_uuid": "373ba03c-22bf-5309-ad00-7840b38309bc",
+    "doc_path": "PATH_TO_DIR/21c8bbe5e7d81794a28f899dd36dca8e.pdf"
+  },
+  {
+    "question": "which player of gaz metan media's featured in the clean sheets statistics of 2016/2017 Liga 1",
+    "answer": "Alexandru Greab",
+    "doc_uuid": "37407f33-bd1b-5b40-9ad0-3ffcaab6ae6a",
+    "doc_path": "PATH_TO_DIR/58eb8f467b1936834aee86981b8e2b2c.pdf"
+  },
+  {
+    "question": "What player for Botosani got clean sheets in 2016-17 Liga I",
+    "answer": "Plamen Iliev",
+    "doc_uuid": "37407f33-bd1b-5b40-9ad0-3ffcaab6ae6a",
+    "doc_path": "PATH_TO_DIR/58eb8f467b1936834aee86981b8e2b2c.pdf"
+  },
+  {
+    "question": "Was the Federal Palace Hotel the venue for the 5th annual edition of Lights, Camera, Africa!?",
+    "answer": "Yes",
+    "doc_uuid": "37cb8df3-a4af-5a90-9f81-57e2833d594f",
+    "doc_path": "PATH_TO_DIR/8fd6c7da7efe9836960f1c557b2ab11a.pdf"
+  },
+  {
+    "question": "Was Jim Richards the driver in the modern competition of the Targa Tasmania that was held in 1995?",
+    "answer": "No",
+    "doc_uuid": "3906c0f9-d1ca-5fb6-ac4e-799e9b436ac3",
+    "doc_path": "PATH_TO_DIR/3f1615376f52e9c4f3170684b2937d09.pdf"
+  },
+  {
+    "question": "What color is the woman's hair, who Romeo is kissing?",
+    "answer": "orange",
+    "doc_uuid": "39accdb6-2488-5d2b-9893-bacad15df53b",
+    "doc_path": "PATH_TO_DIR/55d097da2debadcfdde6e3c6f7953dec.pdf"
+  },
+  {
+    "question": "who sang sister mary robert in sister act",
+    "answer": "Andrea Robinson",
+    "doc_uuid": "3b3c8d69-bee5-5768-9121-893a44d87f70",
+    "doc_path": "PATH_TO_DIR/41bd6f8ce6c2d4d7b25d5506674a2127.pdf"
+  },
+  {
+    "question": "What is on the necklace that Glen Rice is wearing?",
+    "answer": "cross",
+    "doc_uuid": "3b4e4b2f-e7f6-5e05-957b-d94e342ea87d",
+    "doc_path": "PATH_TO_DIR/16c89325a88683d6ffa161ed0d72744f.pdf"
+  },
+  {
+    "question": "Who were the songwriters of the song \"Jag ger dig allt\" in Melodifestivalen 1995?",
+    "answer": "Christer Lundh, Mikael Wendt",
+    "doc_uuid": "3b878f70-3907-57b6-be49-1509a61348d8",
+    "doc_path": "PATH_TO_DIR/17692a030acbc3e0bd963445ae2bd8fb.pdf"
+  },
+  {
+    "question": "In the poster for Hot Fuzz, what is in the hands of the person on the left?",
+    "answer": "guns",
+    "doc_uuid": "3ca92eb2-be77-5db0-8cde-bfd874660d64",
+    "doc_path": "PATH_TO_DIR/b41703e0820229bfb7da27e20b11c66e.pdf"
+  },
+  {
+    "question": "Which Title(s), in Acting credits of Garth Jennings, features two police officers on its poster?",
+    "answer": "Hot Fuzz",
+    "doc_uuid": "3ca92eb2-be77-5db0-8cde-bfd874660d64",
+    "doc_path": "PATH_TO_DIR/b41703e0820229bfb7da27e20b11c66e.pdf"
+  },
+  {
+    "question": "Which scorer from the club Consadole Sapporo was a top scorer from the J. League Division 1 of 2008?",
+    "answer": "Davi",
+    "doc_uuid": "3cba1cce-f711-5db0-9c4f-9347fb7d20f4",
+    "doc_path": "PATH_TO_DIR/fbfeacc60bcd645ae89b1c8efb0bb93e.pdf"
+  },
+  {
+    "question": "are the north and south islands of new zealand connected",
+    "answer": "no",
+    "doc_uuid": "3cbb963a-c3a9-511f-8066-ff5d3c5c9f0e",
+    "doc_path": "PATH_TO_DIR/61a508f162021abddbcbcea27649b1a7.pdf"
+  },
+  {
+    "question": "What role did George Hilton play in \"The Atlantis Interceptors\"?",
+    "answer": "Professor Peter Saunders",
+    "doc_uuid": "3d2564c4-faaf-5d40-a9d5-8b737f24d7a8",
+    "doc_path": "PATH_TO_DIR/43973134a8d5872cf47226bf5e650d31.pdf"
+  },
+  {
+    "question": "What does Ted Walsh have on his face?",
+    "answer": "eyeglasses",
+    "doc_uuid": "3d4c2f63-d7b9-59cf-95fc-af87e8f3eaed",
+    "doc_path": "PATH_TO_DIR/9fadbf39d686a41f43d11dae1235938d.pdf"
+  },
+  {
+    "question": "Is this Washington Lions logo in color?",
+    "answer": "no",
+    "doc_uuid": "3ffd3b42-152e-593f-aeee-da316efa2c4f",
+    "doc_path": "PATH_TO_DIR/ecb3dc92895c729e09a77e90e75467f0.pdf"
+  },
+  {
+    "question": "How many figures are on pages 16 to 17?",
+    "answer": 1,
+    "doc_uuid": "402cbad5-410b-50df-98c5-db0b4768d3ee",
+    "doc_path": "PATH_TO_DIR/b855c01439421943b7ddc05a6405eb7d.pdf"
+  },
+  {
+    "question": "who won a best director oscar for the 2012 film life of pi",
+    "answer": "Ang Lee",
+    "doc_uuid": "402cbad5-410b-50df-98c5-db0b4768d3ee",
+    "doc_path": "PATH_TO_DIR/b855c01439421943b7ddc05a6405eb7d.pdf"
+  },
+  {
+    "question": "who sang the man with the golden gun",
+    "answer": "Lulu",
+    "doc_uuid": "4053d1e9-31cb-5d34-8329-a61ac08eb4e0",
+    "doc_path": "PATH_TO_DIR/7bb4f86f3ec2ce01cb5f0d378ef0934b.pdf"
+  },
+  {
+    "question": "How many tables are on page 5?",
+    "answer": 1,
+    "doc_uuid": "4053d1e9-31cb-5d34-8329-a61ac08eb4e0",
+    "doc_path": "PATH_TO_DIR/7bb4f86f3ec2ce01cb5f0d378ef0934b.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "4053d1e9-31cb-5d34-8329-a61ac08eb4e0",
+    "doc_path": "PATH_TO_DIR/7bb4f86f3ec2ce01cb5f0d378ef0934b.pdf"
+  },
+  {
+    "question": "who recorded the song stuck in the middle with you",
+    "answer": "Stealers Wheel",
+    "doc_uuid": "408a00f0-d521-538b-93d2-ed2490877c3c",
+    "doc_path": "PATH_TO_DIR/6829137d720e535f2b7693814f8661f8.pdf"
+  },
+  {
+    "question": "What sport is Maria Kharenkova participating in?",
+    "answer": "gymnastics",
+    "doc_uuid": "425f7db3-306c-5db7-ba63-d6b1a0712a4f",
+    "doc_path": "PATH_TO_DIR/95547e88fe5b762e4583375da84acd3a.pdf"
+  },
+  {
+    "question": "where did the sons of liberty hold their meetings",
+    "answer": "The tree",
+    "doc_uuid": "42b1b9c5-cd3e-58b7-b699-933ed684742f",
+    "doc_path": "PATH_TO_DIR/e6c6db9ff1780601723b46e3b553ebf4.pdf"
+  },
+  {
+    "question": "Which College(s), in Round one of 2005 CFL Draft, feature an eagle on their logo?",
+    "answer": "McMaster Marauders",
+    "doc_uuid": "431f9124-03cd-51f9-a0b2-2200577e7643",
+    "doc_path": "PATH_TO_DIR/006ecfc22be0935a669a024f9637db87.pdf"
+  },
+  {
+    "question": "who sings i won't say i'm in love from hercules",
+    "answer": "Susan Egan",
+    "doc_uuid": "4345d87f-705c-540b-aa1f-42f13b669d7a",
+    "doc_path": "PATH_TO_DIR/808ff4501301696cfae16e848c4c60a6.pdf"
+  },
+  {
+    "question": "when was ain't added to the dictionary",
+    "answer": "1961",
+    "doc_uuid": "46471e21-939d-577f-9f21-e7525d109159",
+    "doc_path": "PATH_TO_DIR/63c09c750ed3c50beedc2754adbea2cc.pdf"
+  },
+  {
+    "question": "will there be a season 4 of my mad fat diary",
+    "answer": "no",
+    "doc_uuid": "476ac90d-eeef-5e19-887f-50b0ea0a8cb7",
+    "doc_path": "PATH_TO_DIR/5a4020bf98b1626f281a34ca26fdb447.pdf"
+  },
+  {
+    "question": "In what year did Samantha Weinstein play the TV role of Swan Maiden?",
+    "answer": "2008",
+    "doc_uuid": "48009bc7-fe92-5bb3-81af-1018e01090ac",
+    "doc_path": "PATH_TO_DIR/c6f712465293ef3f8f666e0f0eeddf1b.pdf"
+  },
+  {
+    "question": "How many jerseys were available for St. Louis Rams in season 2001?",
+    "answer": "two",
+    "doc_uuid": "4806e60c-491e-5894-91d9-12bb774fba10",
+    "doc_path": "PATH_TO_DIR/6a2d958e4ae06afdcbc23a26d985e93b.pdf"
+  },
+  {
+    "question": "can a commercial jet break the sound barrier",
+    "answer": "yes",
+    "doc_uuid": "4878a1e8-efe8-5a00-8d87-088a9ab32711",
+    "doc_path": "PATH_TO_DIR/d66447f64af0c1daa03a9e2c3d8dbd29.pdf"
+  },
+  {
+    "question": "what are flying monkeys in wizard of oz called",
+    "answer": "Winged monkeys",
+    "doc_uuid": "49620fd4-be78-5759-99ba-c8e7176acb8c",
+    "doc_path": "PATH_TO_DIR/0a934a34eb07a0e61e7f69f863b042a6.pdf"
+  },
+  {
+    "question": "What is the animal in the middle of the Providence Reds logo?",
+    "answer": "rooster",
+    "doc_uuid": "4b0a1bd5-1882-5179-85e4-33f8aea61ad5",
+    "doc_path": "PATH_TO_DIR/7a536e03eb3a437d53e9504f8b8121dd.pdf"
+  },
+  {
+    "question": "What was the most recent year when Nazmun Munira Nancy received an award or nomination for an award in the Best Female Singer category?",
+    "answer": "2014",
+    "doc_uuid": "4b1e7400-5c40-5d8b-9a25-4bfce4b48781",
+    "doc_path": "PATH_TO_DIR/88eb15d97705a31c94cf3b9cfb648cb9.pdf"
+  },
+  {
+    "question": "Of the clothing that Vijay Amritraj is wearing, which piece of clothing is striped?",
+    "answer": "tie",
+    "doc_uuid": "4b6bc5b3-8bcb-5ff9-ac18-e0e4bfa53415",
+    "doc_path": "PATH_TO_DIR/246ed94f09db711d85c36b3ada80aa1b.pdf"
+  },
+  {
+    "question": "who played dr. smith in the original lost in space series",
+    "answer": "Jonathan Harris",
+    "doc_uuid": "4bf20264-ade3-5701-a945-336bc23471f6",
+    "doc_path": "PATH_TO_DIR/990241f60091eb593e206f12284378ec.pdf"
+  },
+  {
+    "question": "Does Gideon Baah have facial hair?",
+    "answer": "yes",
+    "doc_uuid": "4ceba770-eb16-5f49-9700-0374e0988038",
+    "doc_path": "PATH_TO_DIR/02947322506f5f839b394c2015c333ec.pdf"
+  },
+  {
+    "question": "What geological feature is seen in the background of Canmore, Alberta?",
+    "answer": "mountains",
+    "doc_uuid": "4ebbcf28-9805-5e23-8e7d-4695d7356e51",
+    "doc_path": "PATH_TO_DIR/08e0eb017ba996d04e9c75114428fd45.pdf"
+  },
+  {
+    "question": "What actor played the role of Jolene in Least Among Saints?",
+    "answer": "Laura San Giacomo",
+    "doc_uuid": "4f2a9602-3112-583c-a6ef-b635b31dbf85",
+    "doc_path": "PATH_TO_DIR/fa2a3a9ad1706e31fcee441fad07e1b9.pdf"
+  },
+  {
+    "question": "Which African player left South China AA in the 2013-14 season?",
+    "answer": "Mamadou Barry",
+    "doc_uuid": "4f30f464-7684-5699-9002-c695556ebc8e",
+    "doc_path": "PATH_TO_DIR/8e457f0009b6389d838591509c62deaf.pdf"
+  },
+  {
+    "question": "who was the relief pitcher with a average of 3.15 in the boston red sox season of 2007?",
+    "answer": "J. C. Romero",
+    "doc_uuid": "4f6f9808-38d1-5096-8180-d83a11294130",
+    "doc_path": "PATH_TO_DIR/ffb4a98ed31cd5181e7d0e2d8907539e.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 3?",
+    "answer": 3,
+    "doc_uuid": "4f7bf1e5-6a41-504c-880f-5a92dc7354ea",
+    "doc_path": "PATH_TO_DIR/b018b3d03bbd2b4f40093d1d7a343a20.pdf"
+  },
+  {
+    "question": "where were the first 4 interface message processors located",
+    "answer": "UCLA",
+    "doc_uuid": "4f7bf1e5-6a41-504c-880f-5a92dc7354ea",
+    "doc_path": "PATH_TO_DIR/b018b3d03bbd2b4f40093d1d7a343a20.pdf"
+  },
+  {
+    "question": "when did mine that bird win the kentucky derby",
+    "answer": "2009",
+    "doc_uuid": "4f7d5f53-d78e-5c8d-bd48-a422a842c626",
+    "doc_path": "PATH_TO_DIR/ff2a807bcea4513a88b7c851ef6a1198.pdf"
+  },
+  {
+    "question": "How many total tables are in the document?",
+    "answer": 1,
+    "doc_uuid": "4f7d5f53-d78e-5c8d-bd48-a422a842c626",
+    "doc_path": "PATH_TO_DIR/ff2a807bcea4513a88b7c851ef6a1198.pdf"
+  },
+  {
+    "question": "What type of facial hair does Omar Jama have?",
+    "answer": "moustache",
+    "doc_uuid": "512f5408-c9dd-53d8-955e-5df61d7e4b3f",
+    "doc_path": "PATH_TO_DIR/e200f1aaa31bbebb1844ee7304c649ca.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "51cc8cf7-fe71-540a-b5da-fd0e7f224960",
+    "doc_path": "PATH_TO_DIR/7238d23d1f4d02f6a17d6614bb776d18.pdf"
+  },
+  {
+    "question": "who won big brother battle back season 18",
+    "answer": "Victor",
+    "doc_uuid": "51cc8cf7-fe71-540a-b5da-fd0e7f224960",
+    "doc_path": "PATH_TO_DIR/7238d23d1f4d02f6a17d6614bb776d18.pdf"
+  },
+  {
+    "question": "Which club did Lucas Salas play for in the 2016-2017 season?",
+    "answer": "San Martín",
+    "doc_uuid": "51f271b8-7636-5dd8-b094-eacfb0104c8b",
+    "doc_path": "PATH_TO_DIR/152eee5f901055845e88b09a5c1f8072.pdf"
+  },
+  {
+    "question": "What was the seat of the Suwałki County division that has an area of 150.4 km²?",
+    "answer": "Filipów",
+    "doc_uuid": "5264a0ac-d677-57b9-bd60-3b77d5079090",
+    "doc_path": "PATH_TO_DIR/f1cfb6fa4e031b0b5fd838041693d565.pdf"
+  },
+  {
+    "question": "Which District(s), in Azad Jammu and Kashmir of Districts of Pakistan, borders the southern perimeter?",
+    "answer": "Bhimber District",
+    "doc_uuid": "5287d8f9-52b4-5053-9b98-0ca71050bea0",
+    "doc_path": "PATH_TO_DIR/62ea12386ffad162066b3b31bf34fbd7.pdf"
+  },
+  {
+    "question": "who killed han in fast and furious tokyo drift",
+    "answer": "Deckard Shaw",
+    "doc_uuid": "52f805e5-6510-5f86-a0f9-a9a52afd1571",
+    "doc_path": "PATH_TO_DIR/83eb0f1eeff4edbbd5b5e524e57896d7.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "52f805e5-6510-5f86-a0f9-a9a52afd1571",
+    "doc_path": "PATH_TO_DIR/83eb0f1eeff4edbbd5b5e524e57896d7.pdf"
+  },
+  {
+    "question": "Is Bad Samaritan the title of the film in which the role of Olivia Evans is played by Kerry Condon?",
+    "answer": "No",
+    "doc_uuid": "534fbe16-25e7-56b7-a7a5-d4f835b33958",
+    "doc_path": "PATH_TO_DIR/55296a438f6104414645d72f45a08b2e.pdf"
+  },
+  {
+    "question": "What is going across the river and in the water on Parkersburg, West Virginia?",
+    "answer": "bridge",
+    "doc_uuid": "5373d0c6-6e8a-5976-b7fe-ae2808a6c997",
+    "doc_path": "PATH_TO_DIR/55135d3219a8a9ab6b827fee6b0723e7.pdf"
+  },
+  {
+    "question": "who plays jill on young and the restless",
+    "answer": "Jess Walton",
+    "doc_uuid": "54675439-e70d-59fa-ada2-babe8be237fc",
+    "doc_path": "PATH_TO_DIR/cad8c4b0a2937519de4741a225569aaf.pdf"
+  },
+  {
+    "question": "What does Helen Love have in her hands?",
+    "answer": "beverage",
+    "doc_uuid": "5468cc74-3af1-5e10-9047-3e7730546486",
+    "doc_path": "PATH_TO_DIR/e332c859c0937f1937b54e814cb88e5c.pdf"
+  },
+  {
+    "question": "What kind of stick is Eric Boguniecki holding?",
+    "answer": "hockey",
+    "doc_uuid": "54b5a2c6-342a-5222-bbb2-51d4e6193015",
+    "doc_path": "PATH_TO_DIR/1c07ac1fe48a55e812a1bc79fa93db77.pdf"
+  },
+  {
+    "question": "In what year was Swara Bhaskar in the production titled Nil Battey Sannata?",
+    "answer": "2016",
+    "doc_uuid": "55581222-7b42-5f85-89c8-381fd2587b02",
+    "doc_path": "PATH_TO_DIR/c7bc08715e00fdc900d213ba45374896.pdf"
+  },
+  {
+    "question": "Was Sondra Huxtable a recurring character on season 1 of The Cosby Show?",
+    "answer": "Yes",
+    "doc_uuid": "55dc3d08-60f6-5e4f-9a6e-22d9f7a372d4",
+    "doc_path": "PATH_TO_DIR/1c4ae80f74a833a5fbcb9891d2ea9fe9.pdf"
+  },
+  {
+    "question": "who is the actor who played spartacus in spartacus blood and sand",
+    "answer": "Andy Whitfield",
+    "doc_uuid": "562092b5-dd6a-57b8-af10-e827d160dde3",
+    "doc_path": "PATH_TO_DIR/f8bc343d57c35a09050f4840fdf09aed.pdf"
+  },
+  {
+    "question": "when does the movie hocus pocus come out",
+    "answer": "1993",
+    "doc_uuid": "5646e314-596f-585a-8b56-1c123540f0d6",
+    "doc_path": "PATH_TO_DIR/3a5c6553ac385010b3daef1a6ff32a47.pdf"
+  },
+  {
+    "question": "are all of the songs in mamma mia here we go again by abba",
+    "answer": "no",
+    "doc_uuid": "564fa375-1e59-5c07-b544-367e732cc1ae",
+    "doc_path": "PATH_TO_DIR/9983eabc1766315e2204e430d234275f.pdf"
+  },
+  {
+    "question": "what is islands of adventure in orlando florida",
+    "answer": "a theme park",
+    "doc_uuid": "5656544a-d966-5fa5-863d-70ff3ebae212",
+    "doc_path": "PATH_TO_DIR/55b9a5b1808b33da1e9cbee74e96a906.pdf"
+  },
+  {
+    "question": "Who performed One Moment in Time during Season 1 Part 2 of The Clash on October 7?",
+    "answer": "Lani Misalucha, Kyryll Ugdiman, Mika Gorospe, Mirriam Manalo, Lyra Micolob",
+    "doc_uuid": "5662a945-39c4-550d-a4af-09d9695956bf",
+    "doc_path": "PATH_TO_DIR/43c4c23c031663f119dcf24dfdc0738f.pdf"
+  },
+  {
+    "question": "who sang lead vocals on hold the line",
+    "answer": "Bobby Kimball",
+    "doc_uuid": "566ae426-5536-5720-8ac9-51828bb944aa",
+    "doc_path": "PATH_TO_DIR/2494fddb24ed7d42aeb4d4c286a68327.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 5?",
+    "answer": 1,
+    "doc_uuid": "56d85e8c-e9e6-5e4b-bb19-1aa24e19f236",
+    "doc_path": "PATH_TO_DIR/b95b35eabfc80a0f1a8fd8455cd6d109.pdf"
+  },
+  {
+    "question": "who owns the rights to little shop of horrors",
+    "answer": "David Geffen",
+    "doc_uuid": "56d85e8c-e9e6-5e4b-bb19-1aa24e19f236",
+    "doc_path": "PATH_TO_DIR/b95b35eabfc80a0f1a8fd8455cd6d109.pdf"
+  },
+  {
+    "question": "How many figures are on pages 8 to 11?",
+    "answer": 1,
+    "doc_uuid": "56d85e8c-e9e6-5e4b-bb19-1aa24e19f236",
+    "doc_path": "PATH_TO_DIR/b95b35eabfc80a0f1a8fd8455cd6d109.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 6?",
+    "answer": 1,
+    "doc_uuid": "56ed05cb-67e5-57a4-99cf-9682714daf20",
+    "doc_path": "PATH_TO_DIR/919a3dab8a05a5acac976b7df281c2b4.pdf"
+  },
+  {
+    "question": "Which Title(s), in Filmography of Mario Machado, has a shirtless man in boxing gloves on its poster?",
+    "answer": "Rocky III",
+    "doc_uuid": "56ed05cb-67e5-57a4-99cf-9682714daf20",
+    "doc_path": "PATH_TO_DIR/919a3dab8a05a5acac976b7df281c2b4.pdf"
+  },
+  {
+    "question": "Are the colors of the American flag present in the logo of Club Atlético River Plate Puerto Rico?",
+    "answer": "yes",
+    "doc_uuid": "57063a74-5a1a-5a12-b9f0-93318fe4479a",
+    "doc_path": "PATH_TO_DIR/39790cbe52e400b77427236d15b9b0f9.pdf"
+  },
+  {
+    "question": "What sport is Jonathan Sexton playing here?",
+    "answer": "rugby",
+    "doc_uuid": "5724be6c-f269-55b7-bf35-8e107d2a2725",
+    "doc_path": "PATH_TO_DIR/ecc0ee1f35c325597bcf209174e40dca.pdf"
+  },
+  {
+    "question": "what car does reynolds woodcock drive in phantom thread",
+    "answer": "a maroon Bristol 405",
+    "doc_uuid": "57371ca0-a903-50e7-99a4-e22acae0f28a",
+    "doc_path": "PATH_TO_DIR/8fc6091d4402dd2796944f8a9f4aa8c5.pdf"
+  },
+  {
+    "question": "Which team with a logo featuring a hat was a former tenant of the Stampede Corral?",
+    "answer": "Calgary Cowboys",
+    "doc_uuid": "57a8472b-2199-5a72-9de6-4283242d89c9",
+    "doc_path": "PATH_TO_DIR/6e25a59c4187a0e595ea83ee5a95763f.pdf"
+  },
+  {
+    "question": "does hermione die in the winter's tale",
+    "answer": "yes",
+    "doc_uuid": "58b69422-5ea0-5fa1-a3b4-c5fbf6d26c5f",
+    "doc_path": "PATH_TO_DIR/e8cdd002198749b4dbfc8868d666eab7.pdf"
+  },
+  {
+    "question": "Is this an action shot of Tim Hardaway?",
+    "answer": "no",
+    "doc_uuid": "5a27451d-2d4c-5329-8b88-55f63185509b",
+    "doc_path": "PATH_TO_DIR/3f16a96b7c621762ea7abfb996ebbd41.pdf"
+  },
+  {
+    "question": "What was Tatiana Nabieva's total all around results during the 2014 Russian Cup?",
+    "answer": "54.834",
+    "doc_uuid": "5ae32bb4-3afa-5314-8666-51e45dcb90b2",
+    "doc_path": "PATH_TO_DIR/6761b9245e5c70261e5a8dd51c5802b0.pdf"
+  },
+  {
+    "question": "What color is the uppermost bracelet on Alonzo Mourning's right wrist?",
+    "answer": "yellow",
+    "doc_uuid": "5b5c266a-d13d-5e83-8d6f-ec84d7f0eb30",
+    "doc_path": "PATH_TO_DIR/19861097f6032aa572d31ca3549c38dc.pdf"
+  },
+  {
+    "question": "is it true that paid search marketing is completely driven by google",
+    "answer": "no",
+    "doc_uuid": "5b9d5dc7-73d2-590f-90df-fd2be3640cf7",
+    "doc_path": "PATH_TO_DIR/e89e17e8e4e94953ee964ff88f93e281.pdf"
+  },
+  {
+    "question": "What direction is Rodrigo De Paul wearing his hat?",
+    "answer": "backwards",
+    "doc_uuid": "5ccab9c0-5a14-5ba8-ac6f-3796d4996a0f",
+    "doc_path": "PATH_TO_DIR/7475a2210f7f3e3556ab964c35261cbe.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 4?",
+    "answer": 1,
+    "doc_uuid": "5da46bcc-c88d-5214-b96f-0161a5796c24",
+    "doc_path": "PATH_TO_DIR/52d269fa248958036f0ef2b3b51eb57d.pdf"
+  },
+  {
+    "question": "where are they taking piper in season 2",
+    "answer": "Chicago",
+    "doc_uuid": "5da46bcc-c88d-5214-b96f-0161a5796c24",
+    "doc_path": "PATH_TO_DIR/52d269fa248958036f0ef2b3b51eb57d.pdf"
+  },
+  {
+    "question": "Does Biohazard (band) perform live?",
+    "answer": "yes",
+    "doc_uuid": "5e82df89-4d08-5989-ae44-78d916fa01d4",
+    "doc_path": "PATH_TO_DIR/03fcd384671ac52f7efc39f5a3be92db.pdf"
+  },
+  {
+    "question": "is there heat transfer in an isothermal process",
+    "answer": "yes",
+    "doc_uuid": "5ea12054-d010-50b9-9ebd-92f7500cc660",
+    "doc_path": "PATH_TO_DIR/402fc14fd74c4ab5351b9b8b4334603b.pdf"
+  },
+  {
+    "question": "Which player who plays for a team with a logo featuring a lightning bolt made goals for the Calgary Flames?",
+    "answer": "Gary Roberts (ice hockey)",
+    "doc_uuid": "5ea69402-9858-56c0-8801-50053a153a68",
+    "doc_path": "PATH_TO_DIR/e5015e2a5270e374d5a447bc0416dfcf.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 4,
+    "doc_uuid": "5ea69402-9858-56c0-8801-50053a153a68",
+    "doc_path": "PATH_TO_DIR/e5015e2a5270e374d5a447bc0416dfcf.pdf"
+  },
+  {
+    "question": "What color is the exterior of the Almeida Theatre?",
+    "answer": "white",
+    "doc_uuid": "5f33e08f-c313-5b0c-91a4-1bddf526e4c9",
+    "doc_path": "PATH_TO_DIR/e980eca9951d60fe14bcd2b5425bb7aa.pdf"
+  },
+  {
+    "question": "who was the guy who ate hamburgers on popeye",
+    "answer": "Wimpy",
+    "doc_uuid": "5f6eda82-f70a-5892-8b59-aae45a203f1e",
+    "doc_path": "PATH_TO_DIR/a0fed4b0d9d2051411f2d8a06cef4a04.pdf"
+  },
+  {
+    "question": "How many tables are in the 'Episodes' section?",
+    "answer": 1,
+    "doc_uuid": "60a05b94-a7c1-5f19-98a6-f698f5a1f786",
+    "doc_path": "PATH_TO_DIR/2e74be131b014c9b79ae8f3bceaf9ed4.pdf"
+  },
+  {
+    "question": "What color is the background of My Three Sons",
+    "answer": "blue",
+    "doc_uuid": "60a05b94-a7c1-5f19-98a6-f698f5a1f786",
+    "doc_path": "PATH_TO_DIR/2e74be131b014c9b79ae8f3bceaf9ed4.pdf"
+  },
+  {
+    "question": "What kind of hat is the Leigh Centurions mascot wearing?",
+    "answer": "galea",
+    "doc_uuid": "61d5a24e-2470-574f-8393-78ea826d42ed",
+    "doc_path": "PATH_TO_DIR/ffc67692ad16c38b969402d9ae187856.pdf"
+  },
+  {
+    "question": "In the year when the ERX was fifth in the first division of Per Eklund, was it the 2001 European Rallycross Championship season?",
+    "answer": "No",
+    "doc_uuid": "628633de-47d2-5b8c-97a9-62d462a12c9f",
+    "doc_path": "PATH_TO_DIR/63529e40faec3abd737538dd7efb4f28.pdf"
+  },
+  {
+    "question": "the clause that allows the federal government to expand its powers is the",
+    "answer": "Necessary and Proper Clause",
+    "doc_uuid": "631534f6-99c9-5508-bd5a-5017f809e4dc",
+    "doc_path": "PATH_TO_DIR/8738945e7d39636c1a6f74fdd75a6e3b.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "6333d157-9cd6-59c9-9fe3-3f87c80486d1",
+    "doc_path": "PATH_TO_DIR/7bba8a499c3eacb24e67648c06ec44ad.pdf"
+  },
+  {
+    "question": "Was Wild Things: Diamonds in the Rough the title for Claire Coffee films for the year 2005, the year after Leave No Trace?",
+    "answer": "Yes",
+    "doc_uuid": "6333d157-9cd6-59c9-9fe3-3f87c80486d1",
+    "doc_path": "PATH_TO_DIR/7bba8a499c3eacb24e67648c06ec44ad.pdf"
+  },
+  {
+    "question": "when did the strong museum of play open",
+    "answer": "1982",
+    "doc_uuid": "633d2731-a0da-51c6-b351-3f279d0f7f3e",
+    "doc_path": "PATH_TO_DIR/3ef7b10d9efd125048f3fed09642c23e.pdf"
+  },
+  {
+    "question": "For which film did Ben Piazza play the role of Mr. Simms?",
+    "answer": "Mask",
+    "doc_uuid": "63a6b3f4-ebee-5024-b87b-84a9bcc26a63",
+    "doc_path": "PATH_TO_DIR/8513db80c11ea439ab11eba406ec00d9.pdf"
+  },
+  {
+    "question": "who owns the means of production in capitalism",
+    "answer": "private",
+    "doc_uuid": "63b515cc-5cc5-5449-92d4-cdce56d9c1d3",
+    "doc_path": "PATH_TO_DIR/5a8fd011f1728b6dda1266211df9becf.pdf"
+  },
+  {
+    "question": "Was Go-Ahead London the operator of route 419 in transport links of Richmond station (London)?",
+    "answer": "No",
+    "doc_uuid": "64239157-c3a3-57d5-9924-a6f7222ed57d",
+    "doc_path": "PATH_TO_DIR/be86054be53a056d4005efe05a3bfffa.pdf"
+  },
+  {
+    "question": "ravi teja raja the great movie release date",
+    "answer": "18 October 2017",
+    "doc_uuid": "6477baad-e5af-59a9-a450-8d7792934c12",
+    "doc_path": "PATH_TO_DIR/e9eea6b9d749b0769df24378c96c5d23.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "6477baad-e5af-59a9-a450-8d7792934c12",
+    "doc_path": "PATH_TO_DIR/e9eea6b9d749b0769df24378c96c5d23.pdf"
+  },
+  {
+    "question": "plant genus that includes the bananas and plantains",
+    "answer": "Musa",
+    "doc_uuid": "64fddbcb-6b10-56ca-a6df-8ce408334ec5",
+    "doc_path": "PATH_TO_DIR/1fa15a922c0b18c93fb81651cb278284.pdf"
+  },
+  {
+    "question": "Have the Eurythmics done any live shows?",
+    "answer": "yes",
+    "doc_uuid": "656b2760-b54a-54d2-be7a-f8a5b973f5a4",
+    "doc_path": "PATH_TO_DIR/1b56673db55e0e521a313ada3957b7c0.pdf"
+  },
+  {
+    "question": "Was the portfolio Deputy Prime Minister of SIngapore when 'Lim'Hng Kiang was the Minister in the Second Goh Chok Tong Cabinet of 1996-97?",
+    "answer": "No",
+    "doc_uuid": "656d941f-7b9c-536b-8796-2536ab74add3",
+    "doc_path": "PATH_TO_DIR/5576792125783388554292c2eab7393a.pdf"
+  },
+  {
+    "question": "What type of shoes is Takudzwa Ngwenya wearing?",
+    "answer": "cleats",
+    "doc_uuid": "65c238cd-01fe-56fe-8de1-26a9940b9e9d",
+    "doc_path": "PATH_TO_DIR/d9ff3439677437f743e3d6b1122a76b8.pdf"
+  },
+  {
+    "question": "was it elena or katherine that kissed damon",
+    "answer": "Elena",
+    "doc_uuid": "65f4ad17-b2ec-5a28-8dc5-83ba8a10d299",
+    "doc_path": "PATH_TO_DIR/47b3ee134490dfc6907171a1ecb49e89.pdf"
+  },
+  {
+    "question": "is tim mcgraw in the movie country strong",
+    "answer": "yes",
+    "doc_uuid": "666b1bba-c4e6-5bb1-a478-e69030c325a2",
+    "doc_path": "PATH_TO_DIR/ada5ba0f6d20dd9199d28eab539fbd62.pdf"
+  },
+  {
+    "question": "A man with a guitar is shown for which award category that is included among the awards and nominations of Di Genius?",
+    "answer": "Grammy Award for Best Latin Pop Album",
+    "doc_uuid": "66e14c29-91cd-5aa4-8462-3786d09920db",
+    "doc_path": "PATH_TO_DIR/12125210457429f334fc0a140bb0255a.pdf"
+  },
+  {
+    "question": "How many figures are on pages 6 to 8?",
+    "answer": 3,
+    "doc_uuid": "66e14c29-91cd-5aa4-8462-3786d09920db",
+    "doc_path": "PATH_TO_DIR/12125210457429f334fc0a140bb0255a.pdf"
+  },
+  {
+    "question": "How many figures are on pages 3 to 4?",
+    "answer": 2,
+    "doc_uuid": "66f3a328-e7fc-5ddd-bb76-dc00906a7f95",
+    "doc_path": "PATH_TO_DIR/caed092679d3ad8270df472e553f51bb.pdf"
+  },
+  {
+    "question": "There are two moose on the crest for which municipality in the external links of Indre Østfold?",
+    "answer": "Aremark",
+    "doc_uuid": "66f3a328-e7fc-5ddd-bb76-dc00906a7f95",
+    "doc_path": "PATH_TO_DIR/caed092679d3ad8270df472e553f51bb.pdf"
+  },
+  {
+    "question": "is dark places based on a true story",
+    "answer": "no",
+    "doc_uuid": "670d0221-49bc-5d19-9b0f-ede5d505e545",
+    "doc_path": "PATH_TO_DIR/9acb44ad997ca4d227c3a94611c772e6.pdf"
+  },
+  {
+    "question": "Which Title(s), in Television of Richard Quine, have books on the title screen?",
+    "answer": "Catch-22#Adaptations",
+    "doc_uuid": "67404588-799c-5fa6-9bfb-445d693d0aa5",
+    "doc_path": "PATH_TO_DIR/2d059ab743632f9c112b63ab8a48b86d.pdf"
+  },
+  {
+    "question": "Is Manon's clothing shiny?",
+    "answer": "yes",
+    "doc_uuid": "67534bda-c157-5fd2-be28-fc6bc97c0a63",
+    "doc_path": "PATH_TO_DIR/7a519bb802d41ef1b76c704bc4b32cd4.pdf"
+  },
+  {
+    "question": "Which Opera(s), in Repertoire | Opera of Christopher Bolduc, features only one woman on the poster?",
+    "answer": "Manon",
+    "doc_uuid": "67534bda-c157-5fd2-be28-fc6bc97c0a63",
+    "doc_path": "PATH_TO_DIR/7a519bb802d41ef1b76c704bc4b32cd4.pdf"
+  },
+  {
+    "question": "Among the movies that Leo Penn was involved in, which movie's poster shows a woman in a red dress sitting on a chair?",
+    "answer": "The Story on Page One (film)",
+    "doc_uuid": "6775c4c3-fa2b-5416-be79-c82ec17c18d5",
+    "doc_path": "PATH_TO_DIR/30bb5eab8e8ddebf6e7919b0a9bbe586.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Plot' section?",
+    "answer": 1,
+    "doc_uuid": "6775c4c3-fa2b-5416-be79-c82ec17c18d5",
+    "doc_path": "PATH_TO_DIR/30bb5eab8e8ddebf6e7919b0a9bbe586.pdf"
+  },
+  {
+    "question": "In the 2014 season, did Bjornar Holmvik play for the club Kalmar FF?",
+    "answer": "No",
+    "doc_uuid": "681ade6a-790c-56ba-9212-b1244283de2f",
+    "doc_path": "PATH_TO_DIR/fea42f12eecaedf5e96821a12ccfb3a9.pdf"
+  },
+  {
+    "question": "when & where did the 1st supreme court sit in indiana",
+    "answer": "in Corydon on May 5, 1817",
+    "doc_uuid": "68309b4e-59fa-537d-b252-0adba1dcca53",
+    "doc_path": "PATH_TO_DIR/432f73bb39afd9e74ee89177ade2ea82.pdf"
+  },
+  {
+    "question": "Which club with a logo featuring a crab performed at the Algerian Super Cup?",
+    "answer": "MO Béjaïa",
+    "doc_uuid": "6889949e-5d0d-536a-8be8-f7489ccdf9c0",
+    "doc_path": "PATH_TO_DIR/b6c3f8ce0dc423edd6790b8c86f7f67b.pdf"
+  },
+  {
+    "question": "where was tyler perry's good deeds filmed",
+    "answer": "Principal photography took place in Atlanta",
+    "doc_uuid": "69228505-a5e2-5f41-96cb-d12e0229063b",
+    "doc_path": "PATH_TO_DIR/6bda7240428761e1f5d69aefcc6bd24a.pdf"
+  },
+  {
+    "question": "Which Gmina(s), in Administrative division of Wołomin County, features a castle tower and a horseshoe on its crest?",
+    "answer": "Gmina Klembów",
+    "doc_uuid": "6937b981-4610-5f44-b26c-9af2bf50e3d8",
+    "doc_path": "PATH_TO_DIR/a96317bde65cc993689150177ae74ac0.pdf"
+  },
+  {
+    "question": "When the bluetooth was 2.1+EDR, what was the average Battery (mAh) of Sony Xperia Android smartphones?",
+    "answer": 1420.0,
+    "doc_uuid": "69e19c26-be74-5eb1-8983-c56673d3e45a",
+    "doc_path": "PATH_TO_DIR/f76ae655864b813551f938399722d7b7.pdf"
+  },
+  {
+    "question": "who was the 1st batsman to score century in ipl",
+    "answer": "Brendon McCullum",
+    "doc_uuid": "69fa9703-fdd1-5bd5-930d-49f195c28c67",
+    "doc_path": "PATH_TO_DIR/9b25e87e15b0e3fd8b0f903eb514d025.pdf"
+  },
+  {
+    "question": "What body part is on the front cover of As Real as It Gets?",
+    "answer": "hand",
+    "doc_uuid": "6a03eb2b-5c22-5c06-a67e-0e64bce688b9",
+    "doc_path": "PATH_TO_DIR/0d057428fb6a3fd99797cefdb845ef11.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 4?",
+    "answer": 2,
+    "doc_uuid": "6a655a0e-f200-5382-b305-da6a1843614e",
+    "doc_path": "PATH_TO_DIR/6eaff02e7a4e8da95cd67e4021d98c6d.pdf"
+  },
+  {
+    "question": "How many figures are on pages 7 to 10?",
+    "answer": 2,
+    "doc_uuid": "6a655a0e-f200-5382-b305-da6a1843614e",
+    "doc_path": "PATH_TO_DIR/6eaff02e7a4e8da95cd67e4021d98c6d.pdf"
+  },
+  {
+    "question": "What is floating around the two people in Slumdog Millionaire?",
+    "answer": "confetti",
+    "doc_uuid": "6a655a0e-f200-5382-b305-da6a1843614e",
+    "doc_path": "PATH_TO_DIR/6eaff02e7a4e8da95cd67e4021d98c6d.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Critical response' section?",
+    "answer": 1,
+    "doc_uuid": "6a655a0e-f200-5382-b305-da6a1843614e",
+    "doc_path": "PATH_TO_DIR/6eaff02e7a4e8da95cd67e4021d98c6d.pdf"
+  },
+  {
+    "question": "where was killing of the sacred deer filmed",
+    "answer": "Cincinnati",
+    "doc_uuid": "6bc33ff0-ec87-5b83-8a66-4db34621a83e",
+    "doc_path": "PATH_TO_DIR/4087086572905915165dd9c93eaa2f91.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "6bc33ff0-ec87-5b83-8a66-4db34621a83e",
+    "doc_path": "PATH_TO_DIR/4087086572905915165dd9c93eaa2f91.pdf"
+  },
+  {
+    "question": "did oscar de la hoya fight julio cesar chavez",
+    "answer": "yes",
+    "doc_uuid": "6cabec6d-9e45-5254-849a-50db3caec89d",
+    "doc_path": "PATH_TO_DIR/1c4f0233c6eac788e912205f08010e53.pdf"
+  },
+  {
+    "question": "who does the voice of ryan reynolds on family guy",
+    "answer": "himself",
+    "doc_uuid": "6cac8e51-7279-5419-bba0-f2eab74111d2",
+    "doc_path": "PATH_TO_DIR/5b1c3e2f00a58797ef095f90a8f9dc53.pdf"
+  },
+  {
+    "question": "who took hat trick in both innings of a test match",
+    "answer": "leg spinner Jimmy Matthews",
+    "doc_uuid": "6d2b8616-739e-53af-95d0-f15c57104373",
+    "doc_path": "PATH_TO_DIR/b6df6b019738e89a58007aa0345dfa44.pdf"
+  },
+  {
+    "question": "How many tables are in the 'By type of bowling' section?",
+    "answer": 1,
+    "doc_uuid": "6d2b8616-739e-53af-95d0-f15c57104373",
+    "doc_path": "PATH_TO_DIR/b6df6b019738e89a58007aa0345dfa44.pdf"
+  },
+  {
+    "question": "What is at the top of the logo for Esporte Clube Santo Andre?",
+    "answer": "crown",
+    "doc_uuid": "6e1e1865-d36e-5808-986a-0d6258a3c031",
+    "doc_path": "PATH_TO_DIR/cd688309f231129c3e897a33704d62e6.pdf"
+  },
+  {
+    "question": "There is a building with an orange sign on its lawn in which city that is listed in the State Senate of the Alaska Republican Party?",
+    "answer": "Soldotna, Alaska",
+    "doc_uuid": "6e298d60-80fc-52a9-8c06-d06e832b5e1a",
+    "doc_path": "PATH_TO_DIR/b282889ad069890c6dc212516c82b1d5.pdf"
+  },
+  {
+    "question": "who starred in the movie on the waterfront",
+    "answer": "Marlon Brando",
+    "doc_uuid": "6e344d41-6eb4-5a4b-8c1c-e20aa89a712c",
+    "doc_path": "PATH_TO_DIR/d28b2e51d24195e8ae717cd4113a2e20.pdf"
+  },
+  {
+    "question": "is the woolpack in emmerdale a real pub",
+    "answer": "no",
+    "doc_uuid": "6e4cdd3a-9c25-5d20-a548-3409483a56c7",
+    "doc_path": "PATH_TO_DIR/62cdc08fcf4cc3a6b281b7a5a2188b71.pdf"
+  },
+  {
+    "question": "How many colors are inthe Point Skyhawks logo?",
+    "answer": "4",
+    "doc_uuid": "6ec84bbf-7e10-5a2f-8f3f-43818b4a4c7b",
+    "doc_path": "PATH_TO_DIR/c7e8e33a198f9ff64ed01fcca4386267.pdf"
+  },
+  {
+    "question": "caesar's son name in planet of the apes",
+    "answer": "Blue Eyes",
+    "doc_uuid": "6ee6ed5b-7e2d-53e7-b8b1-ccd8ea97a380",
+    "doc_path": "PATH_TO_DIR/d04ca5ce9745b580993725069bf99085.pdf"
+  },
+  {
+    "question": "who wrote fly me to the moon frank sinatra",
+    "answer": "Bart Howard",
+    "doc_uuid": "6ee9c59f-5ba9-56ba-999b-dbb079225b12",
+    "doc_path": "PATH_TO_DIR/da725253d69b3d2af9f384644088ac8c.pdf"
+  },
+  {
+    "question": "who sang give me some sunshine in 3 idiots",
+    "answer": "Suraj Jagan",
+    "doc_uuid": "6f4e54a6-c4ee-5940-9406-7890da05dea9",
+    "doc_path": "PATH_TO_DIR/5fc9092ac095b6463962f6d392b3f01b.pdf"
+  },
+  {
+    "question": "How many tables are on pages 1 to 2?",
+    "answer": 2,
+    "doc_uuid": "70193191-7e8d-5fa3-8cdb-4f385155b982",
+    "doc_path": "PATH_TO_DIR/7f54483ad9094619a2eb1ee3a7182dab.pdf"
+  },
+  {
+    "question": "has hungary ever been in the world cup",
+    "answer": "yes",
+    "doc_uuid": "70193191-7e8d-5fa3-8cdb-4f385155b982",
+    "doc_path": "PATH_TO_DIR/7f54483ad9094619a2eb1ee3a7182dab.pdf"
+  },
+  {
+    "question": "How many figures are in the 'FIFA World Cup Finals' section?",
+    "answer": 2,
+    "doc_uuid": "70193191-7e8d-5fa3-8cdb-4f385155b982",
+    "doc_path": "PATH_TO_DIR/7f54483ad9094619a2eb1ee3a7182dab.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 3,
+    "doc_uuid": "70193191-7e8d-5fa3-8cdb-4f385155b982",
+    "doc_path": "PATH_TO_DIR/7f54483ad9094619a2eb1ee3a7182dab.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "706a9772-b526-5fa8-a0bf-957c8b8d187e",
+    "doc_path": "PATH_TO_DIR/b97a4b75b00bcace351b1dd0483c12e3.pdf"
+  },
+  {
+    "question": "Of the schools that have Maggie Dixon Award winners, which one features a small cross on the team logo?",
+    "answer": "Iona Gaels women's basketball",
+    "doc_uuid": "706a9772-b526-5fa8-a0bf-957c8b8d187e",
+    "doc_path": "PATH_TO_DIR/b97a4b75b00bcace351b1dd0483c12e3.pdf"
+  },
+  {
+    "question": "does a macbook air have an ethernet port",
+    "answer": "no",
+    "doc_uuid": "70e03d8a-0bd6-51b4-b400-4a36ccd9d8ba",
+    "doc_path": "PATH_TO_DIR/258c6bd5c4e8d98b62ab0f23d7cce474.pdf"
+  },
+  {
+    "question": "who is the surviving member of emerson lake and palmer",
+    "answer": "Palmer",
+    "doc_uuid": "71119a2b-f05d-52cc-9c0c-c8ff91887683",
+    "doc_path": "PATH_TO_DIR/fc71853c40edc676bc50a1121fb5fc5e.pdf"
+  },
+  {
+    "question": "was the african queen filmed in dalyan turkey",
+    "answer": "no",
+    "doc_uuid": "723c2378-57e8-5c71-9508-63f6a2b7fd15",
+    "doc_path": "PATH_TO_DIR/70723470b09e1cbb967144738a66378e.pdf"
+  },
+  {
+    "question": "In the roles of John Francis Daley for acting, which film title shows a maze on its poster?",
+    "answer": "Game Night (film)",
+    "doc_uuid": "724c818f-5019-5d02-86bb-3b812433fea9",
+    "doc_path": "PATH_TO_DIR/5a77ef776c9927a6192474000e7de348.pdf"
+  },
+  {
+    "question": "Is Glen E. Friedman's jacket zipped or unzipped?",
+    "answer": "unzipped",
+    "doc_uuid": "72f98f48-b34d-5f85-96d4-575466f4199a",
+    "doc_path": "PATH_TO_DIR/fc9ebf2e2f864094d3a6abd6d8674e34.pdf"
+  },
+  {
+    "question": "How many people are in this picture of The Marcels?",
+    "answer": "nine",
+    "doc_uuid": "73285d2b-9e7f-5b55-8e62-0f5506ed455f",
+    "doc_path": "PATH_TO_DIR/04bf43de3fb9ec60e2d4ae2730ec26a3.pdf"
+  },
+  {
+    "question": "what is the average depth of the red sea",
+    "answer": "490 m (1,608 ft)",
+    "doc_uuid": "7349c168-a8eb-56cd-9142-0b169f50dbf0",
+    "doc_path": "PATH_TO_DIR/c85ac53d6f1c026cf091b336ca461492.pdf"
+  },
+  {
+    "question": "In the midst of what action is Shaunae Miller-Uibo immortalised?",
+    "answer": "running",
+    "doc_uuid": "744e0fa7-79fb-5f13-a51b-fcf2fdedb33f",
+    "doc_path": "PATH_TO_DIR/163c5da52cdf757029aee90ad6f96317.pdf"
+  },
+  {
+    "question": "What kind of ball is featured on the KK Krka logo?",
+    "answer": "basketball",
+    "doc_uuid": "74cbc1be-154c-5beb-b34c-e52c3b365c5d",
+    "doc_path": "PATH_TO_DIR/0483a438e5f39b9e59de3f9e15870bce.pdf"
+  },
+  {
+    "question": "Of the Grote Prijs van Nederland since 1995, was Perplex the dance artist in the same year that Typhoon was the hip hop artist?",
+    "answer": "No",
+    "doc_uuid": "7569c3c0-c47e-548d-9695-c54e3b9dadd5",
+    "doc_path": "PATH_TO_DIR/2a3c44e7e1be7b5d19680e68ea01ae66.pdf"
+  },
+  {
+    "question": "What is the bird on the Wynnum Manly Seagulls logo holding beneath it's arm?",
+    "answer": "football",
+    "doc_uuid": "75ea2b31-6338-52d9-a81f-6651d68b7441",
+    "doc_path": "PATH_TO_DIR/06fa3f93cc2cef3eb8362a1da3ce9901.pdf"
+  },
+  {
+    "question": "Did Jane Blalock win a Golf Digest award in the LPGA Tour Rookie of the Year category?",
+    "answer": "No",
+    "doc_uuid": "7619b982-4421-548f-9c64-4aa8fe350de4",
+    "doc_path": "PATH_TO_DIR/ca810182b280c7ff0f555f07ae3be18f.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "768bf3d4-2e70-5291-ada8-ee15335c52de",
+    "doc_path": "PATH_TO_DIR/c0ebbc27b60e4132860d6938d045bd20.pdf"
+  },
+  {
+    "question": "Which Title(s), in Biography | Films of Rintaro, has an illustration of a woman with long blonde hair on the poster?",
+    "answer": "Galaxy Express 999 (film)",
+    "doc_uuid": "768bf3d4-2e70-5291-ada8-ee15335c52de",
+    "doc_path": "PATH_TO_DIR/c0ebbc27b60e4132860d6938d045bd20.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "76b9ba17-00c1-5b8f-84f8-e461d82ed5fe",
+    "doc_path": "PATH_TO_DIR/1cb81000e30369eeb33654a9f653e7e6.pdf"
+  },
+  {
+    "question": "What is the woman on the Almost Famous poster wearing on her eyes?",
+    "answer": "sunglasses",
+    "doc_uuid": "76b9ba17-00c1-5b8f-84f8-e461d82ed5fe",
+    "doc_path": "PATH_TO_DIR/1cb81000e30369eeb33654a9f653e7e6.pdf"
+  },
+  {
+    "question": "Which Common name(s), in Thrushes and chats of List of birds of Wales, has a stripe above and below its eye",
+    "answer": "Redwing",
+    "doc_uuid": "76c134bb-5921-59a5-8cb5-e12db5dcfb2b",
+    "doc_path": "PATH_TO_DIR/5caed8e78b16f3062fe3633ae9a3a9bb.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Description' section?",
+    "answer": 1,
+    "doc_uuid": "76c134bb-5921-59a5-8cb5-e12db5dcfb2b",
+    "doc_path": "PATH_TO_DIR/5caed8e78b16f3062fe3633ae9a3a9bb.pdf"
+  },
+  {
+    "question": "What color is Giorgio Armani's hair?",
+    "answer": "white",
+    "doc_uuid": "77494e8c-3cba-55ac-9d88-bf2cbf83ec12",
+    "doc_path": "PATH_TO_DIR/89c1b7c3c061cc80bb98d99cbbec50dd.pdf"
+  },
+  {
+    "question": "How many figures are on page 9?",
+    "answer": 0,
+    "doc_uuid": "77494e8c-3cba-55ac-9d88-bf2cbf83ec12",
+    "doc_path": "PATH_TO_DIR/89c1b7c3c061cc80bb98d99cbbec50dd.pdf"
+  },
+  {
+    "question": "Which Player(s), in Scoring leaders of 2000–01 AHL season, Plays for the team with a pouncing wild cat on the jersey?",
+    "answer": "Mikael Samuelsson",
+    "doc_uuid": "779cca5e-158a-580c-a824-7631b4e2de3f",
+    "doc_path": "PATH_TO_DIR/c6e444e106b5233605fb80c5cb428763.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 3,
+    "doc_uuid": "779cca5e-158a-580c-a824-7631b4e2de3f",
+    "doc_path": "PATH_TO_DIR/c6e444e106b5233605fb80c5cb428763.pdf"
+  },
+  {
+    "question": "How many figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "77f95397-b968-58a8-bc49-e1e67c2a4e6a",
+    "doc_path": "PATH_TO_DIR/92026a68259014b641df2ffa7600e7cc.pdf"
+  },
+  {
+    "question": "In the list of Akademi Fantasia seasons, was Mohd Idris Mohd Zaizizi the runner-up in season 5?",
+    "answer": "No",
+    "doc_uuid": "77f95397-b968-58a8-bc49-e1e67c2a4e6a",
+    "doc_path": "PATH_TO_DIR/92026a68259014b641df2ffa7600e7cc.pdf"
+  },
+  {
+    "question": "Was Torey Lovullo the manager of Akron Aeros when the PW% was .250?",
+    "answer": "No",
+    "doc_uuid": "785230c4-475f-5cb8-80b1-68e1a9c82024",
+    "doc_path": "PATH_TO_DIR/1b34acde26a88c14d7c71702acef2650.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "788ab79a-04a3-5033-ac9d-bb46b23d3b0b",
+    "doc_path": "PATH_TO_DIR/a8bde0ed60fdcf8d5f28bba3dc4153c1.pdf"
+  },
+  {
+    "question": "What is the man on the left in this picture with Fabio Castro wearing on his head?",
+    "answer": "sunglasses",
+    "doc_uuid": "788ab79a-04a3-5033-ac9d-bb46b23d3b0b",
+    "doc_path": "PATH_TO_DIR/a8bde0ed60fdcf8d5f28bba3dc4153c1.pdf"
+  },
+  {
+    "question": "In Doubles (11-6) of Todor Enev, when the result was 3-6, 1-6, 2-6 was 2009 Davis Cup Europe/Africa Zone Group II the edition?",
+    "answer": "No",
+    "doc_uuid": "78f3df0b-4769-5046-bae8-d7000ad3ae03",
+    "doc_path": "PATH_TO_DIR/27b2f11782e40e78e77179e683cb4b27.pdf"
+  },
+  {
+    "question": "who wrote the song the first time i ever saw your face",
+    "answer": "Ewan MacColl",
+    "doc_uuid": "78f55ccd-0b45-57e2-ac44-3e29396f2a30",
+    "doc_path": "PATH_TO_DIR/6cb81d43e9dfbc3d3e21678d03de6b12.pdf"
+  },
+  {
+    "question": "What solo part of nature is visible on this picture for Six Feet Under (TV series)?",
+    "answer": "tree",
+    "doc_uuid": "791e74fe-f402-594a-818f-f20aab540bdb",
+    "doc_path": "PATH_TO_DIR/ce1be8ddb89742a246d26a0da2731e1e.pdf"
+  },
+  {
+    "question": "is a pinky a finger yes or no",
+    "answer": "yes",
+    "doc_uuid": "79bbffab-1af2-5982-80ad-79c37ccb2289",
+    "doc_path": "PATH_TO_DIR/f94c9c206da0bcfe46d27debe52a6937.pdf"
+  },
+  {
+    "question": "Did Dominic Rowe play for Bradford City A.F.C. during the 2010-11 season?",
+    "answer": "Yes",
+    "doc_uuid": "7cd4e06e-5d61-576a-8ea0-f0ffdb3031dc",
+    "doc_path": "PATH_TO_DIR/d182134c3921fd1fc95ca41159f570d2.pdf"
+  },
+  {
+    "question": "Which foot is Jean-Pierre Papin about to kick the ball with?",
+    "answer": "right",
+    "doc_uuid": "7d299176-1277-5f8d-b9c7-7658883bf59c",
+    "doc_path": "PATH_TO_DIR/839ea9b4e3da4487c7bb3070d8483e0a.pdf"
+  },
+  {
+    "question": "What type of jewelry is featured in this ad for Army Wives?",
+    "answer": "ring",
+    "doc_uuid": "7e950525-bacc-529a-a7a6-ac0ef6a261cd",
+    "doc_path": "PATH_TO_DIR/0400e8dd0fb939a72f34f1b75c8265f8.pdf"
+  },
+  {
+    "question": "How many tables are on pages 3 to 6?",
+    "answer": 1,
+    "doc_uuid": "7e950525-bacc-529a-a7a6-ac0ef6a261cd",
+    "doc_path": "PATH_TO_DIR/0400e8dd0fb939a72f34f1b75c8265f8.pdf"
+  },
+  {
+    "question": "What color is the background in Swarnakamalam?",
+    "answer": "black",
+    "doc_uuid": "7ef52d46-b8f5-5a8e-bfea-bacb9923ee81",
+    "doc_path": "PATH_TO_DIR/211bd3bce51045928e5491484e7f50b3.pdf"
+  },
+  {
+    "question": "what was the Role, In Television of Victoria Beckham when the Title was Germany's Next Topmodel?",
+    "answer": "Guest judge",
+    "doc_uuid": "7f7c2e82-aacd-59b0-9a82-abea95975b96",
+    "doc_path": "PATH_TO_DIR/fa6449dac68a6a1138e5357457516ce5.pdf"
+  },
+  {
+    "question": "How many red stripes are in the Bank of America Stadium logo?",
+    "answer": "eight",
+    "doc_uuid": "7ff138ba-a1da-51f4-a566-8b9d93288740",
+    "doc_path": "PATH_TO_DIR/0af43d695e0fa436b1c1dfc150d48182.pdf"
+  },
+  {
+    "question": "What was the first year when the Label was Megaforce records for Discography of M.O.D.",
+    "answer": "1987",
+    "doc_uuid": "8044a166-b52d-57bb-99c1-1439374b3ab6",
+    "doc_path": "PATH_TO_DIR/f22435161971fc2fa032108bd32b531f.pdf"
+  },
+  {
+    "question": "What type of animal does Paul Tracy have on his uniform?",
+    "answer": "gecko",
+    "doc_uuid": "80e07b57-53b9-53db-b4a9-5b6e892ee8ad",
+    "doc_path": "PATH_TO_DIR/bfa27056f997f730d8050705efe52052.pdf"
+  },
+  {
+    "question": "How many tables are on pages 13?",
+    "answer": 1,
+    "doc_uuid": "8104aed0-6374-5630-bb4c-18518aa12203",
+    "doc_path": "PATH_TO_DIR/e6776d608410fc34b9cb96e75637cc27.pdf"
+  },
+  {
+    "question": "xbox 360 s model 1439 hard drive size",
+    "answer": "500 GB",
+    "doc_uuid": "8104aed0-6374-5630-bb4c-18518aa12203",
+    "doc_path": "PATH_TO_DIR/e6776d608410fc34b9cb96e75637cc27.pdf"
+  },
+  {
+    "question": "How many different jersey types were there during the 2014 Saskatchewan Roughriders season?",
+    "answer": "four",
+    "doc_uuid": "817a49a4-056a-52ef-a624-84f9bd1f68b0",
+    "doc_path": "PATH_TO_DIR/4ba4aa82aff79b11a3da6ef434192dfe.pdf"
+  },
+  {
+    "question": "Which Circuit(s), in Schedule of 1974 IMSA GT Championship, took place on a track that is shaped like a violin case?",
+    "answer": "Road Atlanta",
+    "doc_uuid": "81d8fcbe-4f06-5485-b57f-f38c5280a5b9",
+    "doc_path": "PATH_TO_DIR/0c2e041adb51be82e5d52f2d1adbaaa4.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Cast and characters' section?",
+    "answer": 1,
+    "doc_uuid": "81fa379c-5786-506e-ae77-e1f826cf9c24",
+    "doc_path": "PATH_TO_DIR/f545dc38f4caa8351cde40915e6198db.pdf"
+  },
+  {
+    "question": "Who played Helen \"Amanda\" Collins in the Nikita TV series?",
+    "answer": "Melinda Clarke",
+    "doc_uuid": "81fa379c-5786-506e-ae77-e1f826cf9c24",
+    "doc_path": "PATH_TO_DIR/f545dc38f4caa8351cde40915e6198db.pdf"
+  },
+  {
+    "question": "Was the character Sean Pierce played by actor Noah Bean on the TV series Nikita?",
+    "answer": "No",
+    "doc_uuid": "81fa379c-5786-506e-ae77-e1f826cf9c24",
+    "doc_path": "PATH_TO_DIR/f545dc38f4caa8351cde40915e6198db.pdf"
+  },
+  {
+    "question": "What is the common name of the bush warbler in Thailand that has an orange stripe above its eye?",
+    "answer": "Chestnut-crowned bush warbler",
+    "doc_uuid": "82ee4eb7-43e0-580a-ab88-0572c9f82bf8",
+    "doc_path": "PATH_TO_DIR/433b792a61f37366c17a61621e05df42.pdf"
+  },
+  {
+    "question": "Which gmina with a swan in the center of its logo is an administrative division of Suwalki County?",
+    "answer": "Gmina Bakałarzewo",
+    "doc_uuid": "83a2e625-1dee-5e65-8751-4b22602cc864",
+    "doc_path": "PATH_TO_DIR/2cb632452717cb766278f6ba1b3cc521.pdf"
+  },
+  {
+    "question": "How many tables are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "83e46ba3-b249-5a5b-b825-becd72c71883",
+    "doc_path": "PATH_TO_DIR/a005f73b5f519575322098ed6bf7b9f8.pdf"
+  },
+  {
+    "question": "There are rocky mountain peaks around a lake at which location that is listed as a department in the 1985 Bolivian general election?",
+    "answer": "La Paz Department (Bolivia)",
+    "doc_uuid": "83e46ba3-b249-5a5b-b825-becd72c71883",
+    "doc_path": "PATH_TO_DIR/a005f73b5f519575322098ed6bf7b9f8.pdf"
+  },
+  {
+    "question": "In the list of Results of Stars in Euro Eyes 2001, when The Three Degrees was the Imitated artist was the performer Sylvana Djoemat?",
+    "answer": "No",
+    "doc_uuid": "84e259c2-00b4-5650-b208-f8346b5a541b",
+    "doc_path": "PATH_TO_DIR/ce29905bb7c5af20428d0023f28e70f1.pdf"
+  },
+  {
+    "question": "when was the family and medical leave act passed",
+    "answer": "1993",
+    "doc_uuid": "859c7dd7-6c44-51f2-85a4-f8ea9a47556b",
+    "doc_path": "PATH_TO_DIR/a5ebc304f8a5ae49538da2e6efd35c7e.pdf"
+  },
+  {
+    "question": "How many figures are on page 14?",
+    "answer": 1,
+    "doc_uuid": "859c7dd7-6c44-51f2-85a4-f8ea9a47556b",
+    "doc_path": "PATH_TO_DIR/a5ebc304f8a5ae49538da2e6efd35c7e.pdf"
+  },
+  {
+    "question": "There is a horse on the logo for which winner in the champions of Eredivisie for women?",
+    "answer": "FC Twente Vrouwen",
+    "doc_uuid": "85f1e3a6-f2c3-5efb-9e07-c29e8f5adf24",
+    "doc_path": "PATH_TO_DIR/9f83a24b7b7f668055bc95b85509f07b.pdf"
+  },
+  {
+    "question": "where is the fabulous las vegas sign located",
+    "answer": "in the median at 5100 Las Vegas Boulevard South",
+    "doc_uuid": "87121f72-a259-5410-a6d0-3bc03c39c3a1",
+    "doc_path": "PATH_TO_DIR/8c6cb69c3e458a7e64bc0e4d1a4873fa.pdf"
+  },
+  {
+    "question": "what does the white colour in the nigeria flag stand for",
+    "answer": "peace",
+    "doc_uuid": "87a9b707-1401-5507-a627-857c0ac70ef3",
+    "doc_path": "PATH_TO_DIR/8e32c9af3fc2d4c8939f247134015faa.pdf"
+  },
+  {
+    "question": "In their selected filmography, did Agnieszka Dygant play the role of Frania Maj in the foreign adaptation of The Nanny for Poland?",
+    "answer": "Yes",
+    "doc_uuid": "8810ad5f-9e61-5b24-8468-42d8ec28e6cd",
+    "doc_path": "PATH_TO_DIR/9fe4f35f98812a3f583a984ec1ca4cf5.pdf"
+  },
+  {
+    "question": "In the North Belfast Derby League Cup, when 4,948 people attended, what was the result?",
+    "answer": "4 - 0",
+    "doc_uuid": "88b81ccb-2a0d-5303-a5e8-94d2822a296a",
+    "doc_path": "PATH_TO_DIR/80eebe989d2fe49157f88f01e2c1965d.pdf"
+  },
+  {
+    "question": "There is a baseball on the poster of which movie from the Farrelly brothers?",
+    "answer": "Fever Pitch (2005 film)",
+    "doc_uuid": "8990932f-a2f9-5457-b761-78495931a6ee",
+    "doc_path": "PATH_TO_DIR/806998b9231cc4c0aa2daff8dd89fb83.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "8990932f-a2f9-5457-b761-78495931a6ee",
+    "doc_path": "PATH_TO_DIR/806998b9231cc4c0aa2daff8dd89fb83.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 6?",
+    "answer": 2,
+    "doc_uuid": "89be59f3-e9fa-57be-b97f-5649a856a5ed",
+    "doc_path": "PATH_TO_DIR/0b94245596940d1ab44df4bf05ce6e42.pdf"
+  },
+  {
+    "question": "What facial hair does Paul Blart: Mall Cop have?",
+    "answer": "mustache",
+    "doc_uuid": "89be59f3-e9fa-57be-b97f-5649a856a5ed",
+    "doc_path": "PATH_TO_DIR/0b94245596940d1ab44df4bf05ce6e42.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "89be59f3-e9fa-57be-b97f-5649a856a5ed",
+    "doc_path": "PATH_TO_DIR/0b94245596940d1ab44df4bf05ce6e42.pdf"
+  },
+  {
+    "question": "what did amanda do to the horse in thoroughbreds",
+    "answer": "euthanizes her crippled horse with a knife",
+    "doc_uuid": "8af957cc-7121-504d-9242-ab93309c8b15",
+    "doc_path": "PATH_TO_DIR/a7853599f642e866cff3453143101372.pdf"
+  },
+  {
+    "question": "who plays lucas friar on girl meets world",
+    "answer": "Peyton Meyer",
+    "doc_uuid": "8b4dd4dc-5c23-504d-b5f6-5267178bd179",
+    "doc_path": "PATH_TO_DIR/f9e2a41b944ff61f47138ccfe48713c8.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "8b4dd4dc-5c23-504d-b5f6-5267178bd179",
+    "doc_path": "PATH_TO_DIR/f9e2a41b944ff61f47138ccfe48713c8.pdf"
+  },
+  {
+    "question": "There is a car on the cover of which title in the studio albums of Matthew Good's discography?",
+    "answer": "Arrows of Desire",
+    "doc_uuid": "8b59ab99-60ab-53d5-a9fd-fd50509903fa",
+    "doc_path": "PATH_TO_DIR/7f3ddce74331a9db6e4f183263d5a2c8.pdf"
+  },
+  {
+    "question": "Is there a rocket in this photo of the Geosynchronous Satellite Launch Vehicle?",
+    "answer": "yes",
+    "doc_uuid": "8bb37239-741e-5b04-a5b1-44bbe70b89dd",
+    "doc_path": "PATH_TO_DIR/38d56076632cae4ce6b97c49afda00f5.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "8be7e337-b3c1-5717-9c3b-969d5f28a3cc",
+    "doc_path": "PATH_TO_DIR/88658c992bf91b8fc967990c5358006a.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "8be7e337-b3c1-5717-9c3b-969d5f28a3cc",
+    "doc_path": "PATH_TO_DIR/88658c992bf91b8fc967990c5358006a.pdf"
+  },
+  {
+    "question": "What was the name of the 1980 Frank Converse film",
+    "answer": "The Pilot",
+    "doc_uuid": "8be7e337-b3c1-5717-9c3b-969d5f28a3cc",
+    "doc_path": "PATH_TO_DIR/88658c992bf91b8fc967990c5358006a.pdf"
+  },
+  {
+    "question": "What was the name of the movie that Frank Converse appeared in during 1986?",
+    "answer": "Solarbabies",
+    "doc_uuid": "8be7e337-b3c1-5717-9c3b-969d5f28a3cc",
+    "doc_path": "PATH_TO_DIR/88658c992bf91b8fc967990c5358006a.pdf"
+  },
+  {
+    "question": "In the television and film roles of Elisha Henig, which show or film features a motorcycle on the title poster?",
+    "answer": "Future World (film)",
+    "doc_uuid": "8c5bc4e7-897b-5219-bb7b-e05494da2645",
+    "doc_path": "PATH_TO_DIR/4285caa2c9b446b7aa6cc8b3c10d526c.pdf"
+  },
+  {
+    "question": "What shape is the background image of the  Yes Boss (TV series) picture if the corners were flattened out?",
+    "answer": "square",
+    "doc_uuid": "8ccc0be2-26f0-553c-8d53-9f3a4a78a824",
+    "doc_path": "PATH_TO_DIR/89b66aa37193ab1bf3ef753ffaad88a8.pdf"
+  },
+  {
+    "question": "who sang i never promised you a rose garden",
+    "answer": "Lynn Anderson",
+    "doc_uuid": "8de5cbde-d295-5539-af39-0f83041900c0",
+    "doc_path": "PATH_TO_DIR/eba1ee30e7d438735c4495fbd5d7b969.pdf"
+  },
+  {
+    "question": "Which County(s), in Structure by county of Board of chosen freeholders, features a lighthouse that is painted white on its bottom half, and black on its top half?",
+    "answer": "Ocean County, New Jersey",
+    "doc_uuid": "90472581-e9cc-52fa-8c6f-5da75ad70da0",
+    "doc_path": "PATH_TO_DIR/9f08321d6045202732a164c63ff1489c.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "912db534-3cb7-5a1b-9ba5-1af75cd073ad",
+    "doc_path": "PATH_TO_DIR/dd9f729440625347b3c9b8be255048ac.pdf"
+  },
+  {
+    "question": "is sia in the my little pony movie",
+    "answer": "yes",
+    "doc_uuid": "912db534-3cb7-5a1b-9ba5-1af75cd073ad",
+    "doc_path": "PATH_TO_DIR/dd9f729440625347b3c9b8be255048ac.pdf"
+  },
+  {
+    "question": "who is the bad guy in the movie gone",
+    "answer": "LaPointe",
+    "doc_uuid": "933fd7e0-e28c-5c33-a645-619cb27a0b07",
+    "doc_path": "PATH_TO_DIR/b7a43d82c004fc3724c8d46baf15dba8.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "933fd7e0-e28c-5c33-a645-619cb27a0b07",
+    "doc_path": "PATH_TO_DIR/b7a43d82c004fc3724c8d46baf15dba8.pdf"
+  },
+  {
+    "question": "How many figures are on page 7?",
+    "answer": 1,
+    "doc_uuid": "93c2e5ae-891d-542b-9479-955bb63cdf4b",
+    "doc_path": "PATH_TO_DIR/122497a42618f022fa4c61575abfdb4c.pdf"
+  },
+  {
+    "question": "who owns the movie rights to harry potter",
+    "answer": "Warner Bros.",
+    "doc_uuid": "93c2e5ae-891d-542b-9479-955bb63cdf4b",
+    "doc_path": "PATH_TO_DIR/122497a42618f022fa4c61575abfdb4c.pdf"
+  },
+  {
+    "question": "who is the original singer of somewhere only we know",
+    "answer": "Keane",
+    "doc_uuid": "93ec2344-4084-5018-a410-ea98540a86e4",
+    "doc_path": "PATH_TO_DIR/c20d8229b26c7591a6297459f3ecdb9e.pdf"
+  },
+  {
+    "question": "Which Vesterålen prosti church in Sør-Hålogaland is the colour red?",
+    "answer": "Hadsel Church",
+    "doc_uuid": "94a27c4e-d375-53b4-96eb-a6f9f77ccc68",
+    "doc_path": "PATH_TO_DIR/037694a7279c17cbdab02cfaf955e218.pdf"
+  },
+  {
+    "question": "Does Dries Mertens have his mouth open or closed?",
+    "answer": "closed",
+    "doc_uuid": "94c8604c-050c-5bca-a4b1-e4d8a9037557",
+    "doc_path": "PATH_TO_DIR/a81f75bdeaa7b0a15c41dbfa69696c07.pdf"
+  },
+  {
+    "question": "How many figures are on page 5?",
+    "answer": 2,
+    "doc_uuid": "966b27ed-7865-5b56-ac34-614660f6cf3b",
+    "doc_path": "PATH_TO_DIR/e38560cc2ae6872f28ad1f6a3becc4a3.pdf"
+  },
+  {
+    "question": "who brings the ball up the court in basketball",
+    "answer": "point guard",
+    "doc_uuid": "966b27ed-7865-5b56-ac34-614660f6cf3b",
+    "doc_path": "PATH_TO_DIR/e38560cc2ae6872f28ad1f6a3becc4a3.pdf"
+  },
+  {
+    "question": "Which player of East-Asian descent was a singles winner in the 1997 ATP Super 9 in the ATP Masters Series?",
+    "answer": "Michael Chang",
+    "doc_uuid": "96a9af85-837f-5c03-92cd-f30edb0e03b0",
+    "doc_path": "PATH_TO_DIR/0090dfa282dccb78c80f093c7dc39dbb.pdf"
+  },
+  {
+    "question": "when does the truth or dare movie come out",
+    "answer": "April 13, 2018",
+    "doc_uuid": "973fe20f-ac86-54c7-96b8-551639812ddf",
+    "doc_path": "PATH_TO_DIR/8840ca7a8d45da1676806966f81177d9.pdf"
+  },
+  {
+    "question": "On May 16, 1918 at 1045 hours in the list of aerial victories of George William Bulmer, was Henin-Lietard the location?",
+    "answer": "No",
+    "doc_uuid": "97a5f429-f94a-512e-a156-40867cd1d554",
+    "doc_path": "PATH_TO_DIR/1c414a9c3b17d0ebc6572c3e24dbcef4.pdf"
+  },
+  {
+    "question": "who sings the cw dare to defy song",
+    "answer": "Of Monsters and Men",
+    "doc_uuid": "989912bf-1b3f-5e7d-a9e2-0686bb9dde30",
+    "doc_path": "PATH_TO_DIR/0e0a2909223d73904fcc4dee7fd89629.pdf"
+  },
+  {
+    "question": "How many necklaces is Pam Shriver wearing?",
+    "answer": "one",
+    "doc_uuid": "9a1b177a-a04f-5cce-b2f0-9521f3c320d3",
+    "doc_path": "PATH_TO_DIR/1879c9f1a36102a9174c458b418c8d95.pdf"
+  },
+  {
+    "question": "What item with two posts is seen here in the 1978 Amco Cup?",
+    "answer": "goalpost",
+    "doc_uuid": "9a88e1cd-0333-5ced-b74e-0467fb5614f3",
+    "doc_path": "PATH_TO_DIR/a296a8ed3520f3aaa14ecc22b953fed5.pdf"
+  },
+  {
+    "question": "What is the background color of the Angry All the Time cover?",
+    "answer": "black",
+    "doc_uuid": "9b888fa3-43ae-57eb-96cb-c11af47092e3",
+    "doc_path": "PATH_TO_DIR/eacbff5b7f3d2838fd81d3c21e13f54c.pdf"
+  },
+  {
+    "question": "Was Dwight Hafeli the player in the 1937 NFL Draft, round nine, when the Chicago Cardinals was the NFL Team?",
+    "answer": "Yes",
+    "doc_uuid": "9b9444bf-e5b9-5bd9-bb95-306c03a365bd",
+    "doc_path": "PATH_TO_DIR/45168901067cd502f31c0c9c1f9040f7.pdf"
+  },
+  {
+    "question": "where is port au prince located in haiti",
+    "answer": "on the Gulf of Gonâve",
+    "doc_uuid": "9c0f09ed-dbee-53d3-88c5-fde143982691",
+    "doc_path": "PATH_TO_DIR/da31526b57ddcd9d0c01130adc837c81.pdf"
+  },
+  {
+    "question": "What is directly behind Brad Gilbert?",
+    "answer": "fence",
+    "doc_uuid": "9c49bf85-883c-594c-b0be-f5d2fc6cf36c",
+    "doc_path": "PATH_TO_DIR/b10a9f981a385afef039b94ae26942ac.pdf"
+  },
+  {
+    "question": "when is the new season of daredevil coming out",
+    "answer": "2018",
+    "doc_uuid": "9cc33821-83d0-50ce-a70a-58912be85c69",
+    "doc_path": "PATH_TO_DIR/f42855851c69d3548febeff4ff4259c5.pdf"
+  },
+  {
+    "question": "In 2017 what movie was Alka Amin in?",
+    "answer": "Shaadi Mein Zaroor Aana",
+    "doc_uuid": "9d50dbbd-13c7-5e54-8ef3-b43c5f32afc0",
+    "doc_path": "PATH_TO_DIR/b2f6f31d2f2ba516bf584de45d4d26ff.pdf"
+  },
+  {
+    "question": "Was the movie Rhino! the film when the role in films of Arthur Weiss was production executive and not writer?",
+    "answer": "No",
+    "doc_uuid": "9d65c24a-f8af-5484-8943-f070ec57539b",
+    "doc_path": "PATH_TO_DIR/a104f6c025b5c2a1b80a828942850cd4.pdf"
+  },
+  {
+    "question": "Was Mario Adorf the actor in the 1965 film Ten Little Indians when Ethel Rogers was the book character?",
+    "answer": "No",
+    "doc_uuid": "9dea4b23-22f9-51ed-9141-c5b761cac43a",
+    "doc_path": "PATH_TO_DIR/c48b03a2ddd6affea65ba1afc32c4dc8.pdf"
+  },
+  {
+    "question": "Did Seo Hyun-jin play Ji-hye in the film Love Me Not?",
+    "answer": "Yes",
+    "doc_uuid": "9e1c81ca-9d79-55c3-aca4-627e7454deef",
+    "doc_path": "PATH_TO_DIR/661bfac3a6f25cf6c866ffc268847a78.pdf"
+  },
+  {
+    "question": "What can be seen on the distant mountains of Namdapha National Park?",
+    "answer": "snow",
+    "doc_uuid": "9e2f09a9-a498-5ba0-993d-c88419950f91",
+    "doc_path": "PATH_TO_DIR/ed658358171782df5b6fa5c03a7559ad.pdf"
+  },
+  {
+    "question": "most runs scored in mlb game all time",
+    "answer": "7, set by Guy Hecker",
+    "doc_uuid": "9e3fa10a-336c-5df0-8112-556ea467a466",
+    "doc_path": "PATH_TO_DIR/4e08a059189eb6c5122ac2ea2a30ada4.pdf"
+  },
+  {
+    "question": "Does the man on the Muthyamantha Muddu poster have facial hair?",
+    "answer": "yes",
+    "doc_uuid": "9e768bac-132f-5538-8998-6be22cc51f64",
+    "doc_path": "PATH_TO_DIR/de3de9984625c39dcd31823326d184e7.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "9e768bac-132f-5538-8998-6be22cc51f64",
+    "doc_path": "PATH_TO_DIR/de3de9984625c39dcd31823326d184e7.pdf"
+  },
+  {
+    "question": "what team was case keenum on before the vikings",
+    "answer": "St. Louis Rams",
+    "doc_uuid": "9ee10de7-18c4-5f50-b3f8-b13edbf78f48",
+    "doc_path": "PATH_TO_DIR/625507d3354355c2ac64410228a3f268.pdf"
+  },
+  {
+    "question": "when did the song truly madly deeply come out",
+    "answer": "March 1997",
+    "doc_uuid": "a05abdf9-9837-5b08-b66f-a94ca53468fd",
+    "doc_path": "PATH_TO_DIR/fcbf8a34f6ab0df8247acb8aed3c681e.pdf"
+  },
+  {
+    "question": "who did the voice of michael jackson on the simpsons",
+    "answer": "Michael Jackson",
+    "doc_uuid": "a107e516-251d-5c49-b75f-572f162f7e74",
+    "doc_path": "PATH_TO_DIR/2dfe5ba3ef5e6f31827df3d47db07129.pdf"
+  },
+  {
+    "question": "What kind of car is featured on the Ready Player One (film) poster?",
+    "answer": "delorean",
+    "doc_uuid": "a1244f35-1c07-5dc2-8dd7-dfd6ed8651d6",
+    "doc_path": "PATH_TO_DIR/3f80e0e4fa638730ed5e6f1f02f8dcaf.pdf"
+  },
+  {
+    "question": "who plays the voice of mavis in hotel transylvania",
+    "answer": "(Selena Gomez)",
+    "doc_uuid": "a12815ca-299d-57ae-93fa-ccddecada578",
+    "doc_path": "PATH_TO_DIR/7113d28eee35838264e585875ea9c905.pdf"
+  },
+  {
+    "question": "movie with i don't want to miss a thing",
+    "answer": "Armageddon",
+    "doc_uuid": "a1792209-6093-507b-94a2-b9e906b493af",
+    "doc_path": "PATH_TO_DIR/355229f18a27376d61359b110711aebe.pdf"
+  },
+  {
+    "question": "Was Andreas Mikkelsen the winner in the 2014 Wales Rally GB special stages for the time 4:44.8?",
+    "answer": "No",
+    "doc_uuid": "a21b4587-eb11-5f9f-89ba-45968747cf66",
+    "doc_path": "PATH_TO_DIR/94d727e7a8bb0252222f8996083f2ca0.pdf"
+  },
+  {
+    "question": "Did Helene Gigstad Fauske play for the Club Herning-Ikast Handbold in the 2018-19 Damehandboldigaen?",
+    "answer": "Yes",
+    "doc_uuid": "a32f4abb-f2a5-58e4-9d78-27d0518cc7e7",
+    "doc_path": "PATH_TO_DIR/911a67ece7e68ea3233466257db00b54.pdf"
+  },
+  {
+    "question": "is land rover the same as range rover",
+    "answer": "no",
+    "doc_uuid": "a3dee1d2-7d7b-5e86-a03e-4742d756c6e5",
+    "doc_path": "PATH_TO_DIR/f0855c7f9eb7dde4303eba5ec8c700ed.pdf"
+  },
+  {
+    "question": "actress who plays trixie on call the midwife",
+    "answer": "Helen George",
+    "doc_uuid": "a4cf6dbe-b4a2-5669-9813-fe8e60a691eb",
+    "doc_path": "PATH_TO_DIR/a5be3bc76c4260bbec907970f4077c2f.pdf"
+  },
+  {
+    "question": "did catherine zeta jones won an oscar for chicago",
+    "answer": "yes",
+    "doc_uuid": "a502a672-9dbc-5e40-8da3-17e34e85230b",
+    "doc_path": "PATH_TO_DIR/508bda54ca58c483f0f268e75ee2c7d8.pdf"
+  },
+  {
+    "question": "Which Gmina with two swords on its logo is in the Administrative division of Slupca County?",
+    "answer": "Gmina Strzałkowo",
+    "doc_uuid": "a519696d-7420-5ac9-926d-58769c2cdb0a",
+    "doc_path": "PATH_TO_DIR/bcc4f90e9079e031f9bb82424cf09147.pdf"
+  },
+  {
+    "question": "who sings sweet dreams are made of you",
+    "answer": "Eurythmics",
+    "doc_uuid": "a524d125-1376-5108-a8ff-f7a14b02bc1d",
+    "doc_path": "PATH_TO_DIR/7640ba46e9de8cbf9d98d3f01764ae0c.pdf"
+  },
+  {
+    "question": "What was James Wilby's role in the 2011 movie?",
+    "answer": "Professor Hugh Merrill",
+    "doc_uuid": "a581cace-65c4-588c-b851-edb5ed1caca3",
+    "doc_path": "PATH_TO_DIR/ac80fcf18c1b1f8f4a67355d2ec31465.pdf"
+  },
+  {
+    "question": "How many tables are on page 6?",
+    "answer": 1,
+    "doc_uuid": "a581cace-65c4-588c-b851-edb5ed1caca3",
+    "doc_path": "PATH_TO_DIR/ac80fcf18c1b1f8f4a67355d2ec31465.pdf"
+  },
+  {
+    "question": "who plays the pirate in game of thrones",
+    "answer": "Lucian Gabriel Wiina Msamati",
+    "doc_uuid": "a5d78dc2-0567-5570-b280-0db51b66367b",
+    "doc_path": "PATH_TO_DIR/df7d0a324fe1a24e16eacfeebeab373b.pdf"
+  },
+  {
+    "question": "How many tables are on page 3?",
+    "answer": 2,
+    "doc_uuid": "a5d78dc2-0567-5570-b280-0db51b66367b",
+    "doc_path": "PATH_TO_DIR/df7d0a324fe1a24e16eacfeebeab373b.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "a6874e41-400b-5c1c-8363-6fd9888eec35",
+    "doc_path": "PATH_TO_DIR/1a20714de645cbd481b1925f3b718843.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "a6874e41-400b-5c1c-8363-6fd9888eec35",
+    "doc_path": "PATH_TO_DIR/1a20714de645cbd481b1925f3b718843.pdf"
+  },
+  {
+    "question": "One of the players from the Generation Adidas of 2004 is standing between two trophies - who is it?",
+    "answer": "Danny Szetela",
+    "doc_uuid": "a6874e41-400b-5c1c-8363-6fd9888eec35",
+    "doc_path": "PATH_TO_DIR/1a20714de645cbd481b1925f3b718843.pdf"
+  },
+  {
+    "question": "who sang may the good lord bless and keep you",
+    "answer": "Meredith Willson",
+    "doc_uuid": "a719c499-b755-56a4-bfcc-af1f844295c4",
+    "doc_path": "PATH_TO_DIR/d537a05399fcbce66ed76e5270abc2a4.pdf"
+  },
+  {
+    "question": "who was considered the father of the blues",
+    "answer": "William Christopher Handy",
+    "doc_uuid": "a79a0902-0814-5a01-b7c5-18d5dbdd3b6c",
+    "doc_path": "PATH_TO_DIR/d32d988f4351c8fd6799443c0564d5c1.pdf"
+  },
+  {
+    "question": "who plays elizabeth mccord's brother on madam secretary",
+    "answer": "Eric Stoltz",
+    "doc_uuid": "a79d4a09-be23-5ec0-abfa-e5fec9e97082",
+    "doc_path": "PATH_TO_DIR/26a1d26cb8688793332179c05fd9352a.pdf"
+  },
+  {
+    "question": "What is the most recent KANU election in the Parliament of the Juja Constituency?",
+    "answer": "1988",
+    "doc_uuid": "a7a0c8fb-bf41-5710-8998-2d30a39ef75f",
+    "doc_path": "PATH_TO_DIR/0093948d076d70906589ab36ed19eb03.pdf"
+  },
+  {
+    "question": "How many total tables are in the document?",
+    "answer": 1,
+    "doc_uuid": "a7a0c8fb-bf41-5710-8998-2d30a39ef75f",
+    "doc_path": "PATH_TO_DIR/0093948d076d70906589ab36ed19eb03.pdf"
+  },
+  {
+    "question": "all time top scorer for france national team",
+    "answer": "Thierry Henry",
+    "doc_uuid": "a8577803-1174-5301-94fb-e682dd6a676d",
+    "doc_path": "PATH_TO_DIR/0cbf5629968df6e987f0f4ea194837ef.pdf"
+  },
+  {
+    "question": "is the movie would you rather based on a true story",
+    "answer": "no",
+    "doc_uuid": "a9bd20ad-a74f-5955-b64f-5264f1dced49",
+    "doc_path": "PATH_TO_DIR/18f5a3c5779f0bb179ed0cf1c2289595.pdf"
+  },
+  {
+    "question": "How many figures are on pages 2 to 3?",
+    "answer": 2,
+    "doc_uuid": "aad61626-4bb9-536b-8e30-086ef4198015",
+    "doc_path": "PATH_TO_DIR/bea253af5c65cce9e682cde1771431a2.pdf"
+  },
+  {
+    "question": "What is hitting the bongos in the Incredible Bongo Band cover?",
+    "answer": "hands",
+    "doc_uuid": "aad61626-4bb9-536b-8e30-086ef4198015",
+    "doc_path": "PATH_TO_DIR/bea253af5c65cce9e682cde1771431a2.pdf"
+  },
+  {
+    "question": "What is Sandy Wexler wearing on his face?",
+    "answer": "glasses",
+    "doc_uuid": "ab593eca-6a3f-5bbd-8e92-505d5e8dab14",
+    "doc_path": "PATH_TO_DIR/88304e1569022060cbd45543b536b390.pdf"
+  },
+  {
+    "question": "who is the voice of the clown in toy story 3",
+    "answer": "William Everett \"Bud\" Luckey",
+    "doc_uuid": "abd059ba-68ca-55db-9da0-7106f18dba6f",
+    "doc_path": "PATH_TO_DIR/a3b1e81ff2aaf1756bfcef5dcfbdd0c7.pdf"
+  },
+  {
+    "question": "What type of ball is the center of the FC Bolosani logo?",
+    "answer": "soccer",
+    "doc_uuid": "ac2410a8-9437-5fa7-b726-ce5b3ebda922",
+    "doc_path": "PATH_TO_DIR/4fe987d30eff1647e86e30f858267ffc.pdf"
+  },
+  {
+    "question": "is point guard and shooting guard the same thing",
+    "answer": "no",
+    "doc_uuid": "ac3d0df1-23cd-5d6c-b205-d095e05eb4ea",
+    "doc_path": "PATH_TO_DIR/eeca7306ce8a77a049d62ea6004aef5a.pdf"
+  },
+  {
+    "question": "There is an anchor on the logo for which runner-up in the yearly results of the Catamount Cup?",
+    "answer": "Lake Superior State Lakers men's ice hockey",
+    "doc_uuid": "ac4f1a20-8984-59e0-82af-867660d9d4df",
+    "doc_path": "PATH_TO_DIR/8c21ecba52650c1889490b9f6116a1fd.pdf"
+  },
+  {
+    "question": "Which Champion(s), in Yearly results of Catamount Cup, logo has an anchor in it?",
+    "answer": "Lake Superior State Lakers men's ice hockey",
+    "doc_uuid": "ac4f1a20-8984-59e0-82af-867660d9d4df",
+    "doc_path": "PATH_TO_DIR/8c21ecba52650c1889490b9f6116a1fd.pdf"
+  },
+  {
+    "question": "Which African American artist was a musical guest at the 2003 Sanremo Music Festival?",
+    "answer": "Shaggy (musician)",
+    "doc_uuid": "ad05d2e1-820a-58f9-a7b6-0ade0f43172e",
+    "doc_path": "PATH_TO_DIR/9479475632ae0662c1ed2728cbc305b4.pdf"
+  },
+  {
+    "question": "name of the youngest king in the bible",
+    "answer": "Josiah",
+    "doc_uuid": "ada88803-6ce1-58da-80f6-32c62f47ad28",
+    "doc_path": "PATH_TO_DIR/337d2712923ab287047264e2dc97d282.pdf"
+  },
+  {
+    "question": "when did white iverson come out on soundcloud",
+    "answer": "February 2015",
+    "doc_uuid": "ae17c6e6-ccf5-5c25-ad6a-f4543a8e2035",
+    "doc_path": "PATH_TO_DIR/2e110d9e1d5b69b438e3e8f5c5fd7bd2.pdf"
+  },
+  {
+    "question": "What role did Teryl Rothery play in \"G.I. Joe:  Spy Troops\"?",
+    "answer": "Baroness",
+    "doc_uuid": "aec063ab-bd67-5512-a2f5-a03cc075bd82",
+    "doc_path": "PATH_TO_DIR/15adc61f33807cc7436e5ed4c98cc1d5.pdf"
+  },
+  {
+    "question": "who wrote saare jahan se achchca hindustan hamara",
+    "answer": "poet Muhammad Iqbal",
+    "doc_uuid": "aec735d0-2e47-5bbc-bc67-15b1a53b2240",
+    "doc_path": "PATH_TO_DIR/cfb722d83690133affe18d3059879039.pdf"
+  },
+  {
+    "question": "How many uniform options are shown here for the 2014 Hamilton Tiger-Cats season?",
+    "answer": "three",
+    "doc_uuid": "aef36a8c-fecf-52ee-91ae-487eb562aae2",
+    "doc_path": "PATH_TO_DIR/7057b6d34966071d3329ce670f1353a7.pdf"
+  },
+  {
+    "question": "what's the name of the prison in san francisco",
+    "answer": "Alcatraz",
+    "doc_uuid": "af6f1eb9-74c0-57ad-bd5b-cc6419b68dd3",
+    "doc_path": "PATH_TO_DIR/0c77894c28cb0e39ce3558d5d043afa3.pdf"
+  },
+  {
+    "question": "How many figures are in the 'History' section?",
+    "answer": 5,
+    "doc_uuid": "af6f1eb9-74c0-57ad-bd5b-cc6419b68dd3",
+    "doc_path": "PATH_TO_DIR/0c77894c28cb0e39ce3558d5d043afa3.pdf"
+  },
+  {
+    "question": "Did Saralee Thungthongkam have a doubles rank of 132 in Group Y (Thailand) of the 2014 Thomas & Uber Cup squads?",
+    "answer": "Yes",
+    "doc_uuid": "afd2e3c4-36e2-5db1-afbb-b267df882328",
+    "doc_path": "PATH_TO_DIR/64741fa9d653b68b6a41d152b69f5cc3.pdf"
+  },
+  {
+    "question": "In 2019, did the Amberdeep Singh movie Disco Singh come out?",
+    "answer": "No",
+    "doc_uuid": "b0a2db38-4038-53fc-a241-066728196919",
+    "doc_path": "PATH_TO_DIR/52bcd639b82a58ed373009b085b6d702.pdf"
+  },
+  {
+    "question": "is money from jersey legal tender in uk",
+    "answer": "no",
+    "doc_uuid": "b198a50b-7377-5581-8932-baea05afe23c",
+    "doc_path": "PATH_TO_DIR/e3ab696b8f17312373a5354c05e5401b.pdf"
+  },
+  {
+    "question": "What color dress is the woman wearing in the Tanu Weds Manu poster?",
+    "answer": "green",
+    "doc_uuid": "b1bbe70e-1d7e-596b-aed6-f1914b88e768",
+    "doc_path": "PATH_TO_DIR/b903b91a9cb9a72b45113055adba7658.pdf"
+  },
+  {
+    "question": "when does the action start in hitman reborn",
+    "answer": "it grew more violent after volume eight",
+    "doc_uuid": "b22b6729-8b15-5d89-bbcd-995eb40d586a",
+    "doc_path": "PATH_TO_DIR/5493b8a2fcf36c988528a5d77b4393fa.pdf"
+  },
+  {
+    "question": "writer of the textbook fantastic beasts and where to find them",
+    "answer": "Newt Scamander",
+    "doc_uuid": "b2336b13-efb3-5db8-b064-06b9a72dd803",
+    "doc_path": "PATH_TO_DIR/800c2f54328e963bfbf4773211c69951.pdf"
+  },
+  {
+    "question": "What 1963 film title did Fred Draper act in?",
+    "answer": "A Child Is Waiting",
+    "doc_uuid": "b2e7676f-5cd3-5820-a8bc-ea015895487a",
+    "doc_path": "PATH_TO_DIR/2cd99c25708981a8d0059eab4926eef8.pdf"
+  },
+  {
+    "question": "How many TV screens are visible in the photo of the 1989 Panasonic Cup (rugby league) field?",
+    "answer": "one",
+    "doc_uuid": "b3a0d45b-fd31-5f13-867f-55dff1bf4403",
+    "doc_path": "PATH_TO_DIR/a290345f4bfbf52c2ae129ed1ae3f7e9.pdf"
+  },
+  {
+    "question": "What title has a cover with a broken egg in Susan Dey's television?",
+    "answer": "The Partridge Family",
+    "doc_uuid": "b44c9f28-320f-506b-b379-bcb891743b5d",
+    "doc_path": "PATH_TO_DIR/d1c232d542a25dfb5b28ea1ca2912b85.pdf"
+  },
+  {
+    "question": "who sang i was made for loving you",
+    "answer": "Kiss",
+    "doc_uuid": "b485ded3-a3ff-5a09-bfde-bcfd3cb07d1e",
+    "doc_path": "PATH_TO_DIR/b019834c8bdc9fe0c6f8ad09a08cd867.pdf"
+  },
+  {
+    "question": "How many people in this photo of In the Heat of the Night (TV series) are wearing a suit?",
+    "answer": "one",
+    "doc_uuid": "b5308234-7558-5430-aeb8-4f231f848540",
+    "doc_path": "PATH_TO_DIR/2054ae4dca7a9b8c5df750eea462a518.pdf"
+  },
+  {
+    "question": "Is Karai (Teenage Mutant Ninja Turtles) in this image?",
+    "answer": "yes",
+    "doc_uuid": "b53d1294-05e4-5d87-9521-8bb2b9fa4936",
+    "doc_path": "PATH_TO_DIR/74d6e1d36847a1e6e8e8b4d9a9f6d96a.pdf"
+  },
+  {
+    "question": "Did Ione Skye play the role of Marie on the television title Nightmare Classics?",
+    "answer": "Yes",
+    "doc_uuid": "b58a29ef-e805-5e9e-8fe4-d1ab895d8af0",
+    "doc_path": "PATH_TO_DIR/0f6fc93647bbbab68608b57102f6c38f.pdf"
+  },
+  {
+    "question": "What is the man on the poster for Black Hawk Down (film) holding in his right hand?",
+    "answer": "gun",
+    "doc_uuid": "b5a68946-d768-5860-bd5d-54b22bd25941",
+    "doc_path": "PATH_TO_DIR/afc2fd4277f09b50b68b2b7191d687b8.pdf"
+  },
+  {
+    "question": "how many species of snakes are in alabama",
+    "answer": "49",
+    "doc_uuid": "b5b36784-3ffe-53ef-b1d2-8edd4058a216",
+    "doc_path": "PATH_TO_DIR/5bd6fdb8c0a6c1c7f2c8a3583d3a2123.pdf"
+  },
+  {
+    "question": "Shawar Ali acted in a film in what language in 2013?",
+    "answer": "Telugu",
+    "doc_uuid": "b5f0254c-afee-5e1a-82ac-0e76462ad0ca",
+    "doc_path": "PATH_TO_DIR/a470853d1f16f2d222ee53c8ca81818e.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "b5f0254c-afee-5e1a-82ac-0e76462ad0ca",
+    "doc_path": "PATH_TO_DIR/a470853d1f16f2d222ee53c8ca81818e.pdf"
+  },
+  {
+    "question": "is devil's food cake the same as chocolate",
+    "answer": "no",
+    "doc_uuid": "b5f26019-9fbc-56de-9cd2-6773b0a2a354",
+    "doc_path": "PATH_TO_DIR/514cd11622e4c7f3d7d8d66c3941f8f5.pdf"
+  },
+  {
+    "question": "where was sycorax banished from before she came to the island",
+    "answer": "Algiers",
+    "doc_uuid": "b6cc981d-6a4f-598b-83f9-8baf21b2ac53",
+    "doc_path": "PATH_TO_DIR/9ec0e6f40a39dd212244b0af605c302e.pdf"
+  },
+  {
+    "question": "When was Eirik Kvalfoss' individual victory in Keuruu?",
+    "answer": "15 March 1988",
+    "doc_uuid": "b74f0a5e-eadf-5a73-b063-23e0913d7334",
+    "doc_path": "PATH_TO_DIR/15ec970e5c513f2dc05e54d50d67fc6e.pdf"
+  },
+  {
+    "question": "lee jong suk and kim woo bin drama together",
+    "answer": "School 2013",
+    "doc_uuid": "b7b34f60-ed69-57ab-a048-f47da898b8ba",
+    "doc_path": "PATH_TO_DIR/8f0adc1649e0dc803940e0766c4d497e.pdf"
+  },
+  {
+    "question": "who sings the country song down on my knees",
+    "answer": "Trisha Yearwood",
+    "doc_uuid": "b81fade4-e0e8-5704-a5a7-09375501362d",
+    "doc_path": "PATH_TO_DIR/659015744c43ab4830283d0264dd294e.pdf"
+  },
+  {
+    "question": "How many tables are in the 'Climate' section?",
+    "answer": 1,
+    "doc_uuid": "b8821ebd-4f67-51e9-b0d7-f7663e11ef95",
+    "doc_path": "PATH_TO_DIR/f69a213927df6e17ff904ebd8174f007.pdf"
+  },
+  {
+    "question": "Which location with a ski-jump like structure was part of the Biathlon World Cup of 2017-18?",
+    "answer": "Holmenkollen",
+    "doc_uuid": "b8821ebd-4f67-51e9-b0d7-f7663e11ef95",
+    "doc_path": "PATH_TO_DIR/f69a213927df6e17ff904ebd8174f007.pdf"
+  },
+  {
+    "question": "what was tom's wife name on the jeffersons",
+    "answer": "Helen",
+    "doc_uuid": "b8951eb7-224b-55bb-90e0-c65e998f4aa0",
+    "doc_path": "PATH_TO_DIR/d0ead78cbee13391aa3126e3f50c0ae8.pdf"
+  },
+  {
+    "question": "when did us stop backing dollar with gold",
+    "answer": "1971",
+    "doc_uuid": "b8e0bd5c-0596-5e09-96ca-eb96fa51bec3",
+    "doc_path": "PATH_TO_DIR/8b5c45b0e253a826f3746046896609e0.pdf"
+  },
+  {
+    "question": "There is a white tower with an arch at the bottom next to a statue of a cross at which seat in the regional structure of Somogy County?",
+    "answer": "Nagyatád",
+    "doc_uuid": "ba55e3f2-f96d-58ff-b3ac-91ca84170f43",
+    "doc_path": "PATH_TO_DIR/c367c27699f47dd7569aeaf482cfce89.pdf"
+  },
+  {
+    "question": "What gold shape is on the upper right jacket of Suso (footballer)?",
+    "answer": "star",
+    "doc_uuid": "ba7cbf92-23c8-5d2e-97b3-2487834a86b7",
+    "doc_path": "PATH_TO_DIR/aeda90835f1790f8962cd41a70d6bc35.pdf"
+  },
+  {
+    "question": "How many tables are on pages 5 to 8?",
+    "answer": 2,
+    "doc_uuid": "ba7cbf92-23c8-5d2e-97b3-2487834a86b7",
+    "doc_path": "PATH_TO_DIR/aeda90835f1790f8962cd41a70d6bc35.pdf"
+  },
+  {
+    "question": "michael douglas morgan freeman robert de niro movie",
+    "answer": "Last Vegas",
+    "doc_uuid": "bab16a5f-7514-5033-905f-80f1a1308493",
+    "doc_path": "PATH_TO_DIR/7628289e56fc216461f1123f87aa3f07.pdf"
+  },
+  {
+    "question": "Which album did Roberto Algana release in 2003?",
+    "answer": "Bizet: Carmen",
+    "doc_uuid": "bafdeaa8-6f14-59d1-94ef-9dd3e25be299",
+    "doc_path": "PATH_TO_DIR/c6cdcbc46deb96c0d08f361b0b4a5860.pdf"
+  },
+  {
+    "question": "How many people are in the Reservoir Dogs poster?",
+    "answer": "five",
+    "doc_uuid": "bc46f557-3579-5163-a091-ea5284003730",
+    "doc_path": "PATH_TO_DIR/b44e0cf530d532c59e7fdd9a59f391c1.pdf"
+  },
+  {
+    "question": "What is on the shirt of The Great Khali?",
+    "answer": "ribbon",
+    "doc_uuid": "bc86c9e7-ac0f-549c-b27c-935b99825761",
+    "doc_path": "PATH_TO_DIR/b22d98409a61713661c1071b05dcbab8.pdf"
+  },
+  {
+    "question": "What color hair does the person on the Walk with Me (Monika Linkytė album) have?",
+    "answer": "blonde",
+    "doc_uuid": "bcf14e28-41b6-5cf3-8801-92774b479242",
+    "doc_path": "PATH_TO_DIR/1371b12c3f28f9e389a0e96abcfdd190.pdf"
+  },
+  {
+    "question": "How many tables are on page 3?",
+    "answer": 2,
+    "doc_uuid": "bd76feca-046d-53c4-adf7-4d9fe4d76b4b",
+    "doc_path": "PATH_TO_DIR/b019d3b4db531e06efd5201123aa07aa.pdf"
+  },
+  {
+    "question": "What color is the tie that Kennet Andersson is wearing?",
+    "answer": "black",
+    "doc_uuid": "bd76feca-046d-53c4-adf7-4d9fe4d76b4b",
+    "doc_path": "PATH_TO_DIR/b019d3b4db531e06efd5201123aa07aa.pdf"
+  },
+  {
+    "question": "who plays the trans guy on the fosters",
+    "answer": "Elliot Fletcher",
+    "doc_uuid": "bdb7e7e7-3a64-5c9b-a9d7-69b97e075e01",
+    "doc_path": "PATH_TO_DIR/3dfdd6c96e19aa4829a63152e9a413a0.pdf"
+  },
+  {
+    "question": "how many episodes will american horror story season 7 have",
+    "answer": "11",
+    "doc_uuid": "bdb8cd54-e049-5b8c-a768-5ad3400ba222",
+    "doc_path": "PATH_TO_DIR/19a9fc4636a64215d9b3773f6979ed6c.pdf"
+  },
+  {
+    "question": "Who is wearing a necktie of the actors who have won the Santosham Best Actor Award?",
+    "answer": "Chiranjeevi",
+    "doc_uuid": "be320823-efc8-533b-9e3b-1ebb43436480",
+    "doc_path": "PATH_TO_DIR/a112b5d7c1799c30a54af22fa0999e5b.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "be39951b-43ad-5413-a7e8-5d2d25ee4029",
+    "doc_path": "PATH_TO_DIR/35db7b5e0c399d03a866c7fbc2b6012b.pdf"
+  },
+  {
+    "question": "Which film with concentric ovals on its poster featured Raza Jaffrey as an actor?",
+    "answer": "Harry Brown (film)",
+    "doc_uuid": "be39951b-43ad-5413-a7e8-5d2d25ee4029",
+    "doc_path": "PATH_TO_DIR/35db7b5e0c399d03a866c7fbc2b6012b.pdf"
+  },
+  {
+    "question": "How many flags are visible on the Six Flags Discovery Kingdom logo?",
+    "answer": "six",
+    "doc_uuid": "be4035e4-bf9b-569b-b15d-9974e443636c",
+    "doc_path": "PATH_TO_DIR/98404c6d34b84d9047e9826c6a29cf78.pdf"
+  },
+  {
+    "question": "What color is the Santa Anita Park logo?",
+    "answer": "blue",
+    "doc_uuid": "be69d047-b632-5299-9653-299559412b01",
+    "doc_path": "PATH_TO_DIR/117d500aaa630023c4038b8268b309c0.pdf"
+  },
+  {
+    "question": "What role did Marjorie Bransfield play in the movie Easy Wheels?",
+    "answer": "Wendy",
+    "doc_uuid": "beb6c17e-aa9d-591f-aa9e-fe24bf8aac13",
+    "doc_path": "PATH_TO_DIR/a340924122c49cd8cf546124af990e0d.pdf"
+  },
+  {
+    "question": "What direction is Monica Seles looking?",
+    "answer": "forward",
+    "doc_uuid": "bf94ae1d-a04b-5bd0-b3a2-6a587b25ede3",
+    "doc_path": "PATH_TO_DIR/7d7e4f56a0a4c949be6efc927ca2759c.pdf"
+  },
+  {
+    "question": "Was the fullback Terrance Freeney in the 2009 UNGL Draft from Avila college?",
+    "answer": "No",
+    "doc_uuid": "bf9e7f31-d735-5eb5-8272-94c13aaf2240",
+    "doc_path": "PATH_TO_DIR/6e22e2354da33433d45de2f7e92b7e34.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 4,
+    "doc_uuid": "bfc4b5be-b049-562a-94da-690837cb57ec",
+    "doc_path": "PATH_TO_DIR/ed3bac4dab8ef1988994b8146933b814.pdf"
+  },
+  {
+    "question": "in mississippi can you drink with your parents",
+    "answer": "yes",
+    "doc_uuid": "bfc4b5be-b049-562a-94da-690837cb57ec",
+    "doc_path": "PATH_TO_DIR/ed3bac4dab8ef1988994b8146933b814.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Plot' section?",
+    "answer": 1,
+    "doc_uuid": "bfe34bd2-402c-53e3-a62a-f2915227c6fb",
+    "doc_path": "PATH_TO_DIR/e91d3a8e644676c12c173338d68ca958.pdf"
+  },
+  {
+    "question": "when did officer and a gentleman come out",
+    "answer": "1982",
+    "doc_uuid": "bfe34bd2-402c-53e3-a62a-f2915227c6fb",
+    "doc_path": "PATH_TO_DIR/e91d3a8e644676c12c173338d68ca958.pdf"
+  },
+  {
+    "question": "polar express how many characters did tom hanks play",
+    "answer": "six",
+    "doc_uuid": "bff98794-4538-591c-9931-105b8db635d1",
+    "doc_path": "PATH_TO_DIR/238e9e0cd5bc324c86f3cc0e341126ce.pdf"
+  },
+  {
+    "question": "How many petals are on the flower in the Brisbane rugby league team logo?",
+    "answer": "nine",
+    "doc_uuid": "c04a031d-06fd-5fd3-9963-540500283a40",
+    "doc_path": "PATH_TO_DIR/59424e6d811a38b7618696609ff17a48.pdf"
+  },
+  {
+    "question": "Does John Paxson have facial hair?",
+    "answer": "no",
+    "doc_uuid": "c082abb2-a2ac-5772-864d-12283725717d",
+    "doc_path": "PATH_TO_DIR/72b8028c41ccfb0f84b71c235515e35a.pdf"
+  },
+  {
+    "question": "name of the horse in steptoe and son",
+    "answer": "Hercules",
+    "doc_uuid": "c0dda024-9269-54bd-b828-1d909357c286",
+    "doc_path": "PATH_TO_DIR/d3fcac484c2731fc689b5dd69d66d620.pdf"
+  },
+  {
+    "question": "who plays red queen alice in wonderland 2010",
+    "answer": "Bonham Carter",
+    "doc_uuid": "c111160a-d452-5288-9c41-5b2697081bec",
+    "doc_path": "PATH_TO_DIR/6a3de0921d358fa044a6b0b5634f8520.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Club career' section?",
+    "answer": 1,
+    "doc_uuid": "c2aad867-3cac-5b3e-b62c-c7036f03cf0d",
+    "doc_path": "PATH_TO_DIR/b275623ac6c692f19d4dad4956f9d662.pdf"
+  },
+  {
+    "question": "What is Mike Havenaar wearing on his hands?",
+    "answer": "gloves",
+    "doc_uuid": "c2aad867-3cac-5b3e-b62c-c7036f03cf0d",
+    "doc_path": "PATH_TO_DIR/b275623ac6c692f19d4dad4956f9d662.pdf"
+  },
+  {
+    "question": "How many figures are on pages 2 to 4?",
+    "answer": 1,
+    "doc_uuid": "c2aad867-3cac-5b3e-b62c-c7036f03cf0d",
+    "doc_path": "PATH_TO_DIR/b275623ac6c692f19d4dad4956f9d662.pdf"
+  },
+  {
+    "question": "in which date the sangeet natak academy recognised satriya nritya",
+    "answer": "2000",
+    "doc_uuid": "c34d7293-fec1-53ab-9337-5587de320ccf",
+    "doc_path": "PATH_TO_DIR/47304382ee804abfc057d465ee4f2c71.pdf"
+  },
+  {
+    "question": "What type of ball is in the Liga Nacional de Fútbol de Puerto Rico logo?",
+    "answer": "soccer",
+    "doc_uuid": "c38b3671-2908-5b64-9862-e8c1e81a412d",
+    "doc_path": "PATH_TO_DIR/3b7dd8b73948f3dceff74f6f2b4a6de0.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "c3fb56c2-8a84-56b5-94fc-796737b05407",
+    "doc_path": "PATH_TO_DIR/a9b9bbecab2dfecf57b74128d0924703.pdf"
+  },
+  {
+    "question": "who does addison montgomery marry in private practice",
+    "answer": "Jake",
+    "doc_uuid": "c3fb56c2-8a84-56b5-94fc-796737b05407",
+    "doc_path": "PATH_TO_DIR/a9b9bbecab2dfecf57b74128d0924703.pdf"
+  },
+  {
+    "question": "Are Simon & Garfunkel playing outdoors in this picture?",
+    "answer": "yes",
+    "doc_uuid": "c5481e7e-b670-58fe-98d4-50ea6b07ef56",
+    "doc_path": "PATH_TO_DIR/9e972f19ba7f2b583674b48d36399325.pdf"
+  },
+  {
+    "question": "How many tables are in the 'Awards' section?",
+    "answer": 1,
+    "doc_uuid": "c5481e7e-b670-58fe-98d4-50ea6b07ef56",
+    "doc_path": "PATH_TO_DIR/9e972f19ba7f2b583674b48d36399325.pdf"
+  },
+  {
+    "question": "what comic was roy of the rovers in",
+    "answer": "Tiger",
+    "doc_uuid": "c6145157-3267-5aa9-b052-256d7280dd17",
+    "doc_path": "PATH_TO_DIR/fe3ce6b44cc2ae2a610b8a5fad6508f5.pdf"
+  },
+  {
+    "question": "How many uniforms are associated with the 2014 Toronto Argonauts season?",
+    "answer": "three",
+    "doc_uuid": "c66fdeb2-b620-55e6-aace-6327ae54e39c",
+    "doc_path": "PATH_TO_DIR/3f380e7a3597b27d39a34a4eb485ae3d.pdf"
+  },
+  {
+    "question": "when did the macbook air 11 inch come out",
+    "answer": "2010",
+    "doc_uuid": "c6a00a96-3a94-539f-886e-aa8f6bb87668",
+    "doc_path": "PATH_TO_DIR/177e49e0ca4de10e89483672e8caa4bc.pdf"
+  },
+  {
+    "question": "How many other people are in this picture besides Herbie Hancock?",
+    "answer": "four",
+    "doc_uuid": "c6a0b511-46cd-5965-975e-b6b7b238dae3",
+    "doc_path": "PATH_TO_DIR/384b874ef60f26e3c06393cd0f1ec17b.pdf"
+  },
+  {
+    "question": "what group was not part of the new deal coalition",
+    "answer": "conservative",
+    "doc_uuid": "c7686665-e4ab-526a-9a9d-e590cc011cb4",
+    "doc_path": "PATH_TO_DIR/ee6b9b3c51d92207a5a8179a2291c06e.pdf"
+  },
+  {
+    "question": "Which Incumbent(s), in Present German cabinet of Cabinet of Germany, is a woman with short dark hair?",
+    "answer": "Annegret Kramp-Karrenbauer",
+    "doc_uuid": "c78b4ca5-7b0f-5c43-b569-4131c3fc5689",
+    "doc_path": "PATH_TO_DIR/e51e7755477179a20eab8310a1c25559.pdf"
+  },
+  {
+    "question": "How many figures are in the 'History' section?",
+    "answer": 2,
+    "doc_uuid": "ca50cc4e-5eb6-5b45-a572-585db6e5ce4a",
+    "doc_path": "PATH_TO_DIR/19552d5b2f6c96265e8b327a988d79ac.pdf"
+  },
+  {
+    "question": "How many members of Grand Funk Railroad have long hair?",
+    "answer": "one",
+    "doc_uuid": "ca50cc4e-5eb6-5b45-a572-585db6e5ce4a",
+    "doc_path": "PATH_TO_DIR/19552d5b2f6c96265e8b327a988d79ac.pdf"
+  },
+  {
+    "question": "How many figures are on page 4?",
+    "answer": 1,
+    "doc_uuid": "ca50cc4e-5eb6-5b45-a572-585db6e5ce4a",
+    "doc_path": "PATH_TO_DIR/19552d5b2f6c96265e8b327a988d79ac.pdf"
+  },
+  {
+    "question": "Which spouse is riding a horse in House of Ivrea of List of Castilian consorts?",
+    "answer": "Alfonso XI of Castile",
+    "doc_uuid": "ca5d41af-2f7b-577e-a078-05c19ae1ebca",
+    "doc_path": "PATH_TO_DIR/b07d1ad0df418ae466a2713937dd43ba.pdf"
+  },
+  {
+    "question": "What are the men wearing around their necks in Dil Jo Bhi Kahey poster?",
+    "answer": "ties",
+    "doc_uuid": "cad1d309-0bde-57b8-af21-d39a7b07dc05",
+    "doc_path": "PATH_TO_DIR/083b166c958a6479df5195ec55680460.pdf"
+  },
+  {
+    "question": "What was Marieve Herington's role in the video game Dance Central 2?",
+    "answer": "Miss Aubrey",
+    "doc_uuid": "cb7279cd-381b-598a-811a-9292da78a4e5",
+    "doc_path": "PATH_TO_DIR/00163fe7688e71ce06f495a6811fef71.pdf"
+  },
+  {
+    "question": "What is covering Viktoria Komova's forehead?",
+    "answer": "bangs",
+    "doc_uuid": "cbc50029-ffbf-55dc-8c8a-453fe3c306de",
+    "doc_path": "PATH_TO_DIR/1718c48e4ec8cefab50e30adddc3f738.pdf"
+  },
+  {
+    "question": "Is the Jirah Military Airbase the name associated with the location served of Al-Thawrah in the list of Syrian Air Force bases?",
+    "answer": "No",
+    "doc_uuid": "cc08ca28-6a11-58c4-95d8-09329e4586dd",
+    "doc_path": "PATH_TO_DIR/5edb79869173f64258ae548280905710.pdf"
+  },
+  {
+    "question": "There are large square banners over blue seats at which venue featured in the U23 International goals of Irfan Fandi?",
+    "answer": "Jalan Besar Stadium",
+    "doc_uuid": "cc8ef341-50b4-5dff-bb67-d30b2d331094",
+    "doc_path": "PATH_TO_DIR/85507c18d595a0189c52568d99c1d7d1.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Background' section?",
+    "answer": 1,
+    "doc_uuid": "cd7842d1-88d1-582d-aaa6-5a32cdbd5a2d",
+    "doc_path": "PATH_TO_DIR/8a1cc79d672bf1a3d1833c221385117c.pdf"
+  },
+  {
+    "question": "who is the injured man in the open boat",
+    "answer": "the captain",
+    "doc_uuid": "cd7842d1-88d1-582d-aaa6-5a32cdbd5a2d",
+    "doc_path": "PATH_TO_DIR/8a1cc79d672bf1a3d1833c221385117c.pdf"
+  },
+  {
+    "question": "Is this picture of Margaret Court in color?",
+    "answer": "no",
+    "doc_uuid": "cdb68df4-6c17-5192-9d08-f6d4875d2809",
+    "doc_path": "PATH_TO_DIR/c3098661477a7e46f87d3f229f608fbd.pdf"
+  },
+  {
+    "question": "lord of the rings the two towers budget",
+    "answer": "$94 million",
+    "doc_uuid": "cebc73d1-336f-5992-ae4c-61dd66237d07",
+    "doc_path": "PATH_TO_DIR/03f5dad3e02f2b7fab36718b11a84e8a.pdf"
+  },
+  {
+    "question": "when did the first plane break the sound barrier",
+    "answer": "April 1944",
+    "doc_uuid": "ceca096f-6b85-5beb-89d8-f15d89a1fc47",
+    "doc_path": "PATH_TO_DIR/51c6bc6cef1fa0c81c8d4e6c3ab0136d.pdf"
+  },
+  {
+    "question": "in friends do ross and rachel end up together",
+    "answer": "yes",
+    "doc_uuid": "cf6f9f31-9bb6-5c50-bf34-0600dc0ed3b3",
+    "doc_path": "PATH_TO_DIR/bd544a84906af86c2a66d34077d423f2.pdf"
+  },
+  {
+    "question": "When Jessica Pfund and Joshua Santillan were the pairs in the 2016 Cup of China entries, who were the men?",
+    "answer": "Max Aaron   Ross Miner",
+    "doc_uuid": "cf700873-8a46-5c82-acd3-94271416afa8",
+    "doc_path": "PATH_TO_DIR/57e0b09acf679e69840ef332ab28bcef.pdf"
+  },
+  {
+    "question": "why do you say white rabbit on the first day of the month",
+    "answer": "good luck",
+    "doc_uuid": "d0f3009f-e6bb-5451-b99a-e0a2e0e06788",
+    "doc_path": "PATH_TO_DIR/d64b0ef63cb0b9370fe0a418b78a134b.pdf"
+  },
+  {
+    "question": "Of the American movies from 1973 that can be found alphabetically between T and Z, which one features a female gymnast on its poster?",
+    "answer": "Visions of Eight",
+    "doc_uuid": "d2ae2d82-7799-55c1-a830-eaac370be705",
+    "doc_path": "PATH_TO_DIR/0cb86d818dbda3a4a65dd300513fa653.pdf"
+  },
+  {
+    "question": "Which driver that is giving the shaka hand gesture won the 2011 Indy Lights race?",
+    "answer": "Gustavo Yacamán",
+    "doc_uuid": "d344723f-8850-5d42-8060-fa559ab9ae49",
+    "doc_path": "PATH_TO_DIR/ff32c43ae3cf705e9a5fd4660d09ede8.pdf"
+  },
+  {
+    "question": "Are there mountains in the background in this photo of Rasen-Antholz?",
+    "answer": "yes",
+    "doc_uuid": "d3626483-23ce-5ce0-a671-5bc72d9aa640",
+    "doc_path": "PATH_TO_DIR/8767d6a21d960a41a392aa12b8bb14e8.pdf"
+  },
+  {
+    "question": "There is a dolphin on the logo for which teams included in the top goal scorers of the 2018 CAF Confederation Cup?",
+    "answer": "AS Vita Club",
+    "doc_uuid": "d38180f7-4a3c-5b42-b34e-ec797eef36d6",
+    "doc_path": "PATH_TO_DIR/e6bd015a26fe22b61ceb9f5055bb6a9e.pdf"
+  },
+  {
+    "question": "There is a dolphin in the middle of the logo for which team included in the top scorers of the 2014 CAF Champions League?",
+    "answer": "AS Vita Club",
+    "doc_uuid": "d38180f7-4a3c-5b42-b34e-ec797eef36d6",
+    "doc_path": "PATH_TO_DIR/e6bd015a26fe22b61ceb9f5055bb6a9e.pdf"
+  },
+  {
+    "question": "Did the label C/Z Records release a Green River of Stone Gossard title in 1986?",
+    "answer": "Yes",
+    "doc_uuid": "d38c916b-e031-59b4-86a6-119fe5707f90",
+    "doc_path": "PATH_TO_DIR/ae6e4ca8090c40d489e23900b5057680.pdf"
+  },
+  {
+    "question": "How many tables are on pages 7 to 9?",
+    "answer": 3,
+    "doc_uuid": "d38c916b-e031-59b4-86a6-119fe5707f90",
+    "doc_path": "PATH_TO_DIR/ae6e4ca8090c40d489e23900b5057680.pdf"
+  },
+  {
+    "question": "Did Kelly Macdonald play Kiera MacLaine or Meghan Keene in Giri/Haji on TV?",
+    "answer": "No",
+    "doc_uuid": "d452463c-0666-5fd8-8f06-b50e11f14b54",
+    "doc_path": "PATH_TO_DIR/67bde2b4a49f1397a56b5b290a92ff63.pdf"
+  },
+  {
+    "question": "Which film with a poster featuring a man lifting a barbell above his head does David R. Ellis act in?",
+    "answer": "The Strongest Man in the World",
+    "doc_uuid": "d499c413-b041-50ac-bafa-530fcbd5bd12",
+    "doc_path": "PATH_TO_DIR/06609a24bd3f1dcaf7e8bf37b6b9b39d.pdf"
+  },
+  {
+    "question": "Does Michele Didoni's shirt have sleeves?",
+    "answer": "no",
+    "doc_uuid": "d4b424ba-c9be-5a72-80c2-e2ea0fbc30bd",
+    "doc_path": "PATH_TO_DIR/15cc00cd0948a05254e1ce56342a1e81.pdf"
+  },
+  {
+    "question": "Does Stephan Marks own the station WBKB-TV 3,6, which is an affiliate of .2 Network?",
+    "answer": "Yes",
+    "doc_uuid": "d4ec5456-c231-5ff1-903b-42e7871c658b",
+    "doc_path": "PATH_TO_DIR/6bdba0c6c17d8134894cb76c2ba3723f.pdf"
+  },
+  {
+    "question": "What is John Surtees doing with his right hand?",
+    "answer": "writing",
+    "doc_uuid": "d63a2100-8ed9-5358-8fe5-65f8e8477568",
+    "doc_path": "PATH_TO_DIR/69dc00bea926d95088d3829d8ba558b3.pdf"
+  },
+  {
+    "question": "How many characters are in the painting Twelfth Night?",
+    "answer": "3",
+    "doc_uuid": "d6949735-641a-591f-9883-ddd86487ae5d",
+    "doc_path": "PATH_TO_DIR/8d65d56091cc13f16fe1043745198994.pdf"
+  },
+  {
+    "question": "shield volcanoes tend to erupt what type of lava",
+    "answer": "fluid lava",
+    "doc_uuid": "d6ac5faa-fba9-5a01-8bcd-efb4b4fbaa6a",
+    "doc_path": "PATH_TO_DIR/e45795b8ec5c41a2320726d501b61cbf.pdf"
+  },
+  {
+    "question": "What was the political party of Aathiyandal when the margin was 25,420?",
+    "answer": "AIADMK",
+    "doc_uuid": "d9251d0e-41f2-5e15-8b0a-f11ffdf5b131",
+    "doc_path": "PATH_TO_DIR/d414376f5b64446dfbb3e3ba5aa2938b.pdf"
+  },
+  {
+    "question": "What brand of shirt is Nicola Caccia wearing?",
+    "answer": "puma",
+    "doc_uuid": "daea51fd-302a-5592-bf1e-17342a6e6134",
+    "doc_path": "PATH_TO_DIR/2a7739ad645a1fc841244ccd8c4b4ee0.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "daea51fd-302a-5592-bf1e-17342a6e6134",
+    "doc_path": "PATH_TO_DIR/2a7739ad645a1fc841244ccd8c4b4ee0.pdf"
+  },
+  {
+    "question": "In the families of 2012 spaceflight, which family has wide red stripes on the rocket body?",
+    "answer": "Polar Satellite Launch Vehicle",
+    "doc_uuid": "db261be4-e5cf-5b84-b65e-d951a4554c22",
+    "doc_path": "PATH_TO_DIR/258b8aad06d6a58471d5b7628da822e3.pdf"
+  },
+  {
+    "question": "who is the movie new jack city based on",
+    "answer": "the real life Detroit gang The Chambers Brothers",
+    "doc_uuid": "db7407fc-e09f-523c-ba34-1d6c32f0e75f",
+    "doc_path": "PATH_TO_DIR/d232f13223c10990f9163b88e2703038.pdf"
+  },
+  {
+    "question": "In Armenian history, did the Battle of Sardarapat occur on May 22 in the 20th century?",
+    "answer": "Yes",
+    "doc_uuid": "dbde74b2-b703-510d-8d85-62dcd3e3081e",
+    "doc_path": "PATH_TO_DIR/390d75be29d82997b23c7a4b63a3a8d6.pdf"
+  },
+  {
+    "question": "Which Title(s), in Filmography | Film of Stephanie Che, features exactly four people on its poster?",
+    "answer": "Clean My Name, Mr. Coroner!",
+    "doc_uuid": "dc732174-ba5b-51dc-8a47-e71a627c4d73",
+    "doc_path": "PATH_TO_DIR/6bcfa0b07c9d7e6a7e9d3f1eee20cfaa.pdf"
+  },
+  {
+    "question": "How many figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "dcb53945-a318-5f52-8f14-2bc2f7fa0a5b",
+    "doc_path": "PATH_TO_DIR/a40367f2d6147e37a4affdf3a468ee44.pdf"
+  },
+  {
+    "question": "what is the constitutional convention in new york",
+    "answer": "is a proposed body that would revise the constitution of the State of New York",
+    "doc_uuid": "dcb53945-a318-5f52-8f14-2bc2f7fa0a5b",
+    "doc_path": "PATH_TO_DIR/a40367f2d6147e37a4affdf3a468ee44.pdf"
+  },
+  {
+    "question": "What gender is this person that is up for Filmfare Award for Best Director?",
+    "answer": "female",
+    "doc_uuid": "dcbe0bbb-dcf9-544a-8db2-fc99acbe315d",
+    "doc_path": "PATH_TO_DIR/807bce8eee4f468277064705ca64a34d.pdf"
+  },
+  {
+    "question": "Which player had a score of 72-74=146 in the second round of the 1937 Open Championship?",
+    "answer": "Alf Padgham",
+    "doc_uuid": "dccc2e46-7a09-5568-b526-b0f665d2c4a9",
+    "doc_path": "PATH_TO_DIR/92a4b764e72a4be5a9909c367e693960.pdf"
+  },
+  {
+    "question": "who plays alex cahill on walker texas ranger",
+    "answer": "Sheree Julienne Wilson",
+    "doc_uuid": "dd065706-179e-528e-8fc7-9c9800c847c2",
+    "doc_path": "PATH_TO_DIR/aa4d0eea9eb4fdfd2bac5a7b74754e92.pdf"
+  },
+  {
+    "question": "There is a tree, cross, and axe on the coat of arms for which place that is featured in the World Cup Podium for the men's Biathlon World Cup of 1981-82?",
+    "answer": "Ruhpolding",
+    "doc_uuid": "dd086ed4-0fbe-5460-9361-f880d9325ee8",
+    "doc_path": "PATH_TO_DIR/0079b07b49b6e9483c202daf6a9f4321.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 3,
+    "doc_uuid": "dd086ed4-0fbe-5460-9361-f880d9325ee8",
+    "doc_path": "PATH_TO_DIR/0079b07b49b6e9483c202daf6a9f4321.pdf"
+  },
+  {
+    "question": "How many tables are in the document?",
+    "answer": 1,
+    "doc_uuid": "dd1fc6f9-3428-52ed-b370-7d9187cd7025",
+    "doc_path": "PATH_TO_DIR/df50e86903b8502de3ec900623e946a4.pdf"
+  },
+  {
+    "question": "when do the raiders become the las vegas raiders",
+    "answer": "the 2020 National Football League (NFL) season",
+    "doc_uuid": "dd1fc6f9-3428-52ed-b370-7d9187cd7025",
+    "doc_path": "PATH_TO_DIR/df50e86903b8502de3ec900623e946a4.pdf"
+  },
+  {
+    "question": "who took a road trip with actress geena davis in 'thelma & louise",
+    "answer": "Susan Sarandon as Louise",
+    "doc_uuid": "dd4808ac-025e-5d7c-94c7-fcb5beab31a1",
+    "doc_path": "PATH_TO_DIR/a4d3a79420a2b704eb9da79d632e2c63.pdf"
+  },
+  {
+    "question": "How many tables are on pages 14 to 15?",
+    "answer": 1,
+    "doc_uuid": "dd4808ac-025e-5d7c-94c7-fcb5beab31a1",
+    "doc_path": "PATH_TO_DIR/a4d3a79420a2b704eb9da79d632e2c63.pdf"
+  },
+  {
+    "question": "Who co-produced the song that is 4 minutes and 48 seconds long on the album Back from Hell?",
+    "answer": "Glen E. Friedman Russell Simmons",
+    "doc_uuid": "dda61236-4215-5bf2-9e9f-71f01b749657",
+    "doc_path": "PATH_TO_DIR/4a2c20370e2a3c71b394771450f78557.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 3?",
+    "answer": 1,
+    "doc_uuid": "dff9afea-7a8a-51cc-9325-5586e52fe7d4",
+    "doc_path": "PATH_TO_DIR/38aa66acaf4908bda60b9ec374dad50c.pdf"
+  },
+  {
+    "question": "Was the television title Umagang Kay Ganda featuring Anthony Taberna on the ABS-CBN network?",
+    "answer": "Yes",
+    "doc_uuid": "dff9afea-7a8a-51cc-9325-5586e52fe7d4",
+    "doc_path": "PATH_TO_DIR/38aa66acaf4908bda60b9ec374dad50c.pdf"
+  },
+  {
+    "question": "what is the airport code for louisville kentucky",
+    "answer": "SDF",
+    "doc_uuid": "e0474f3f-fab6-5ceb-8093-4c6afd051e16",
+    "doc_path": "PATH_TO_DIR/6ce478d6b8ef41a95d3ea4f7067e050a.pdf"
+  },
+  {
+    "question": "who did samuel l jackson play in star wars",
+    "answer": "Mace Windu",
+    "doc_uuid": "e0d0f34d-2a85-55c1-a939-79b01cf3faff",
+    "doc_path": "PATH_TO_DIR/4c539d4769b09568bd43ed3e205fd018.pdf"
+  },
+  {
+    "question": "How many figures are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "e0d0f34d-2a85-55c1-a939-79b01cf3faff",
+    "doc_path": "PATH_TO_DIR/4c539d4769b09568bd43ed3e205fd018.pdf"
+  },
+  {
+    "question": "What were the event details for Eddy King's racing carrer milestone of First Junior Men/pro win?",
+    "answer": "See \"First Professional win\"",
+    "doc_uuid": "e132dcf4-4527-54e3-abe9-4cc1ac54b56c",
+    "doc_path": "PATH_TO_DIR/67e9ec86d840174efc1f5e70a1bdfb24.pdf"
+  },
+  {
+    "question": "Of the television shows featuring Paloma Bloyd, in which years did she play the character Lola?",
+    "answer": "2011 - 2013",
+    "doc_uuid": "e1f605b5-e1f4-51ab-bc1c-d830752bed4b",
+    "doc_path": "PATH_TO_DIR/e5292bc94ea86ccf3485ab7f9adecbd4.pdf"
+  },
+  {
+    "question": "Was Rodolfo Micheli the top goalscorer for Argentina in the 1945 (4) and 1947 (4) tournaments at Copa America?",
+    "answer": "No",
+    "doc_uuid": "e2bff486-9e9e-54a4-9dba-4cf57f5e5255",
+    "doc_path": "PATH_TO_DIR/2634a10c42be63326fb90bdc7ada4d3d.pdf"
+  },
+  {
+    "question": "is the et ride still at universal studios hollywood",
+    "answer": "no",
+    "doc_uuid": "e2e899bc-31df-5f03-b807-750b29aa4c41",
+    "doc_path": "PATH_TO_DIR/6dc844f17adc715497be177539aed0ec.pdf"
+  },
+  {
+    "question": "What color is the outside border on You Stole the Sun from My Heart?",
+    "answer": "green",
+    "doc_uuid": "e32019e9-0b2a-5a0b-9781-9df9acff34e7",
+    "doc_path": "PATH_TO_DIR/549e683903bbc09d3d0a774598d076b1.pdf"
+  },
+  {
+    "question": "where is the roman forum located in rome",
+    "answer": "at the center of the city of Rome",
+    "doc_uuid": "e351559d-0553-5063-870e-179b5c39e71e",
+    "doc_path": "PATH_TO_DIR/253232c7deccd68eea4e7b0c01c56eec.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Selected updates and variations' section?",
+    "answer": 4,
+    "doc_uuid": "e3dfc822-8918-5d10-8666-2924000ea5db",
+    "doc_path": "PATH_TO_DIR/17726b687f67c2d4bfcfe90a21674919.pdf"
+  },
+  {
+    "question": "What yellow assistance item is located just inside the door of the Gillig Low Floor?",
+    "answer": "handrail",
+    "doc_uuid": "e3dfc822-8918-5d10-8666-2924000ea5db",
+    "doc_path": "PATH_TO_DIR/17726b687f67c2d4bfcfe90a21674919.pdf"
+  },
+  {
+    "question": "What is the silver thing that is latched onto the tank in Diesel fuel?",
+    "answer": "lock",
+    "doc_uuid": "e4a3036b-66ae-5b25-ac90-b9517cf8c352",
+    "doc_path": "PATH_TO_DIR/74fcd61e28f852ab05a894a50a199683.pdf"
+  },
+  {
+    "question": "How many tables are on page 10?",
+    "answer": 1,
+    "doc_uuid": "e4a3036b-66ae-5b25-ac90-b9517cf8c352",
+    "doc_path": "PATH_TO_DIR/74fcd61e28f852ab05a894a50a199683.pdf"
+  },
+  {
+    "question": "who is hosting the 2018 american music awards",
+    "answer": "Tracee Ellis Ross",
+    "doc_uuid": "e5050819-76fb-5b09-9c69-a07906c5b5a2",
+    "doc_path": "PATH_TO_DIR/9077263b0ee2383509443769d301c98d.pdf"
+  },
+  {
+    "question": "What was the # - (2) when the # - 1 of the municipal presidents of the Government of Zamboanga City was 1931?",
+    "answer": "1928",
+    "doc_uuid": "e595dac3-c4ea-5f7b-a0d9-0a2df3f9d5fe",
+    "doc_path": "PATH_TO_DIR/b89d254120ab4722fa38170c1353400b.pdf"
+  },
+  {
+    "question": "How many figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "e595dac3-c4ea-5f7b-a0d9-0a2df3f9d5fe",
+    "doc_path": "PATH_TO_DIR/b89d254120ab4722fa38170c1353400b.pdf"
+  },
+  {
+    "question": "What portion of the KK Cibona logo is missing?",
+    "answer": "fourth",
+    "doc_uuid": "e5d2e5c6-b951-5ef1-a487-19b6b5deda48",
+    "doc_path": "PATH_TO_DIR/56686c2721f5185422d886843c46f416.pdf"
+  },
+  {
+    "question": "What instrument is being held by the woman on the left in Haiku Salut?",
+    "answer": "guitar",
+    "doc_uuid": "e6dcef92-6b58-51c2-a8b9-649f597a0285",
+    "doc_path": "PATH_TO_DIR/c8ec8a07913d7d8c1da9534b969ca4a3.pdf"
+  },
+  {
+    "question": "How many tables are on pages 1 to 2?",
+    "answer": 1,
+    "doc_uuid": "e7d5e335-97cf-536b-a099-f2003fbc4716",
+    "doc_path": "PATH_TO_DIR/27c98941b210ab0aec9080ad57162180.pdf"
+  },
+  {
+    "question": "What role did Babita play in the film Anjana?",
+    "answer": "Rachna Malhotra",
+    "doc_uuid": "e7d5e335-97cf-536b-a099-f2003fbc4716",
+    "doc_path": "PATH_TO_DIR/27c98941b210ab0aec9080ad57162180.pdf"
+  },
+  {
+    "question": "who is the original singer of here comes the sun",
+    "answer": "the Beatles",
+    "doc_uuid": "e7da3e32-8622-5e6c-ab0e-daa0320b9c64",
+    "doc_path": "PATH_TO_DIR/f8dd7560c6cec1b0bf605ecdf40830a7.pdf"
+  },
+  {
+    "question": "How many figures are on page 6?",
+    "answer": 0,
+    "doc_uuid": "e8415016-a6b2-5cb3-a913-c01ce0b8e69e",
+    "doc_path": "PATH_TO_DIR/e7a17bf9eb43fbe95843f682a03b0eb3.pdf"
+  },
+  {
+    "question": "What shape is in the center of Viduthalal Chiruthaigal Katchi?",
+    "answer": "star",
+    "doc_uuid": "e8415016-a6b2-5cb3-a913-c01ce0b8e69e",
+    "doc_path": "PATH_TO_DIR/e7a17bf9eb43fbe95843f682a03b0eb3.pdf"
+  },
+  {
+    "question": "What team had player Alesana Tuilagi in top try scorers of 2010-11 Heineken Cup?",
+    "answer": "Leicester Tigers",
+    "doc_uuid": "e9f0ed7c-2143-5ec6-9d0a-ceb45070519a",
+    "doc_path": "PATH_TO_DIR/f1ac041396a4fb7471cbd38b2b590343.pdf"
+  },
+  {
+    "question": "How many tables are on page 9?",
+    "answer": 1,
+    "doc_uuid": "e9f0ed7c-2143-5ec6-9d0a-ceb45070519a",
+    "doc_path": "PATH_TO_DIR/f1ac041396a4fb7471cbd38b2b590343.pdf"
+  },
+  {
+    "question": "what is the last year pontiac made cars",
+    "answer": "2010",
+    "doc_uuid": "ea098efb-085e-526f-a0dd-b613c5ff9f04",
+    "doc_path": "PATH_TO_DIR/bedc407ed3a06510dfcf76682ac45353.pdf"
+  },
+  {
+    "question": "Which club has a ball in its logo of the top try scorers in the 2015-16 Top 14 season?",
+    "answer": "SU Agen Lot-et-Garonne",
+    "doc_uuid": "ea185cfc-9f89-5947-9ac5-4b30d25a961c",
+    "doc_path": "PATH_TO_DIR/538a442fc1845445653db3acecc7d534.pdf"
+  },
+  {
+    "question": "Was Susanna Poykio the lady in the 2001 Finlandia Trophy with a TFP of 4.0?",
+    "answer": "No",
+    "doc_uuid": "eaf213c7-9dab-5f04-8aee-1de2a0226e15",
+    "doc_path": "PATH_TO_DIR/a5e747537d34998ca86427c6861f09ed.pdf"
+  },
+  {
+    "question": "Who has short hair among the winers of the 2016 BWF Super Series of the women's singles?",
+    "answer": "Akane Yamaguchi",
+    "doc_uuid": "eba845be-0405-53e1-a641-3c1c80df41c1",
+    "doc_path": "PATH_TO_DIR/11cefa5d3312f75c08d7a035c121259f.pdf"
+  },
+  {
+    "question": "Which governorate in the northernmost region has a Tunisian postal code?",
+    "answer": "Bizerte Governorate",
+    "doc_uuid": "ebd1488d-f259-543f-a485-e105443fb4ef",
+    "doc_path": "PATH_TO_DIR/97410139153e67ea275c1bd8e01b25b7.pdf"
+  },
+  {
+    "question": "How many figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "ec0240bd-f02e-56ee-a3f6-017a011e327f",
+    "doc_path": "PATH_TO_DIR/593da1f173623413a1732552e24d1d8c.pdf"
+  },
+  {
+    "question": "What was the title of the Marques Houston film of 2012?",
+    "answer": "Battlefield America",
+    "doc_uuid": "ec0240bd-f02e-56ee-a3f6-017a011e327f",
+    "doc_path": "PATH_TO_DIR/593da1f173623413a1732552e24d1d8c.pdf"
+  },
+  {
+    "question": "What is the hair color of Carol Reed?\"",
+    "answer": "brunette",
+    "doc_uuid": "ee212e36-1f23-562b-9586-3ba489c2c168",
+    "doc_path": "PATH_TO_DIR/4807275d3625727d6b959efb22ad148f.pdf"
+  },
+  {
+    "question": "How many figures are on page 4?",
+    "answer": 2,
+    "doc_uuid": "ee6b52d9-b94e-52eb-b95a-5ea824e3f677",
+    "doc_path": "PATH_TO_DIR/03b14d495a223eca2521ab0c351982e4.pdf"
+  },
+  {
+    "question": "where does the zoo keepers wife take place",
+    "answer": "Warsaw",
+    "doc_uuid": "ee6b52d9-b94e-52eb-b95a-5ea824e3f677",
+    "doc_path": "PATH_TO_DIR/03b14d495a223eca2521ab0c351982e4.pdf"
+  },
+  {
+    "question": "What instrument is the singer in The Lovely Eggs playing?",
+    "answer": "guitar",
+    "doc_uuid": "efc79876-9515-51a4-aaad-d1d9fe43b262",
+    "doc_path": "PATH_TO_DIR/7843f506e2c0e303ae2e6fa344a82067.pdf"
+  },
+  {
+    "question": "How many figures are on page 7?",
+    "answer": 1,
+    "doc_uuid": "efe6c27a-82be-53dc-8f97-ad133eeec3be",
+    "doc_path": "PATH_TO_DIR/ab65072481af2f4c6e703d454672ec83.pdf"
+  },
+  {
+    "question": "what was the first music video on vh1",
+    "answer": "\"The Star-Spangled Banner\" by Marvin Gaye",
+    "doc_uuid": "efe6c27a-82be-53dc-8f97-ad133eeec3be",
+    "doc_path": "PATH_TO_DIR/ab65072481af2f4c6e703d454672ec83.pdf"
+  },
+  {
+    "question": "is there going to be a piranha 2",
+    "answer": "yes",
+    "doc_uuid": "eff51c14-8718-5fcc-a7aa-88be307adcab",
+    "doc_path": "PATH_TO_DIR/11bd232bc585fbe92f748ed416a24916.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "f018a513-629a-5af3-8c67-986ad6a8062b",
+    "doc_path": "PATH_TO_DIR/5c751696e76db5161604e2d5c2d3f278.pdf"
+  },
+  {
+    "question": "Is Marvin the Martian shown on the poster for Bugs Bunny: Lost in Time game?",
+    "answer": "yes",
+    "doc_uuid": "f018a513-629a-5af3-8c67-986ad6a8062b",
+    "doc_path": "PATH_TO_DIR/5c751696e76db5161604e2d5c2d3f278.pdf"
+  },
+  {
+    "question": "does lex luthor know who superman is in smallville",
+    "answer": "yes",
+    "doc_uuid": "f0d50814-5446-59a8-99f4-fd8649fa255f",
+    "doc_path": "PATH_TO_DIR/5beece8c13b027b2d05b63db9a56790f.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 1,
+    "doc_uuid": "f0e77358-3fa1-595a-be2d-697e85ee58e3",
+    "doc_path": "PATH_TO_DIR/f9c3fac7916c48073a127d010fff26b2.pdf"
+  },
+  {
+    "question": "are there supposed to be subtitles in dances with wolves",
+    "answer": "yes",
+    "doc_uuid": "f0e77358-3fa1-595a-be2d-697e85ee58e3",
+    "doc_path": "PATH_TO_DIR/f9c3fac7916c48073a127d010fff26b2.pdf"
+  },
+  {
+    "question": "Which Title(s), in Filmography of Ben Piazza, has the left half of a woman's face on its poster?",
+    "answer": "Tell Me That You Love Me, Junie Moon",
+    "doc_uuid": "f13a6b03-b065-51b5-95d8-8f45efacb1ed",
+    "doc_path": "PATH_TO_DIR/ddf8b52a8400deaf05940c5cad8169cd.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "f13a6b03-b065-51b5-95d8-8f45efacb1ed",
+    "doc_path": "PATH_TO_DIR/ddf8b52a8400deaf05940c5cad8169cd.pdf"
+  },
+  {
+    "question": "who does creon initially blame for the burial of polyneices",
+    "answer": "Ismene",
+    "doc_uuid": "f1b00976-f806-51f6-ba37-a358b056f296",
+    "doc_path": "PATH_TO_DIR/a67d3e32947abb6bebdaf23a35b77202.pdf"
+  },
+  {
+    "question": "In Torpedo, what is in the diver's right hand?",
+    "answer": "harpoon",
+    "doc_uuid": "f1ea1897-f394-5ac0-bb3b-1c9623dd110d",
+    "doc_path": "PATH_TO_DIR/62f67108c087d149c3d245e913660bd9.pdf"
+  },
+  {
+    "question": "What is Don Giovanni holding in his right hand?",
+    "answer": "sword",
+    "doc_uuid": "f2b16a79-0d77-5500-8e8d-36af71930d67",
+    "doc_path": "PATH_TO_DIR/3a54edd73657b7508a9e60575b002f2b.pdf"
+  },
+  {
+    "question": "Was the role of Jackson Delaney played by Steven Rooke in the 2016 Australian TV series Wanted?",
+    "answer": "Yes",
+    "doc_uuid": "f381f777-f42b-5033-8bf6-251c844d0695",
+    "doc_path": "PATH_TO_DIR/f4049ae34509deea8d3e9404df948647.pdf"
+  },
+  {
+    "question": "who has made the most half court shots in the nba",
+    "answer": "Jason Kidd",
+    "doc_uuid": "f43af62f-1304-5951-8eda-6915cc9b08dd",
+    "doc_path": "PATH_TO_DIR/698475f37173191bb522332d6766fcab.pdf"
+  },
+  {
+    "question": "who played the bear jew in inglourious basterds",
+    "answer": "Eli Raphael Roth",
+    "doc_uuid": "f51a0c6b-6b04-548a-92fc-60764c33e24b",
+    "doc_path": "PATH_TO_DIR/9ece197fa784a32a1766bd62069d32d0.pdf"
+  },
+  {
+    "question": "who is considered by many to be the father of soul",
+    "answer": "James Brown",
+    "doc_uuid": "f52a7c1d-eadf-506b-8703-99f3e87ab972",
+    "doc_path": "PATH_TO_DIR/bea6d8f002a8cc72bfbc7bb7cb4868eb.pdf"
+  },
+  {
+    "question": "who plays the twins in the parent trap 1961",
+    "answer": "Hayley Mills",
+    "doc_uuid": "f5ab1bf4-6c18-57e7-827e-7838b3ce15e2",
+    "doc_path": "PATH_TO_DIR/b2c80f1e1b4f481ae41d983183fb2c7e.pdf"
+  },
+  {
+    "question": "When was the kickoff during the Milwaukee Mustangs' 2012 season game against the San Jose SaberCats?",
+    "answer": "7:00pm CDT",
+    "doc_uuid": "f65b61cb-3497-5f6e-b459-0d88d969cab9",
+    "doc_path": "PATH_TO_DIR/b8db1fb3124b67da20fbf97c36fce20d.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "f7490d21-a74e-514a-9744-5005dfd41767",
+    "doc_path": "PATH_TO_DIR/311f34b3e3cf257f6323eba214687553.pdf"
+  },
+  {
+    "question": "In which year did Larry McCormick play himself in a movie?",
+    "answer": "2003",
+    "doc_uuid": "f7490d21-a74e-514a-9744-5005dfd41767",
+    "doc_path": "PATH_TO_DIR/311f34b3e3cf257f6323eba214687553.pdf"
+  },
+  {
+    "question": "How many figures are in the 'Filmography' section?",
+    "answer": 1,
+    "doc_uuid": "f7490d21-a74e-514a-9744-5005dfd41767",
+    "doc_path": "PATH_TO_DIR/311f34b3e3cf257f6323eba214687553.pdf"
+  },
+  {
+    "question": "where did the tv show hill street blues take place",
+    "answer": "an unnamed large city",
+    "doc_uuid": "f78d7174-0d07-5914-be46-fbf78bc29e95",
+    "doc_path": "PATH_TO_DIR/f57e6bbc1cbc05ff450bc00be6fdbbde.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 3,
+    "doc_uuid": "f83c728f-8715-5cdf-be3a-076410e3469a",
+    "doc_path": "PATH_TO_DIR/7bf7ea3f38c065ae1d8487ae6417b156.pdf"
+  },
+  {
+    "question": "What is the main color in the Calgary Boomers logo?",
+    "answer": "orange",
+    "doc_uuid": "f83c728f-8715-5cdf-be3a-076410e3469a",
+    "doc_path": "PATH_TO_DIR/7bf7ea3f38c065ae1d8487ae6417b156.pdf"
+  },
+  {
+    "question": "Did Say Lou Lou release the single \"Stayin' Alive\" in 2016?",
+    "answer": "Yes",
+    "doc_uuid": "f89732f0-7717-53a5-818e-640735773d25",
+    "doc_path": "PATH_TO_DIR/da66bb7cb3e7c9fdf5e54bb648367dbb.pdf"
+  },
+  {
+    "question": "How many pictures of Whitney Houston are on the album cover for It's Not Right But It's Okay?",
+    "answer": "four",
+    "doc_uuid": "f91e8194-e50b-54c5-b876-541559b3f908",
+    "doc_path": "PATH_TO_DIR/26b572bdc5c36490baab3b178dae5d7d.pdf"
+  },
+  {
+    "question": "Which Opera(s), in Repertory of Karita Mattila, has a single old man in scene?",
+    "answer": "Arabella",
+    "doc_uuid": "fa2cdfe0-7037-5ff6-96f0-3c6985c0f13e",
+    "doc_path": "PATH_TO_DIR/f7c8b67792c106cbf37a22f100af1056.pdf"
+  },
+  {
+    "question": "What is Christopher Dean wearing on his feet?",
+    "answer": "skates",
+    "doc_uuid": "fa31d996-2b5a-536e-a535-0c3320927fe7",
+    "doc_path": "PATH_TO_DIR/616e967c1367be113949ab58e8a44e85.pdf"
+  },
+  {
+    "question": "amityville the awakening what happened to the brother",
+    "answer": "James, who suffered an accident that has left him on life support",
+    "doc_uuid": "faca9a16-d386-54de-98ea-190825474c36",
+    "doc_path": "PATH_TO_DIR/b5616c6b89196c39dbda3bb6a3d3b394.pdf"
+  },
+  {
+    "question": "In the The Senate of Senate Scholz II, what was the name of the Urban Development and Residing?",
+    "answer": "Dorothee Stapelfeldt",
+    "doc_uuid": "fce2038e-da97-5606-8222-dc6ed5f3763b",
+    "doc_path": "PATH_TO_DIR/2fc22807ab57c5c729564601853449ca.pdf"
+  },
+  {
+    "question": "The person who is a part of a group of people who are sitting and standing and was a player in the second round of the 1907 Open Championship is named what?",
+    "answer": "Walter Toogood",
+    "doc_uuid": "fd2958f7-666a-5058-87f1-3d536032b3f7",
+    "doc_path": "PATH_TO_DIR/42a111d25c2c27b05da6a645e48b6290.pdf"
+  },
+  {
+    "question": "Do rhinos live in Kaziranga National Park ?",
+    "answer": "yes",
+    "doc_uuid": "fd5cd742-122f-5c39-bd64-f089c5a50e3d",
+    "doc_path": "PATH_TO_DIR/ea5dc8587fdbc88fd245a6cc261bc128.pdf"
+  },
+  {
+    "question": "Was Pawl Zmarzlik the rider in the 2009 Silver Helmet in Grudziadz, Poland when R,X,0 was the details?",
+    "answer": "No",
+    "doc_uuid": "fd9d38df-4b64-5278-a79f-234bb35f198a",
+    "doc_path": "PATH_TO_DIR/f7fec482214d5f96d073e142cab9d73f.pdf"
+  },
+  {
+    "question": "How many total figures are in the document?",
+    "answer": 2,
+    "doc_uuid": "fdb332a5-f554-5835-8ed8-603ade274f19",
+    "doc_path": "PATH_TO_DIR/f7a2d762a4bb84f5d75a7c13c43665ee.pdf"
+  },
+  {
+    "question": "Which actor that wears eyeglasses is on the list of iZombie main characters?",
+    "answer": "Aly Michalka",
+    "doc_uuid": "fdb332a5-f554-5835-8ed8-603ade274f19",
+    "doc_path": "PATH_TO_DIR/f7a2d762a4bb84f5d75a7c13c43665ee.pdf"
+  },
+  {
+    "question": "when did charles darwin publish his theory of evolution",
+    "answer": "24 November 1859",
+    "doc_uuid": "fdb93632-b4da-5b37-9512-6f9677ab74a2",
+    "doc_path": "PATH_TO_DIR/f2e9bd0bee70949856fe37bf0f9962b7.pdf"
+  },
+  {
+    "question": "What are the men wearing on their heads in Northfork?",
+    "answer": "hats",
+    "doc_uuid": "fea68748-3ef6-5605-9be8-f4438e7dc510",
+    "doc_path": "PATH_TO_DIR/8e8a25c6143750f3269b451d39213681.pdf"
+  },
+  {
+    "question": "What is the pattern on the ground below Mario in The Adventures of Super Mario Bros. 3?",
+    "answer": "checkered",
+    "doc_uuid": "feed7c9d-ef9a-55d5-b0a3-dbbbaea2732f",
+    "doc_path": "PATH_TO_DIR/b80563f8de9860ca5d5b99d287280077.pdf"
+  },
+  {
+    "question": "There is a paw print on the logo of which ACC team in the 2015 Big Ten 8-6 of the ACC-Big Ten Challenge?",
+    "answer": "2015–16 Clemson Tigers men's basketball team",
+    "doc_uuid": "fef7f0bd-d60a-527a-8cae-350916601c63",
+    "doc_path": "PATH_TO_DIR/f06ef6afa609fccc0e8d34e98cef4699.pdf"
+  },
+  {
+    "question": "What kind of shirt is the girl wearing on the cover of The Hate U Give (film)?",
+    "answer": "red",
+    "doc_uuid": "ff443c62-463c-5b41-ac8a-988863691367",
+    "doc_path": "PATH_TO_DIR/7a0565156ada0c0320fba7a4b83439c9.pdf"
+  },
+  {
+    "question": "How many tables are on page 5?",
+    "answer": 1,
+    "doc_uuid": "ff443c62-463c-5b41-ac8a-988863691367",
+    "doc_path": "PATH_TO_DIR/7a0565156ada0c0320fba7a4b83439c9.pdf"
+  },
+  {
+    "question": "who played gale sayers in brian's song",
+    "answer": "Billy Dee Williams",
+    "doc_uuid": "ff4d1285-349b-5a06-9ee5-b8557270b8e3",
+    "doc_path": "PATH_TO_DIR/2f50fa0da7a565b3f85c9ae471a3cc4b.pdf"
+  },
+  {
+    "question": "How many tables are on page 4?",
+    "answer": 1,
+    "doc_uuid": "ff4d1285-349b-5a06-9ee5-b8557270b8e3",
+    "doc_path": "PATH_TO_DIR/2f50fa0da7a565b3f85c9ae471a3cc4b.pdf"
+  },
+  {
+    "question": "How many figures are on page 1?",
+    "answer": 1,
+    "doc_uuid": "ff4d1285-349b-5a06-9ee5-b8557270b8e3",
+    "doc_path": "PATH_TO_DIR/2f50fa0da7a565b3f85c9ae471a3cc4b.pdf"
+  }
+]
