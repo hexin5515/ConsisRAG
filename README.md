@@ -11,7 +11,7 @@
 Before graph construction, use MinerU to parse the PDF files and construct
 multimodal document trees with document hierarchy and reading order. For this
 preprocessing stage, we strictly follow the implementation in
-[BookRAG](https://github.com/sam234990/BookRAG). Please refer to that repository
+BookRAG. Please refer to that repository
 for the parsing and document-tree construction code and instructions.
 
 The resulting `tree.json` files, together with their associated image assets,
